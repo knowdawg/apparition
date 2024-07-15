@@ -115,6 +115,7 @@ libraries = {
 speed_scale = 10.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 1
 position = Vector2(2.5, 2.5)
 emitting = false
 amount = 24

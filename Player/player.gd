@@ -30,6 +30,7 @@ var prejump = false
 
 var bashTargetPosition = Vector2.ZERO
 var curBashTarget
+var canHealFromBash = true
 func bashSetup(bashTarget : BashComponent):
 	velocity = Vector2.ZERO
 	curBashTarget = bashTarget
@@ -38,6 +39,8 @@ func bashSetup(bashTarget : BashComponent):
 	curBashTarget.bash()
 	
 	bashTargetPosition = curBashTarget.global_position
+	
+	canHealFromBash = bashTarget.oneShot #only heal if its a one time bash
 
 func bashComplete():
 	stateMachine.onChildTransition(stateMachine.current_state, "Stun")
@@ -45,14 +48,10 @@ func bashComplete():
 	if curBashTarget.parrent is platformingBash:
 		currentKnockbackVector *= 3.0
 	curBashTarget = null
-	$HeroSprite/HealFlashComponent.flash()
-	healthComponent.set_health(healthComponent.get_health() + 0.5)
-
-#func bashEarly():
-	#if curBashTarget:
-		#curBashTarget.parrent.bash_complete()
-		#bashComplete()
-		#Game.slow_down(0.0, 1.0)
+	
+	if canHealFromBash == true:
+		$HeroSprite/HealFlashComponent.flash()
+		healthComponent.set_health(healthComponent.get_health() + 0.5)
 
 func initialize(health : float, facingLeft : bool, isDead : bool = false, maxHealth : float = 10.0, weaponDamage : float = 1.0):
 	healthComponent.set_max_health(maxHealth)
