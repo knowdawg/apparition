@@ -1,0 +1,350 @@
+[gd_scene load_steps=17 format=3 uid="uid://drjx4v0p6km60"]
+
+[ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="1_7pt1b"]
+[ext_resource type="Script" path="res://Objects/Enemies/Oldmanboss/Projectiles/boss_arrow.gd" id="1_qx2qu"]
+[ext_resource type="Texture2D" uid="uid://nb8q32ww7sbe" path="res://Assets/Sprites/Effects/OldManArrow.png" id="2_ctux3"]
+[ext_resource type="PackedScene" uid="uid://c022a8gxx3h8r" path="res://Assets/Components/BashComponent/bash_component.tscn" id="4_4ie34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ute6"]
+size = Vector2(5, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ssfo"]
+size = Vector2(4, 2)
+
+[sub_resource type="Gradient" id="Gradient_m786i"]
+offsets = PackedFloat32Array(0, 0.28436, 0.990521)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_prs0d"]
+gradient = SubResource("Gradient_m786i")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+
+[sub_resource type="Animation" id="Animation_58wnd"]
+resource_name = "Activate"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Recall/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Recall/PositionReset/Line2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Recall/PositionReset/Line2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Glow:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OldManArrow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Recall")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"generateAttackID"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ir01p"]
+resource_name = "Glow"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.2, 0.2), Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bgmt6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Recall/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Recall/PositionReset/Line2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Recall/PositionReset/Line2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Glow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OldManArrow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("OldManArrow:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_dmlpx"]
+resource_name = "Wiggle"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OldManArrow:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.5708, 1.309, 1.65806, 1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rxd01"]
+_data = {
+"Activate": SubResource("Animation_58wnd"),
+"Glow": SubResource("Animation_ir01p"),
+"RESET": SubResource("Animation_bgmt6"),
+"Wiggle": SubResource("Animation_dmlpx")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwsmn"]
+radius = 7.0
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_v0csl"]
+resource_local_to_scene = true
+
+[sub_resource type="Curve" id="Curve_wl6rk"]
+min_value = 0.2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="BossArrow" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_qx2qu")
+
+[node name="CharectarCollitionShape" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_4ute6")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("1_7pt1b")]
+collision_mask = 2
+collisionShape = NodePath("CollisionShape2D")
+attack_damage = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+visible = false
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2ssfo")
+
+[node name="OldManArrow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, 0)
+rotation = 1.5708
+scale = Vector2(0.5, 1)
+texture = ExtResource("2_ctux3")
+offset = Vector2(2.08165e-12, -0.5)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(8, 2.08165e-12)
+
+[node name="Glow" type="Sprite2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
+texture = SubResource("GradientTexture2D_prs0d")
+
+[node name="GlowAnimater" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rxd01")
+}
+
+[node name="BashComponent" parent="." node_paths=PackedStringArray("parrent", "collisionShape") instance=ExtResource("4_4ie34")]
+parrent = NodePath("..")
+bashType = "Arrow"
+collisionShape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BashComponent"]
+visible = false
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_mwsmn")
+
+[node name="Recall" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("1_7pt1b")]
+collision_mask = 2
+collisionShape = NodePath("CollisionShape2D")
+attack_damage = 2.0
+knockback_force = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Recall"]
+rotation = 4.71239
+shape = SubResource("SeparationRayShape2D_v0csl")
+disabled = true
+
+[node name="PositionReset" type="Node" parent="Recall"]
+
+[node name="Line2D" type="Line2D" parent="Recall/PositionReset"]
+visible = false
+width = 1.0
+width_curve = SubResource("Curve_wl6rk")
+default_color = Color(0.721569, 0.345098, 0.580392, 1)

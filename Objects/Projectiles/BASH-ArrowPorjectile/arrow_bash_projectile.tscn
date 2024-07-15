@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6m7cqg63d4rf"]
+
+[ext_resource type="Shader" path="res://Objects/Enemies/Outline.gdshader" id="1_a0yyd"]
+[ext_resource type="Script" path="res://Objects/Projectiles/BASH-ArrowPorjectile/arrow_bash_projectile.gd" id="1_iewia"]
+[ext_resource type="Texture2D" uid="uid://c6s0echpxevn7" path="res://Assets/Sprites/Effects/BirdProjectile.png" id="2_g17sj"]
+[ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="4_r66yt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w6y0j"]
+shader = ExtResource("1_a0yyd")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.1
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_afgtk"]
+radius = 1.0
+height = 6.0
+
+[node name="ArrowBashProjectile" type="Node2D"]
+script = ExtResource("1_iewia")
+SPEED = 500
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_w6y0j")
+texture = ExtResource("2_g17sj")
+offset = Vector2(2.08165e-12, -0.5)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="HitboxComponent2" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("4_r66yt")]
+collision_mask = 4
+collisionShape = NodePath("CollisionShape2D")
+attack_damage = 2.0
+knockback_force = 100.0
+isBashAttack = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent2"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_afgtk")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,236 @@
+[gd_scene load_steps=22 format=3 uid="uid://0wht4673o6wr"]
+
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_duh0l"]
+[ext_resource type="Script" path="res://addons/nklbdev.previewing_parallax_background/PreviewingParallaxBackground.gd" id="2_3ew23"]
+[ext_resource type="PackedScene" uid="uid://t5073n6r8r8" path="res://Assets/Components/DarkenComponent/canvas_modulate.tscn" id="3_hhp2w"]
+[ext_resource type="Texture2D" uid="uid://cd566kl2m1lmb" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/WallPagotaInside.png" id="4_1bj12"]
+[ext_resource type="Texture2D" uid="uid://dl6woulgqeq3p" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/CutoutWallPagotaInside.png" id="4_aj1bl"]
+[ext_resource type="Texture2D" uid="uid://cke52qxw8pjkn" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/FloorPagotaInside.png" id="4_cfou1"]
+[ext_resource type="PackedScene" uid="uid://b0rw13dj3fjac" path="res://Assets/Components/CameraBoundriesComponent/camera_boundries_component.tscn" id="5_8y3kw"]
+[ext_resource type="Texture2D" uid="uid://dj6byv6hvci7x" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/StudyWallPagotaInside.png" id="5_bufae"]
+[ext_resource type="Texture2D" uid="uid://0vbvcl527uhr" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/BedObjectsPagotaInside.png" id="5_cn8jp"]
+[ext_resource type="Texture2D" uid="uid://kmmla5fdlpei" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/BedWallPagotaInside.png" id="5_fitme"]
+[ext_resource type="Texture2D" uid="uid://6yonmbpjr0vb" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/PillarsPagotaInside.png" id="5_gbtc2"]
+[ext_resource type="Texture2D" uid="uid://cdi5nwclehrgr" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/BedCurtainsPagotaInside.png" id="8_ggg7o"]
+[ext_resource type="Texture2D" uid="uid://bxut4nadxs71u" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/StudyDetailsPagotaInside.png" id="9_t087h"]
+[ext_resource type="PackedScene" uid="uid://6a3uq44eym1" path="res://Objects/Tilemaps/stone_brick_tilemap.tscn" id="9_wj8j6"]
+[ext_resource type="PackedScene" uid="uid://csjfgugsav4pt" path="res://Assets/SceneSwitchDoor/door.tscn" id="14_8dqc2"]
+[ext_resource type="Shader" path="res://Assets/Shaders/GodRays.gdshader" id="14_tn80t"]
+[ext_resource type="PackedScene" uid="uid://bbdfju4igjrg4" path="res://Test/object_tilemap_test.tscn" id="15_ex61h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e536"]
+size = Vector2(192, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqueq"]
+size = Vector2(192, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcypo"]
+shader = ExtResource("14_tn80t")
+shader_parameter/angle = 2.08165e-12
+shader_parameter/position = 2.08165e-12
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = 0.0800001
+shader_parameter/falloff = 0.596
+shader_parameter/edge_fade = 0.175
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n85b8"]
+size = Vector2(24, 24)
+
+[node name="InsidePagota1" type="Node2D"]
+script = ExtResource("1_duh0l")
+
+[node name="PreviewingParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 0
+script = ExtResource("2_3ew23")
+
+[node name="DarkenComponent" parent="PreviewingParallaxBackground" instance=ExtResource("3_hhp2w")]
+
+[node name="ColorRect" type="ColorRect" parent="PreviewingParallaxBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground"]
+position = Vector2(-36.3454, 0)
+motion_scale = Vector2(0.8, 1)
+
+[node name="BedWall" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(17.8658, -2)
+texture = ExtResource("5_fitme")
+
+[node name="StudyWall" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(173.324, -2.00001)
+texture = ExtResource("5_bufae")
+
+[node name="Wall" type="ParallaxLayer" parent="PreviewingParallaxBackground"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="PreviewingParallaxBackground/Wall"]
+clip_children = 2
+texture_filter = 1
+position = Vector2(0.269608, -1.99999)
+texture = ExtResource("4_aj1bl")
+
+[node name="Sprite2D7" type="Sprite2D" parent="PreviewingParallaxBackground/Wall"]
+clip_children = 2
+texture_filter = 1
+position = Vector2(192.241, -2)
+texture = ExtResource("4_aj1bl")
+
+[node name="Sprite2D6" type="Sprite2D" parent="PreviewingParallaxBackground/Wall"]
+texture_filter = 1
+position = Vector2(-192, -1.99999)
+texture = ExtResource("4_1bj12")
+
+[node name="Sprite2D5" type="Sprite2D" parent="PreviewingParallaxBackground/Wall"]
+texture_filter = 1
+position = Vector2(383.923, -1.99999)
+texture = ExtResource("4_1bj12")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground"]
+position = Vector2(-27.259, 0)
+motion_scale = Vector2(0.85, 1)
+
+[node name="BedDetails" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(14.3993, -2)
+texture = ExtResource("5_cn8jp")
+
+[node name="StudyDetails" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(179.743, -2.00001)
+texture = ExtResource("9_t087h")
+
+[node name="Foreground" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="Ground" type="Node2D" parent="Foreground"]
+
+[node name="Floor1" type="Sprite2D" parent="Foreground/Ground"]
+texture_filter = 1
+position = Vector2(0, -2)
+texture = ExtResource("4_cfou1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground/Ground/Floor1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Ground/Floor1/StaticBody2D"]
+position = Vector2(0, 44)
+shape = SubResource("RectangleShape2D_7e536")
+
+[node name="Floor3" type="Sprite2D" parent="Foreground/Ground"]
+texture_filter = 1
+position = Vector2(-192, -2)
+texture = ExtResource("4_cfou1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground/Ground/Floor3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Ground/Floor3/StaticBody2D"]
+position = Vector2(0, 44)
+shape = SubResource("RectangleShape2D_7e536")
+
+[node name="Floor2" type="Sprite2D" parent="Foreground/Ground"]
+texture_filter = 1
+position = Vector2(192, -2)
+texture = ExtResource("4_cfou1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground/Ground/Floor2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Ground/Floor2/StaticBody2D"]
+position = Vector2(0, 44)
+shape = SubResource("RectangleShape2D_7e536")
+
+[node name="StoneBrickTilemap" parent="Foreground/Ground" instance=ExtResource("9_wj8j6")]
+layer_0/tile_data = PackedInt32Array(458715, 327681, 3, 393179, 327681, 2, 327643, 327681, 1, 65499, 196609, 5, -37, 327681, 2, -65573, 327681, 2, -131109, 327681, 2, -196645, 327681, 2, -262181, 327681, 2, -393253, 327681, 1, -327717, 327681, 2, -458716, 327681, 1, -393180, 327681, 2, -327644, 327681, 2, -262108, 327681, 2, -196572, 327681, 2, -131036, 327681, 2, -65500, 327681, 2, 36, 327681, 3, 262180, 65537, 1, 327716, 327681, 2, 393252, 327681, 3, 327642, 131073, 5, 327641, 65537, 3, 327640, 65537, 5, 262104, 327681, 3, 196568, 327681, 2, 131032, 327681, 2, 65496, 327681, 1, 65497, 65537, 5, 65498, 131073, 5, 37, 131073, 5, 38, 131073, 5, 39, 196609, 5, 65575, 327681, 2, 131111, 327681, 2, 196647, 327681, 2, 262183, 327681, 3, 262182, 131073, 5, 262181, 131073, 1)
+
+[node name="EnvirmentArt" type="Node2D" parent="Foreground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(0, -2)
+texture = ExtResource("5_gbtc2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground/EnvirmentArt/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/EnvirmentArt/Sprite2D/StaticBody2D"]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_xqueq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(-192, -2)
+texture = ExtResource("5_gbtc2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Foreground/EnvirmentArt/Sprite2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/EnvirmentArt/Sprite2D3/StaticBody2D2"]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_xqueq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(192, -2)
+texture = ExtResource("5_gbtc2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Foreground/EnvirmentArt/Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/EnvirmentArt/Sprite2D2/StaticBody2D3"]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_xqueq")
+
+[node name="Curtains" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(0, -2)
+texture = ExtResource("8_ggg7o")
+
+[node name="ColorRect" type="ColorRect" parent="Foreground/EnvirmentArt"]
+material = SubResource("ShaderMaterial_fcypo")
+offset_left = -288.0
+offset_top = 32.0
+offset_right = -264.0
+offset_bottom = 52.0
+rotation = 4.71239
+
+[node name="ObjectTilemapTest" parent="Foreground/EnvirmentArt" instance=ExtResource("15_ex61h")]
+layer_0/tile_data = PackedInt32Array(262114, 0, 131072, -131097, 0, 65536, -131083, 0, 65536, 262127, 0, 131072, 131055, 0, 131072, -17, 0, 131072, 196621, 0, 131072, 65549, 0, 131072, -196585, 0, 65536)
+
+[node name="DarkenComponent" parent="Foreground" instance=ExtResource("3_hhp2w")]
+
+[node name="Doors" type="Node2D" parent="Foreground"]
+
+[node name="LeftDoor" parent="Foreground/Doors" instance=ExtResource("14_8dqc2")]
+position = Vector2(-275, 20)
+sceneToSwitchTo = "res://Levels/fuedal_japan_scene.tscn"
+doorToGoTo = "Gate"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Doors/LeftDoor"]
+position = Vector2(-25, 0)
+shape = SubResource("RectangleShape2D_n85b8")
+
+[node name="Marker2D" type="Marker2D" parent="Foreground/Doors/LeftDoor"]
+
+[node name="Enemies" type="Node2D" parent="Foreground"]
+
+[node name="CameraBounds" type="Node2D" parent="Foreground"]
+
+[node name="CameraBoundriesComponent" parent="Foreground/CameraBounds" instance=ExtResource("5_8y3kw")]
+polygon = PackedVector2Array(-287, 52, 288, 52, 288, -56, -288, -56)
+exstendUp = false
+exstendDown = false
+exstendLeft = false
+exstendRight = false
+
+[node name="Front" type="ParallaxBackground" parent="."]
+layer = 1
+script = ExtResource("2_3ew23")

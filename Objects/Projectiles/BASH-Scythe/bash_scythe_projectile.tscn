@@ -1,0 +1,306 @@
+[gd_scene load_steps=28 format=3 uid="uid://cr6y84wyhv0eu"]
+
+[ext_resource type="Texture2D" uid="uid://iftwpw7bonnh" path="res://Assets/Sprites/Effects/SpinningScythe.png" id="1_72gmv"]
+[ext_resource type="Script" path="res://Objects/Projectiles/BASH-Scythe/bash_scythe_projectile.gd" id="1_lk0ru"]
+[ext_resource type="Shader" path="res://Objects/Enemies/Outline.gdshader" id="2_lie3n"]
+[ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="3_f4kwf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf01e"]
+shader = ExtResource("2_lie3n")
+shader_parameter/color = Color(0.423529, 0.164706, 0.223529, 1)
+shader_parameter/width = 0.1
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxq4h"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh1st"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytf2v"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je0ee"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgoet"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fhvm"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en5vr"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clnrq"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aog8"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u6em"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prrun"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpv5a"]
+atlas = ExtResource("1_72gmv")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txl1m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxq4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh1st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytf2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je0ee")
+}],
+"loop": false,
+"name": &"SlowDown",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgoet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fhvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en5vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clnrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aog8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u6em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prrun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpv5a")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 20.0
+}]
+
+[sub_resource type="Animation" id="Animation_rsdi2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_my5dg"]
+resource_name = "Spin"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1), Vector2(1, 1), Vector2(2.08165e-12, 2.08165e-12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxComponent")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"enable"
+}, {
+"args": [],
+"method": &"enable"
+}, {
+"args": [],
+"method": &"enable"
+}, {
+"args": [],
+"method": &"enable"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.95, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yj6kd"]
+_data = {
+"RESET": SubResource("Animation_rsdi2"),
+"Spin": SubResource("Animation_my5dg")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_745uf"]
+radius = 18.75
+
+[sub_resource type="Curve" id="Curve_g3ugs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_guuky"]
+curve = SubResource("Curve_g3ugs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3utyu"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_guuky")
+
+[sub_resource type="Gradient" id="Gradient_75rj5"]
+offsets = PackedFloat32Array(0.87, 1)
+colors = PackedColorArray(0.0352941, 0.0392157, 0.0784314, 1, 0.0352941, 0.0392157, 0.0784314, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4cdkq"]
+gradient = SubResource("Gradient_75rj5")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+
+[node name="BashScytheProjectile" type="Node2D"]
+script = ExtResource("1_lk0ru")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_jf01e")
+sprite_frames = SubResource("SpriteFrames_txl1m")
+animation = &"Spin"
+frame = 1
+frame_progress = 0.175511
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yj6kd")
+}
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_f4kwf")]
+scale = Vector2(0.8, 0.8)
+collision_mask = 4
+attack_damage = 1.0
+isBashAttack = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(3.55271e-15, 9.53674e-07)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("CircleShape2D_745uf")
+disabled = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_3utyu")
+texture = SubResource("GradientTexture2D_4cdkq")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.9
+trail_enabled = true
+trail_sections = 2
+trail_section_subdivisions = 1

@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbdfju4igjrg4"]
+
+[ext_resource type="PackedScene" uid="uid://dbvji1j3fhrly" path="res://Objects/WorldObjects/Chandelier/chandelier.tscn" id="1_hcjdi"]
+[ext_resource type="PackedScene" uid="uid://cnysfvdxj5b2n" path="res://Objects/WorldObjects/BookshelfWall/bookshelf_wall.tscn" id="2_faidj"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0mhhf"]
+scenes/1/scene = ExtResource("1_hcjdi")
+scenes/2/scene = ExtResource("2_faidj")
+
+[sub_resource type="TileSet" id="TileSet_rc2nc"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetScenesCollectionSource_0mhhf")
+
+[node name="ObjectTilemapTest" type="TileMap"]
+tile_set = SubResource("TileSet_rc2nc")
+format = 2

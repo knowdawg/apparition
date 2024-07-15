@@ -1,0 +1,164 @@
+[gd_scene load_steps=17 format=3 uid="uid://kvp8nj10hso6"]
+
+[ext_resource type="Script" path="res://Objects/WorldObjects/EnemySpawnPoint/enemy_spawn_point.gd" id="1_iabm2"]
+[ext_resource type="Texture2D" uid="uid://cb1nnmkafljg7" path="res://Assets/Sprites/Effects/EnemySpawnEffect.png" id="2_6ycei"]
+[ext_resource type="Shader" path="res://Objects/Enemies/Outline.gdshader" id="2_ku653"]
+[ext_resource type="Texture2D" uid="uid://bqql6e1fxgmnr" path="res://Assets/Sprites/Effects/Circle.png" id="4_fwa3x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4oj7r"]
+resource_local_to_scene = true
+shader = ExtResource("2_ku653")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.1
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2dey"]
+atlas = ExtResource("2_6ycei")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkk36"]
+atlas = ExtResource("2_6ycei")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_admcc"]
+atlas = ExtResource("2_6ycei")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyom3"]
+atlas = ExtResource("2_6ycei")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n5ea"]
+atlas = ExtResource("2_6ycei")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccqbw"]
+atlas = ExtResource("2_6ycei")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ex45"]
+atlas = ExtResource("2_6ycei")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gdaao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2dey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkk36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_admcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyom3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n5ea")
+}],
+"loop": false,
+"name": &"Spawn",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccqbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ex45")
+}],
+"loop": false,
+"name": &"SpawnFinish",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_gpxnw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c60at"]
+resource_name = "Spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.75, 0.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hgscd"]
+_data = {
+"RESET": SubResource("Animation_gpxnw"),
+"Spawn": SubResource("Animation_c60at")
+}
+
+[node name="EnemySpawnPoint" type="Marker2D"]
+script = ExtResource("1_iabm2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+texture_repeat = 1
+material = SubResource("ShaderMaterial_4oj7r")
+sprite_frames = SubResource("SpriteFrames_gdaao")
+animation = &"Spawn"
+frame = 4
+frame_progress = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_fwa3x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hgscd")
+}
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

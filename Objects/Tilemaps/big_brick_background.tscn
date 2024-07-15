@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://68iacamg2u2p"]
+
+[ext_resource type="Texture2D" uid="uid://ct5phw8q2t2g8" path="res://Assets/Sprites/Tilesets/ThicBrickBackground.png" id="1_boxoa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjklx"]
+texture = ExtResource("1_boxoa")
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 3
+0:0/0 = 0
+0:0/0/probability = 10.0
+2:0/0 = 0
+2:0/0/probability = 0.5
+3:0/0 = 0
+3:0/0/probability = 0.5
+4:0/0 = 0
+4:0/0/probability = 0.5
+4:1/0 = 0
+4:1/0/probability = 0.5
+3:1/0 = 0
+3:1/0/probability = 0.5
+2:1/0 = 0
+2:1/0/probability = 0.5
+2:2/0 = 0
+2:2/0/probability = 0.25
+1:2/0 = 0
+1:2/0/probability = 0.25
+0:2/0 = 0
+0:2/0/probability = 0.25
+0:3/0 = 0
+0:3/0/probability = 0.25
+1:3/0 = 0
+1:3/0/probability = 0.25
+2:3/0 = 0
+2:3/0/probability = 0.25
+2:4/0 = 0
+2:4/0/probability = 0.5
+1:4/0 = 0
+1:4/0/probability = 0.5
+0:4/0 = 0
+0:4/0/probability = 0.5
+3:4/0 = 0
+3:4/0/probability = 0.5
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_n4gaa"]
+tile_size = Vector2i(64, 64)
+sources/3 = SubResource("TileSetAtlasSource_fjklx")
+
+[node name="BigBrickBackground" type="TileMap"]
+texture_filter = 1
+tile_set = SubResource("TileSet_n4gaa")
+format = 2

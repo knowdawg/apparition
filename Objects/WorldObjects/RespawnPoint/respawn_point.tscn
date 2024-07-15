@@ -1,0 +1,494 @@
+[gd_scene load_steps=21 format=3 uid="uid://cby6s3vgxgcrd"]
+
+[ext_resource type="Script" path="res://Objects/WorldObjects/RespawnPoint/respawn_point.gd" id="1_cqrp0"]
+[ext_resource type="Script" path="res://addons/camera_2d_plus/objects/camera_2d_plus/camera_2d_plus_script.gd" id="2_h07jx"]
+[ext_resource type="Shader" path="res://Assets/Shaders/ray_marching_respawn_point.gdshader" id="2_xmdfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqryf"]
+size = Vector2(32, 44)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdchi"]
+shader = ExtResource("2_xmdfe")
+shader_parameter/FOV = 1.0
+shader_parameter/cameraPos = Vector3(2.08165e-12, 2.08165e-12, -3)
+shader_parameter/progress = 1.0
+shader_parameter/hRes = 64.0
+shader_parameter/vRes = 64.0
+
+[sub_resource type="Gradient" id="Gradient_nmlfq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2lhcw"]
+gradient = SubResource("Gradient_nmlfq")
+
+[sub_resource type="Gradient" id="Gradient_43psa"]
+colors = PackedColorArray(0, 0, 0, 1, 0.219608, 0, 0, 1)
+
+[sub_resource type="Shader" id="Shader_gyjbj"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform float progress : hint_range(0.0, 2.0);
+uniform float intensity : hint_range(0.0, 10.0, 1.0);
+uniform float width : hint_range(0.0, 1.0, 0.05);
+
+void fragment() {
+	//Clip Space
+	vec2 clipUV = UV * 2.0 - 1.0;
+	vec2 iResolution = 1.0 / TEXTURE_PIXEL_SIZE;
+	clipUV.x *= iResolution.x / iResolution.y;
+	
+	
+	float ring = 1.0 - abs(length(clipUV) - progress);
+	ring = smoothstep(1.0 - width, 1.0, ring);
+	
+	vec2 offset = TEXTURE_PIXEL_SIZE * ring * normalize(clipUV);
+	
+	vec4 c = texture(SCREEN_TEXTURE, SCREEN_UV - offset * intensity);
+	//c.r = ring;
+	
+	COLOR = c;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lcltw"]
+resource_local_to_scene = true
+shader = SubResource("Shader_gyjbj")
+shader_parameter/progress = 2.0
+shader_parameter/intensity = 5.0
+shader_parameter/width = 0.3
+
+[sub_resource type="Gradient" id="Gradient_kgt77"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kwh86"]
+gradient = SubResource("Gradient_kgt77")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sjhud"]
+resource_local_to_scene = true
+shader = SubResource("Shader_gyjbj")
+shader_parameter/progress = 2.0
+shader_parameter/intensity = 3.0
+shader_parameter/width = 0.1
+
+[sub_resource type="Gradient" id="Gradient_ravib"]
+offsets = PackedFloat32Array(0.29368, 0.788104, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 0.298039, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qaavj"]
+gradient = SubResource("Gradient_ravib")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+
+[sub_resource type="Animation" id="Animation_33d1l"]
+resource_name = "Activate"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cubes:material:shader_parameter/progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shockwave:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleShockwave:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shockwave:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6vmbo"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IdleShockwave:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shockwave:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleShockwave:material:shader_parameter/progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IdleShockwave:material:shader_parameter/intensity")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.0, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_s3px6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cubes:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:texture_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cubes/Beam:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shockwave:material:shader_parameter/progress")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("IdleShockwave:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Shockwave:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("IdleShockwave:material:shader_parameter/progress")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("IdleShockwave:material:shader_parameter/intensity")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+
+[sub_resource type="Animation" id="Animation_tcxfk"]
+resource_name = "Respawn"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cubes:material:shader_parameter/progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"respawnPlayer"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:texture_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 4.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cubes/Beam:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.97, 2, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1), Vector2(1e-05, 1), Vector2(1, 1), Vector2(2.08165e-12, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shockwave:material:shader_parameter/progress")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.9, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [2.0, 2.0, 0.0, 2.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Shockwave:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("IdleShockwave:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wrdx0"]
+_data = {
+"Activate": SubResource("Animation_33d1l"),
+"Idle": SubResource("Animation_6vmbo"),
+"RESET": SubResource("Animation_s3px6"),
+"Respawn": SubResource("Animation_tcxfk")
+}
+
+[node name="RespawnPoint" type="Node2D"]
+script = ExtResource("1_cqrp0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(1, 10)
+enabled = false
+zoom = Vector2(10, 10)
+script = ExtResource("2_h07jx")
+NODE_TO_FOLLOW_PATH = NodePath("../RespawnLoc")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_pqryf")
+
+[node name="Cubes" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bdchi")
+position = Vector2(0, -8)
+texture = SubResource("GradientTexture2D_2lhcw")
+
+[node name="Beam" type="Line2D" parent="Cubes"]
+z_index = 10
+position = Vector2(0, 8)
+scale = Vector2(1e-05, 1)
+points = PackedVector2Array(0, -8, 0, 16)
+gradient = SubResource("Gradient_43psa")
+
+[node name="Shockwave" type="Sprite2D" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_lcltw")
+position = Vector2(0, -8)
+scale = Vector2(4, 4)
+texture = SubResource("GradientTexture2D_kwh86")
+
+[node name="IdleShockwave" type="Sprite2D" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_sjhud")
+position = Vector2(0, -8)
+texture = SubResource("GradientTexture2D_kwh86")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
+texture = SubResource("GradientTexture2D_qaavj")
+
+[node name="RespawnLoc" type="Marker2D" parent="."]
+position = Vector2(1, 10)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wrdx0")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

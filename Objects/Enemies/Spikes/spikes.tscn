@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://denhaun4uir3b"]
+
+[ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="1_e4xqn"]
+[ext_resource type="Script" path="res://Objects/Enemies/Spikes/spikes.gd" id="1_jfn8l"]
+[ext_resource type="Texture2D" uid="uid://d1eqgrul4i58v" path="res://Assets/Sprites/Objects/SmallSpikes.png" id="2_iiuo7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7uo0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asrc2"]
+size = Vector2(8, 2)
+
+[node name="Spikes" type="Node2D"]
+script = ExtResource("1_jfn8l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_7uo0o")
+texture = ExtResource("2_iiuo7")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("1_e4xqn")]
+collision_mask = 2
+collisionShape = NodePath("CollisionShape2D")
+attack_damage = 1.0
+knockback_force = 300.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_asrc2")
+
+[connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]
+[connection signal="body_entered" from="HitboxComponent" to="." method="_on_hitbox_component_body_entered"]

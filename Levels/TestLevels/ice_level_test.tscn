@@ -1,0 +1,415 @@
+[gd_scene load_steps=42 format=3 uid="uid://bd2q80xwnkdvy"]
+
+[ext_resource type="Script" path="res://Levels/TestLevels/ice_level.gd" id="1_0f137"]
+[ext_resource type="Script" path="res://addons/nklbdev.previewing_parallax_background/PreviewingParallaxBackground.gd" id="2_ki17x"]
+[ext_resource type="PackedScene" uid="uid://t5073n6r8r8" path="res://Assets/Components/DarkenComponent/canvas_modulate.tscn" id="3_ilbtt"]
+[ext_resource type="Texture2D" uid="uid://b2ta15hv1g8lp" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/ForegroundParalaxPractice.png" id="4_0nh7i"]
+[ext_resource type="Texture2D" uid="uid://bfe2tcek7dd7o" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/CloudsParalaxPractice.png" id="4_5gsyn"]
+[ext_resource type="Texture2D" uid="uid://c55l7gai53mr" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/BackgroundTreesParalaxPractice.png" id="4_cuxve"]
+[ext_resource type="Texture2D" uid="uid://cb25vgsya2k3x" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/ForegroundTreesParalaxPractice.png" id="4_gl24c"]
+[ext_resource type="PackedScene" uid="uid://b0rw13dj3fjac" path="res://Assets/Components/CameraBoundriesComponent/camera_boundries_component.tscn" id="5_02dy0"]
+[ext_resource type="Texture2D" uid="uid://c2hm5trixm6t1" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/MountainsParalaxPractice.png" id="5_6ntq6"]
+[ext_resource type="Texture2D" uid="uid://d0vbfx2312qfb" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/BackgroundTrees2ParalaxPractice.png" id="6_6pkag"]
+[ext_resource type="Shader" path="res://Assets/Shaders/GodRays.gdshader" id="6_36q81"]
+[ext_resource type="Texture2D" uid="uid://bwdkp3lsbqhnd" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/TallRock1SnowPartial.png" id="8_7rr6b"]
+[ext_resource type="Texture2D" uid="uid://d38t63dwpg58a" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/FrontgroundParalaxPractice.png" id="8_jtoea"]
+[ext_resource type="Texture2D" uid="uid://b1v4kblwf1k0" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/SmallRock1.png" id="8_kf7dr"]
+[ext_resource type="Texture2D" uid="uid://cqtp3qosd8cav" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/SmallRock1SnowPartial.png" id="9_nju1a"]
+[ext_resource type="Texture2D" uid="uid://b7rlkdvmi3kg4" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/TallRock1Snow.png" id="9_v51ib"]
+[ext_resource type="Texture2D" uid="uid://cs44pjymy2h36" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/WideRock1Snow.png" id="10_ucn70"]
+[ext_resource type="PackedScene" uid="uid://bhsdw33otn3mo" path="res://Objects/PassiveNPC/Bunny/bunny.tscn" id="11_8yyrj"]
+[ext_resource type="Texture2D" uid="uid://bivk3h3mphncw" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/WideRock1SnowPartial.png" id="11_mx2vg"]
+[ext_resource type="PackedScene" uid="uid://chpf4tw4xlrii" path="res://Objects/WorldObjects/Campfire/campfire.tscn" id="13_1t60h"]
+[ext_resource type="Texture2D" uid="uid://bqql6e1fxgmnr" path="res://Assets/Sprites/Effects/Circle.png" id="13_8la35"]
+[ext_resource type="Texture2D" uid="uid://cl73mhcl4a6ws" path="res://Assets/Sprites/EnvirementArt/IceLevelTest/SmallRock1Snow.png" id="13_b37ii"]
+[ext_resource type="Shader" path="res://Assets/Shaders/NoiseAlphaAdd.gdshader" id="14_83f3f"]
+[ext_resource type="Script" path="res://Test/FreezeSprite.gd" id="15_fu4o0"]
+[ext_resource type="Texture2D" uid="uid://msimyls3kh3d" path="res://Assets/Shaders/IceScrenEffect.png" id="16_5asp2"]
+
+[sub_resource type="Gradient" id="Gradient_r3tnu"]
+offsets = PackedFloat32Array(0, 0.462329)
+colors = PackedColorArray(0.933333, 0.431373, 1, 1, 0, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_icklu"]
+gradient = SubResource("Gradient_r3tnu")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y157e"]
+shader = ExtResource("6_36q81")
+shader_parameter/angle = 2.08165e-12
+shader_parameter/position = 2.08165e-12
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = -0.296
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.0
+shader_parameter/speed = 0.5
+shader_parameter/ray1_density = 15.0
+shader_parameter/ray2_density = 25.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+shader_parameter/color = SubResource("GradientTexture2D_icklu")
+
+[sub_resource type="Gradient" id="Gradient_2pm4l"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pr6pd"]
+gradient = SubResource("Gradient_2pm4l")
+width = 32
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_623ej"]
+size = Vector2(192, 14)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_df5ge"]
+polygon = PackedVector2Array(-96, 52, -96, 38, 96, 38, 96, 52)
+
+[sub_resource type="Curve" id="Curve_m1nst"]
+_data = [Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.677143, 0.99052), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_efequ"]
+curve = SubResource("Curve_m1nst")
+
+[sub_resource type="Curve" id="Curve_dod37"]
+_data = [Vector2(0, 0.509768), 0.0, 0.0, 0, 0, Vector2(0.508021, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_30w3a"]
+curve = SubResource("Curve_dod37")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_halj2"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(500, 2.08165e-12, 2.08165e-12)
+emission_shape = 3
+emission_box_extents = Vector3(1248, 1, 1)
+direction = Vector3(2.08165e-12, 1, 2.08165e-12)
+spread = 0.0
+initial_velocity_min = 500.0
+initial_velocity_max = 700.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+linear_accel_min = 500.0
+linear_accel_max = 500.0
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_efequ")
+turbulence_enabled = true
+turbulence_noise_speed = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+turbulence_noise_speed_random = 1.0
+turbulence_influence_min = 0.0
+turbulence_influence_over_life = SubResource("CurveTexture_30w3a")
+collision_use_scale = true
+
+[sub_resource type="Gradient" id="Gradient_k6yav"]
+colors = PackedColorArray(0.45098, 0.615686, 0.74902, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_miorr"]
+fractal_octaves = 2
+fractal_lacunarity = 0.1
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w1782"]
+width = 1920
+height = 1080
+color_ramp = SubResource("Gradient_k6yav")
+noise = SubResource("FastNoiseLite_miorr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6lkn"]
+shader = ExtResource("14_83f3f")
+shader_parameter/center = Vector2(0.5, 1)
+shader_parameter/progress = 0.0
+shader_parameter/intensity = 1.0
+shader_parameter/noise = SubResource("NoiseTexture2D_w1782")
+
+[node name="IceLevelTest" type="Node2D" node_paths=PackedStringArray("coldEffect")]
+script = ExtResource("1_0f137")
+coldEffect = NodePath("Front/1_0")
+
+[node name="PreviewingParallaxBackground3" type="ParallaxBackground" parent="."]
+layer = -3
+script = ExtResource("2_ki17x")
+
+[node name="ColorRect" type="ColorRect" parent="PreviewingParallaxBackground3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.309804, 0.560784, 0.729412, 1)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground3"]
+motion_scale = Vector2(2.08165e-12, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="PreviewingParallaxBackground3/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(96, -1.99999)
+texture = ExtResource("4_5gsyn")
+
+[node name="GodRays" type="ColorRect" parent="PreviewingParallaxBackground3"]
+material = SubResource("ShaderMaterial_y157e")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = -2
+script = ExtResource("2_ki17x")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+motion_scale = Vector2(0.01, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer4"]
+texture_filter = 1
+position = Vector2(96, -1.99999)
+texture = ExtResource("5_6ntq6")
+
+[node name="PointLight2D" type="PointLight2D" parent="PreviewingParallaxBackground2/ParallaxLayer4/Sprite2D3"]
+position = Vector2(-12.305, -1.00001)
+color = Color(1, 0.321569, 0, 1)
+range_layer_min = -2
+range_layer_max = -2
+texture = SubResource("GradientTexture2D_pr6pd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer4"]
+texture_filter = 1
+position = Vector2(288, -2)
+texture = ExtResource("5_6ntq6")
+
+[node name="PointLight2D" type="PointLight2D" parent="PreviewingParallaxBackground2/ParallaxLayer4/Sprite2D4"]
+position = Vector2(-12.305, -1.00001)
+color = Color(1, 0.321569, 0, 1)
+range_layer_min = -2
+range_layer_max = -2
+texture = SubResource("GradientTexture2D_pr6pd")
+
+[node name="PreviewingParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+script = ExtResource("2_ki17x")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground"]
+motion_scale = Vector2(0.3, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(62.8586, -2)
+texture = ExtResource("6_6pkag")
+
+[node name="Sprite2D3" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(254.859, -2)
+texture = ExtResource("6_6pkag")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(62.8586, -2)
+texture = ExtResource("4_cuxve")
+
+[node name="Sprite2D3" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(254.859, -2)
+texture = ExtResource("4_cuxve")
+
+[node name="Foreground" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="EnvirmentArt" type="Node2D" parent="Foreground"]
+
+[node name="Rock5" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(-15, 3)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("8_kf7dr")
+
+[node name="Rock9" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(-75, 3)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("9_nju1a")
+
+[node name="Rock" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(12, 4)
+texture = ExtResource("8_7rr6b")
+
+[node name="Rock2" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(172, 19)
+texture = ExtResource("9_v51ib")
+
+[node name="Rock3" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(107, 6)
+texture = ExtResource("10_ucn70")
+
+[node name="Rock4" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(-43, 4)
+scale = Vector2(-1, 1)
+texture = ExtResource("11_mx2vg")
+
+[node name="Rock8" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(49, 9)
+scale = Vector2(-1, 1)
+texture = ExtResource("11_mx2vg")
+
+[node name="Rock6" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(203, 3)
+texture = ExtResource("13_b37ii")
+
+[node name="Rock7" type="Sprite2D" parent="Foreground/EnvirmentArt"]
+texture_filter = 1
+position = Vector2(140, 7)
+texture = ExtResource("13_b37ii")
+
+[node name="Art" type="Node2D" parent="Foreground"]
+
+[node name="Ground" type="Sprite2D" parent="Foreground/Art"]
+texture_filter = 1
+position = Vector2(0, -2)
+texture = ExtResource("4_0nh7i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground/Art/Ground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Art/Ground/StaticBody2D"]
+position = Vector2(0, 47)
+shape = SubResource("RectangleShape2D_623ej")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Foreground/Art/Ground/StaticBody2D"]
+position = Vector2(0, 2)
+occluder = SubResource("OccluderPolygon2D_df5ge")
+
+[node name="Ground2" type="Sprite2D" parent="Foreground/Art"]
+texture_filter = 1
+position = Vector2(192, -2)
+texture = ExtResource("4_0nh7i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground/Art/Ground2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Art/Ground2/StaticBody2D"]
+position = Vector2(0, 47)
+shape = SubResource("RectangleShape2D_623ej")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Foreground/Art/Ground2"]
+position = Vector2(0, 2)
+occluder = SubResource("OccluderPolygon2D_df5ge")
+
+[node name="Wall2" type="Sprite2D" parent="Foreground/Art"]
+texture_filter = 1
+position = Vector2(-150, -44)
+rotation = 4.71239
+texture = ExtResource("4_0nh7i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground/Art/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Art/Wall2/StaticBody2D"]
+position = Vector2(0, 47)
+shape = SubResource("RectangleShape2D_623ej")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Foreground/Art/Wall2/StaticBody2D"]
+position = Vector2(0, 2)
+occluder = SubResource("OccluderPolygon2D_df5ge")
+
+[node name="Wall" type="Sprite2D" parent="Foreground/Art"]
+texture_filter = 1
+position = Vector2(342, -44)
+rotation = 1.5708
+texture = ExtResource("4_0nh7i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground/Art/Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Art/Wall/StaticBody2D"]
+position = Vector2(0, 47)
+shape = SubResource("RectangleShape2D_623ej")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Foreground/Art/Wall/StaticBody2D"]
+position = Vector2(0, 2)
+occluder = SubResource("OccluderPolygon2D_df5ge")
+
+[node name="Trees" type="Sprite2D" parent="Foreground/Art"]
+texture_filter = 1
+position = Vector2(189, -2)
+texture = ExtResource("4_gl24c")
+
+[node name="DarkenComponent" parent="Foreground" instance=ExtResource("3_ilbtt")]
+
+[node name="Doors" type="Node2D" parent="Foreground"]
+
+[node name="Enemies" type="Node2D" parent="Foreground"]
+
+[node name="Bunny" parent="Foreground/Enemies" instance=ExtResource("11_8yyrj")]
+position = Vector2(58, 34)
+
+[node name="CameraBounds" type="Node2D" parent="Foreground"]
+
+[node name="CameraBoundriesComponent" parent="Foreground/CameraBounds" instance=ExtResource("5_02dy0")]
+polygon = PackedVector2Array(-96, 52, 288, 52, 288, -56, -96, -56)
+exstendUp = false
+exstendDown = false
+exstendLeft = false
+exstendRight = false
+
+[node name="Campfire" parent="Foreground" instance=ExtResource("13_1t60h")]
+position = Vector2(-19, 34)
+
+[node name="PreviewingParallaxBackground4" type="ParallaxBackground" parent="."]
+layer = 0
+script = ExtResource("2_ki17x")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="PreviewingParallaxBackground4"]
+position = Vector2(2, 1)
+rotation = -0.590149
+amount = 4096
+process_material = SubResource("ParticleProcessMaterial_halj2")
+texture = ExtResource("13_8la35")
+lifetime = 5.0
+preprocess = 2.0
+trail_lifetime = 0.1
+
+[node name="DarkenComponent" parent="PreviewingParallaxBackground4" instance=ExtResource("3_ilbtt")]
+
+[node name="Front" type="ParallaxBackground" parent="."]
+layer = 1
+script = ExtResource("2_ki17x")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
+motion_scale = Vector2(1.3, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Front/ParallaxLayer4"]
+texture_filter = 1
+position = Vector2(-51.6462, -1.99999)
+texture = ExtResource("8_jtoea")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Front/ParallaxLayer4"]
+texture_filter = 1
+position = Vector2(140.354, -1.99999)
+texture = ExtResource("8_jtoea")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Front/ParallaxLayer4"]
+texture_filter = 1
+position = Vector2(330.786, -2)
+texture = ExtResource("8_jtoea")
+
+[node name="1_0" type="Sprite2D" parent="Front"]
+material = SubResource("ShaderMaterial_b6lkn")
+position = Vector2(958, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("16_5asp2")
+script = ExtResource("15_fu4o0")

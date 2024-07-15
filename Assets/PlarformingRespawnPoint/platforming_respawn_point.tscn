@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://hrr70v1me6jk"]
+
+[ext_resource type="Script" path="res://Assets/PlarformingRespawnPoint/platforming_respawn_point.gd" id="1_eajp0"]
+
+[node name="PlatformingRespawnPoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_eajp0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

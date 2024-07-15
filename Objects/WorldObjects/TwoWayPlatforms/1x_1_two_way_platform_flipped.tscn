@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://0mjj3vc75xfe"]
+
+[ext_resource type="PackedScene" uid="uid://bpsduf6id6jla" path="res://Assets/Components/TwoWayFlatform/two_way_platform_component.tscn" id="1_crk8d"]
+[ext_resource type="Texture2D" uid="uid://j21p712v1y1y" path="res://Assets/Sprites/Objects/TwoWayPlatform2.png" id="2_v80bi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0usn"]
+size = Vector2(8, 1)
+
+[node name="1x1TwoWayPlatformFlipped" type="Node2D"]
+
+[node name="TwoWayPlatformComponent" parent="." node_paths=PackedStringArray("c") instance=ExtResource("1_crk8d")]
+position = Vector2(0, -4)
+c = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TwoWayPlatformComponent"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_h0usn")
+
+[node name="Sprite2D" type="Sprite2D" parent="TwoWayPlatformComponent"]
+texture_filter = 1
+position = Vector2(0, 4)
+texture = ExtResource("2_v80bi")
+flip_h = true

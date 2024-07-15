@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhqsxanjb1t2y"]
+
+[ext_resource type="Texture2D" uid="uid://cpetaiu3fo44h" path="res://Assets/Sprites/WhiteSquare.png" id="1_mc8dv"]
+[ext_resource type="Script" path="res://Assets/Components/HitFlashComponent/HitFlashComponent.gd" id="1_mj6i1"]
+
+[node name="HitFlashComponent" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(50, 50)
+texture = ExtResource("1_mc8dv")
+script = ExtResource("1_mj6i1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://t5073n6r8r8"]
+
+[ext_resource type="Script" path="res://Assets/Components/DarkenComponent/canvas_modulate.gd" id="1_vqc0n"]
+
+[node name="DarkenComponent" type="CanvasModulate"]
+visible = false
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_vqc0n")

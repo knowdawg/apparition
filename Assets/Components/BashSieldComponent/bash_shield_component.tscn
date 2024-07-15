@@ -1,0 +1,152 @@
+[gd_scene load_steps=13 format=3 uid="uid://cru06e3xm5mc4"]
+
+[ext_resource type="Script" path="res://Assets/Components/BashSieldComponent/bash_shield_component.gd" id="1_fw154"]
+[ext_resource type="Texture2D" uid="uid://blrg8xqmdkna5" path="res://Assets/Sprites/Effects/WhiteRectangle.png" id="2_6wmiq"]
+[ext_resource type="Texture2D" uid="uid://bqql6e1fxgmnr" path="res://Assets/Sprites/Effects/Circle.png" id="3_hq7kp"]
+[ext_resource type="PackedScene" uid="uid://c7dods2f6ntbh" path="res://Assets/Components/EnemyHitComponent/enemy_hit_effect_component.tscn" id="4_o13en"]
+
+[sub_resource type="Curve" id="Curve_00ibx"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 37.9319), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3bvbb"]
+curve = SubResource("Curve_00ibx")
+
+[sub_resource type="Curve" id="Curve_h6v0q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.754304, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_iyl6a"]
+curve = SubResource("Curve_h6v0q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dw2qa"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_min = 360.0
+angular_velocity_max = 720.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+damping_min = 10.0
+damping_max = 10.0
+damping_curve = SubResource("CurveTexture_3bvbb")
+scale_min = 0.4
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_iyl6a")
+
+[sub_resource type="Animation" id="Animation_r42pd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8o1n7"]
+resource_name = "ShieldBreak"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.647059, 0.188235, 0.188235, 1), Color(0.647059, 0.188235, 0.188235, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6lhar"]
+_data = {
+"RESET": SubResource("Animation_r42pd"),
+"ShieldBreak": SubResource("Animation_8o1n7")
+}
+
+[node name="BashShieldComponent" type="Node2D"]
+script = ExtResource("1_fw154")
+shieldColor = Color(0.647059, 0.188235, 0.188235, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.647059, 0.188235, 0.188235, 1)
+texture_filter = 1
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_dw2qa")
+texture = ExtResource("2_6wmiq")
+one_shot = true
+explosiveness = 0.9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6lhar")
+}
+
+[node name="EnemyHitEffectComponent" parent="." instance=ExtResource("4_o13en")]
+modulate = Color(0.647059, 0.188235, 0.188235, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_hq7kp")

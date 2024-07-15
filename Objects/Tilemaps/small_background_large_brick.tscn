@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi8ettmxlaipb"]
+
+[ext_resource type="Texture2D" uid="uid://bwku1pb3wmxq4" path="res://Assets/Sprites/Tilesets/SmallThicBrick.png" id="1_nsav8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6fy7"]
+texture = ExtResource("1_nsav8")
+texture_region_size = Vector2i(36, 19)
+0:0/0 = 0
+2:3/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2phb3"]
+tile_shape = 2
+tile_layout = 1
+tile_size = Vector2i(32, 16)
+sources/0 = SubResource("TileSetAtlasSource_m6fy7")
+
+[node name="SmallBackgroundLargeBrick" type="TileMap"]
+texture_filter = 1
+tile_set = SubResource("TileSet_2phb3")
+format = 2

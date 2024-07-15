@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dypr05hyl6r14"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/ray_marching_sdf.gdshader" id="1_gjaka"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b53er"]
+shader = ExtResource("1_gjaka")
+shader_parameter/FOV = 1.0
+shader_parameter/cameraPos = Vector3(2.08165e-12, 2.08165e-12, -3)
+shader_parameter/hRes = 256.0
+shader_parameter/vRes = 128.0
+
+[sub_resource type="Gradient" id="Gradient_0gkee"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v61e0"]
+gradient = SubResource("Gradient_0gkee")
+width = 256
+height = 128
+
+[node name="RayMarchingSDF" type="Sprite2D"]
+material = SubResource("ShaderMaterial_b53er")
+texture = SubResource("GradientTexture2D_v61e0")

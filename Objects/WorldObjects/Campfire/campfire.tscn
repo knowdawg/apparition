@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://chpf4tw4xlrii"]
+
+[ext_resource type="Texture2D" uid="uid://c67djx7svgcgd" path="res://Assets/Sprites/Objects/Fire.png" id="1_ktj6h"]
+[ext_resource type="Script" path="res://Objects/WorldObjects/Campfire/campfire.gd" id="1_rsd7b"]
+[ext_resource type="PackedScene" uid="uid://brujq4dkn34nd" path="res://Assets/Components/ProximityArea/proximity_area.tscn" id="2_ah7qn"]
+
+[sub_resource type="Gradient" id="Gradient_1mvk8"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.325843, 1)
+colors = PackedColorArray(1, 0.435294, 0, 1, 1, 0.435294, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xobj0"]
+gradient = SubResource("Gradient_1mvk8")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkni4"]
+atlas = ExtResource("1_ktj6h")
+region = Rect2(0, 0, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnvl6"]
+atlas = ExtResource("1_ktj6h")
+region = Rect2(32, 0, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqehu"]
+atlas = ExtResource("1_ktj6h")
+region = Rect2(64, 0, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7fat"]
+atlas = ExtResource("1_ktj6h")
+region = Rect2(96, 0, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ske11"]
+atlas = ExtResource("1_ktj6h")
+region = Rect2(128, 0, 32, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nt2fb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkni4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnvl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqehu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7fat")
+}],
+"loop": true,
+"name": &"Burn",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ske11")
+}],
+"loop": true,
+"name": &"Out",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8d5u"]
+radius = 52.1536
+
+[node name="Campfire" type="Node2D"]
+script = ExtResource("1_rsd7b")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+texture = SubResource("GradientTexture2D_xobj0")
+texture_scale = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nt2fb")
+animation = &"Burn"
+frame_progress = 0.324699
+
+[node name="ProximityArea" parent="." instance=ExtResource("2_ah7qn")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityArea"]
+shape = SubResource("CircleShape2D_o8d5u")

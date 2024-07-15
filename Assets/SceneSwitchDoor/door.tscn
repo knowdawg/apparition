@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://csjfgugsav4pt"]
+
+[ext_resource type="Script" path="res://Assets/SceneSwitchDoor/door.gd" id="1_hsmw2"]
+
+[node name="Door" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_hsmw2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

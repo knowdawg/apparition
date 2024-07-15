@@ -1,0 +1,282 @@
+[gd_scene load_steps=18 format=3 uid="uid://lh4kp2mhbvvh"]
+
+[ext_resource type="Texture2D" uid="uid://bidm82fvtxd6q" path="res://Player/HealthBat/HealthContainerProgress.png" id="1_qjyts"]
+[ext_resource type="Script" path="res://Objects/Upgrades/health_upgrade.gd" id="1_w3b8j"]
+[ext_resource type="Texture2D" uid="uid://byjb5tpnsxg4n" path="res://Player/HealthBat/HealthContainerOver.png" id="2_xtq0d"]
+[ext_resource type="Texture2D" uid="uid://bjqntgfm20g4b" path="res://Player/HealthBat/HealthContainerUnder.png" id="4_e0jq8"]
+
+[sub_resource type="Curve" id="Curve_nqdfn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.114841, 1), 0.0, 0.0, 0, 0, Vector2(0.572438, 0.718908), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_vnmwg"]
+curve = SubResource("Curve_nqdfn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ay4hy"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+scale_curve = SubResource("CurveTexture_vnmwg")
+color = Color(0.784314, 0.196078, 0.196078, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_al81t"]
+radius = 4.12311
+
+[sub_resource type="Animation" id="Animation_tovb4"]
+resource_name = "Idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 1.5), Vector2(2.08165e-12, -1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_byyan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ScreenVisual:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 10)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/ScreenVisual:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/ScreenVisual/Sprite2D2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p36sg"]
+resource_name = "Impale"
+length = 0.7
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ScreenVisual:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(10, 10), Vector2(5, 20), Vector2(5, 15), Vector2(10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ScreenVisual:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ScreenVisual/Sprite2D2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rywf2"]
+_data = {
+"Idle": SubResource("Animation_tovb4"),
+"Impale": SubResource("Animation_p36sg"),
+"RESET": SubResource("Animation_byyan")
+}
+
+[sub_resource type="Gradient" id="Gradient_icpnj"]
+colors = PackedColorArray(1, 1, 1, 1, 0.392157, 0.392157, 0.392157, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iyik5"]
+gradient = SubResource("Gradient_icpnj")
+
+[sub_resource type="Curve" id="Curve_ang5t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0830389, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k1osw"]
+curve = SubResource("Curve_ang5t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vxr5q"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector3(1, 2.08165e-12, 2.08165e-12)
+spread = 90.0
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 98, 0)
+scale_min = 10.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_k1osw")
+color = Color(1, 0.196078, 0.196078, 1)
+color_ramp = SubResource("GradientTexture1D_iyik5")
+
+[node name="HealthUpgrade" type="Node2D"]
+script = ExtResource("1_w3b8j")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_ay4hy")
+preprocess = 1.0
+local_coords = true
+trail_enabled = true
+trail_lifetime = 0.1
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_qjyts")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+texture = ExtResource("2_xtq0d")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_al81t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rywf2")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="ScreenVisual" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(2.089e-12, 2.089e-12)
+scale = Vector2(10, 10)
+texture = ExtResource("1_qjyts")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/ScreenVisual"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("4_e0jq8")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ScreenVisual"]
+texture = ExtResource("2_xtq0d")
+
+[node name="ImpaleParticles" type="GPUParticles2D" parent="CanvasLayer"]
+position = Vector2(7.45079e-08, 7.45079e-08)
+scale = Vector2(10, 10)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_vxr5q")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7
+fixed_fps = 60
+trail_lifetime = 0.1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

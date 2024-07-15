@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvusd3m2hnbko"]
+
+[ext_resource type="Texture2D" uid="uid://5bs8a55lee2i" path="res://Assets/Sprites/EnvirementArt/TikiTorch.png" id="1_4wfb1"]
+[ext_resource type="Script" path="res://Objects/WorldObjects/TikiTorch/tiki_torch.gd" id="1_67lox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u31lu"]
+atlas = ExtResource("1_4wfb1")
+region = Rect2(0, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mja1b"]
+atlas = ExtResource("1_4wfb1")
+region = Rect2(8, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ersb"]
+atlas = ExtResource("1_4wfb1")
+region = Rect2(16, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ingid"]
+atlas = ExtResource("1_4wfb1")
+region = Rect2(24, 0, 8, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n667h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u31lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mja1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ersb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ingid")
+}],
+"loop": true,
+"name": &"Burn",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_wxmva"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w6bju"]
+gradient = SubResource("Gradient_wxmva")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+
+[node name="TikiTorch" type="Node2D"]
+script = ExtResource("1_67lox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_n667h")
+animation = &"Burn"
+frame_progress = 0.906503
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -12)
+color = Color(1, 0.784314, 0.784314, 1)
+texture = SubResource("GradientTexture2D_w6bju")

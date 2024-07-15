@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7dods2f6ntbh"]
+
+[ext_resource type="Texture2D" uid="uid://dllakgnj2mrnb" path="res://Assets/Sprites/Effects/EnemyHitEffect.png" id="1_q4yoc"]
+[ext_resource type="Script" path="res://Assets/Components/EnemyHitComponent/enemy_hit_effect_component.gd" id="2_rko7g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkv0a"]
+atlas = ExtResource("1_q4yoc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3jdf"]
+atlas = ExtResource("1_q4yoc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppxx2"]
+atlas = ExtResource("1_q4yoc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwp5u"]
+atlas = ExtResource("1_q4yoc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7cwvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkv0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3jdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppxx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwp5u")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 20.0
+}]
+
+[node name="EnemyHitEffectComponent" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_7cwvw")
+animation = &"Hit"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("2_rko7g")

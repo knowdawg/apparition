@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbvji1j3fhrly"]
+
+[ext_resource type="Texture2D" uid="uid://0rfk0tey0x8s" path="res://Assets/Sprites/EnvirementArt/PagotaLevel/ChandelierOrnate.png" id="1_fqsnl"]
+[ext_resource type="PackedScene" uid="uid://bpsduf6id6jla" path="res://Assets/Components/TwoWayFlatform/two_way_platform_component.tscn" id="2_c6rky"]
+
+[sub_resource type="Gradient" id="Gradient_dbo4h"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1hmns"]
+gradient = SubResource("Gradient_dbo4h")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mkcc"]
+size = Vector2(27, 2)
+
+[node name="Chandelier" type="Node2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_fqsnl")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(0, 15)
+texture = SubResource("GradientTexture2D_1hmns")
+
+[node name="TwoWayPlatformComponent" parent="." node_paths=PackedStringArray("c") instance=ExtResource("2_c6rky")]
+position = Vector2(0, 14)
+c = NodePath("CollisionShape2D2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TwoWayPlatformComponent"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_2mkcc")
