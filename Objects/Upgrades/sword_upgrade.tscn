@@ -1,0 +1,732 @@
+[gd_scene load_steps=32 format=3 uid="uid://e01lg4b2g0wy"]
+
+[ext_resource type="Script" path="res://Objects/Upgrades/sword_upgrade.gd" id="1_0ljej"]
+[ext_resource type="Texture2D" uid="uid://mxeiglrxlrsv" path="res://Player/HealthBat/SwordUpgradeHilt.png" id="1_0lm58"]
+[ext_resource type="Texture2D" uid="uid://darqqoxc2w11y" path="res://Player/HealthBat/SwordUpgradeBlade.png" id="1_k71w5"]
+[ext_resource type="Shader" path="res://Assets/Shaders/GodRays.gdshader" id="2_7hol3"]
+[ext_resource type="Texture2D" uid="uid://fkeafrugla1r" path="res://Player/HealthBat/SwordUpgradeAltar.png" id="2_8tsf7"]
+[ext_resource type="Texture2D" uid="uid://b2osswqxgvsic" path="res://Assets/Sprites/Effects/ShimmerVFX.png" id="5_voaxl"]
+[ext_resource type="PackedScene" uid="uid://bpsduf6id6jla" path="res://Assets/Components/TwoWayFlatform/two_way_platform_component.tscn" id="6_w3ocn"]
+[ext_resource type="Texture2D" uid="uid://b28qmk2g2j305" path="res://Player/HealthBat/SwordUpgradeOutline.png" id="7_yyr1x"]
+[ext_resource type="Texture2D" uid="uid://cy6aqh0fbp4ps" path="res://Player/HealthBat/SwordHelathbarUpgrade.png" id="8_4d8aj"]
+
+[sub_resource type="Gradient" id="Gradient_na30p"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.6, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p5hsc"]
+gradient = SubResource("Gradient_na30p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46ftr"]
+shader = ExtResource("2_7hol3")
+shader_parameter/angle = 2.08165e-12
+shader_parameter/position = 2.08165e-12
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 5.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 100.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+shader_parameter/color = SubResource("GradientTexture1D_p5hsc")
+
+[sub_resource type="Gradient" id="Gradient_nl5as"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.933333, 0.611765, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ol4nd"]
+gradient = SubResource("Gradient_nl5as")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hj0s6"]
+shader = ExtResource("2_7hol3")
+shader_parameter/angle = 0.2
+shader_parameter/position = 0.2
+shader_parameter/spread = 0.5
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.4
+shader_parameter/speed = 5.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+shader_parameter/color = SubResource("GradientTexture1D_ol4nd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3ivf"]
+size = Vector2(50, 1)
+
+[sub_resource type="Animation" id="Animation_fiqwn"]
+resource_name = "Colect"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ShimmerParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HiltGodRays:material:shader_parameter/edge_fade")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.4, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Blade/BladeGodRays:material:shader_parameter/edge_fade")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.15, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Blade:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../ColectFlash:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1.2, 1.2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../ColectParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ColectFlash:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../CanvasLayer/Outline:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1, 1.1, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../CanvasLayer/Outline/Hilt/Sprite2D:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.9, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../CanvasLayer/Outline/Hilt/Sprite2D:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../CanvasLayer/Outline/Blade/Sprite2D3:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.9, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../CanvasLayer/Outline/Blade/Sprite2D3:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../CanvasLayer/Outline/Blade2/Sprite2D2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(1.9, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../CanvasLayer/Outline/Blade2/Sprite2D2:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("..")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"showUI"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_j3dvq"]
+resource_name = "Idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.08165e-12, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Blade/Sprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -22), Vector2(2.08165e-12, -25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ShimmerParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Blade/BladeGodRays:material:shader_parameter/edge_fade")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HiltGodRays:material:shader_parameter/edge_fade")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
+}
+
+[sub_resource type="Animation" id="Animation_rfml6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Blade/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -21)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ShimmerParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Blade/BladeGodRays:material:shader_parameter/edge_fade")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HiltGodRays:material:shader_parameter/edge_fade")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Blade:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ColectFlash:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../ColectParticles:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../ColectFlash:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../CanvasLayer/Outline:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../CanvasLayer/Outline/Hilt/Sprite2D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../CanvasLayer/Outline/Hilt/Sprite2D:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../CanvasLayer/Outline/Blade/Sprite2D3:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../CanvasLayer/Outline/Blade/Sprite2D3:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../CanvasLayer/Outline/Blade2/Sprite2D2:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../CanvasLayer/Outline/Blade2/Sprite2D2:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_27cku"]
+_data = {
+"Colect": SubResource("Animation_fiqwn"),
+"Idle": SubResource("Animation_j3dvq"),
+"RESET": SubResource("Animation_rfml6")
+}
+
+[sub_resource type="Curve" id="Curve_1chhs"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.212014, 0.819714), 0.0, 0.0, 0, 0, Vector2(0.712014, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4k08d"]
+curve = SubResource("Curve_1chhs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dsglc"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 40.0
+angle_max = 90.0
+angular_velocity_min = 20.0
+angular_velocity_max = 100.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_min = 0.05
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_4k08d")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thmtg"]
+
+[sub_resource type="Curve" id="Curve_r5lpx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_24nb5"]
+curve = SubResource("Curve_r5lpx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v1gp4"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+damping_min = 100.0
+damping_max = 100.0
+scale_min = 0.2
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_24nb5")
+
+[sub_resource type="Gradient" id="Gradient_qdc75"]
+offsets = PackedFloat32Array(0.727273, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fcqfk"]
+gradient = SubResource("Gradient_qdc75")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+
+[sub_resource type="Gradient" id="Gradient_ujfq3"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dvm0w"]
+gradient = SubResource("Gradient_ujfq3")
+
+[node name="SwordUpgrade" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_0ljej")
+
+[node name="Blade" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Blade"]
+position = Vector2(0, -21)
+texture = ExtResource("1_k71w5")
+
+[node name="BladeGodRays" type="ColorRect" parent="Blade"]
+material = SubResource("ShaderMaterial_46ftr")
+offset_left = 31.0
+offset_top = -13.0
+offset_right = 94.0
+offset_bottom = -7.0
+rotation = 3.14159
+
+[node name="Hilt" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hilt"]
+rotation = 1.5708
+texture = ExtResource("1_0lm58")
+
+[node name="HiltGodRays" type="ColorRect" parent="Hilt"]
+material = SubResource("ShaderMaterial_hj0s6")
+offset_left = -24.0
+offset_top = -136.0
+offset_right = 24.0
+
+[node name="Altar" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_8tsf7")
+
+[node name="TwoWayPlatformComponent" parent="Altar" node_paths=PackedStringArray("c") instance=ExtResource("6_w3ocn")]
+position = Vector2(0, -5)
+c = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Altar/TwoWayPlatformComponent"]
+shape = SubResource("RectangleShape2D_d3ivf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Hilt")
+libraries = {
+"": SubResource("AnimationLibrary_27cku")
+}
+
+[node name="ShimmerParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -24)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_dsglc")
+texture = ExtResource("5_voaxl")
+lifetime = 6.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_thmtg")
+
+[node name="ColectParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -23)
+emitting = false
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_v1gp4")
+texture = ExtResource("5_voaxl")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+trail_lifetime = 0.1
+
+[node name="ColectFlash" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+scale = Vector2(1e-05, 1e-05)
+texture = SubResource("GradientTexture2D_fcqfk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Outline" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_yyr1x")
+stretch_mode = 5
+
+[node name="Hilt" type="Sprite2D" parent="CanvasLayer/Outline"]
+clip_children = 2
+position = Vector2(191, 324)
+scale = Vector2(9.5, 9.5)
+texture = ExtResource("8_4d8aj")
+hframes = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Outline/Hilt"]
+visible = false
+texture = SubResource("GradientTexture2D_dvm0w")
+
+[node name="Blade" type="Sprite2D" parent="CanvasLayer/Outline"]
+clip_children = 2
+position = Vector2(574, 324)
+scale = Vector2(10, 9.5)
+texture = ExtResource("8_4d8aj")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Outline/Blade"]
+visible = false
+position = Vector2(-4.30769, 0.307693)
+texture = SubResource("GradientTexture2D_dvm0w")
+
+[node name="Blade2" type="Sprite2D" parent="CanvasLayer/Outline"]
+clip_children = 2
+position = Vector2(962, 324)
+scale = Vector2(9.5, 9.5)
+texture = ExtResource("8_4d8aj")
+hframes = 3
+frame = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Outline/Blade2"]
+visible = false
+position = Vector2(-3.6923, 0.153846)
+texture = SubResource("GradientTexture2D_dvm0w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
