@@ -13,7 +13,10 @@ var active = false
 
 func _process(delta):
 	if active == true:
-		$Arrow.look_at(get_global_mouse_position())
+		if Game.controler:
+			$Arrow.rotation = getControllerBashVector().angle()
+		else:
+			$Arrow.look_at(get_global_mouse_position())
 		Game.currentCamera.add_shake(delta * 10.0)
 		Game.currentCamera.zoom.x += delta * 3.0
 		Game.currentCamera.zoom.y += delta * 3.0
@@ -61,18 +64,29 @@ func _on_timer_timeout():
 	if oneShot:
 		collisionShape.disabled = true
 
+func getControllerBashVector() -> Vector2:
+	var stickVector = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), 
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)).normalized()
+	return stickVector
+
 func instance_scythe():
 	var projectile = p.instantiate()
 	Game.currentLevel.add_projectile(projectile)
 	projectile.position = global_position
-	projectile.initialize(-($Arrow.global_position - get_global_mouse_position()).normalized())
-
+	
+	if Game.controler:
+		projectile.initialize(getControllerBashVector())
+	else:
+		projectile.initialize(-($Arrow.global_position - get_global_mouse_position()).normalized())
 
 func instance_arrow():
 	var projectile = p.instantiate()
 	Game.currentLevel.add_projectile(projectile)
 	projectile.position = global_position
-	projectile.initialize(-($Arrow.global_position - get_global_mouse_position()).normalized())
+	if Game.controler:
+		projectile.initialize(getControllerBashVector())
+	else:
+		projectile.initialize(-($Arrow.global_position - get_global_mouse_position()).normalized())
 
 func instance_shotgun():
 	var projectile = p.instantiate()

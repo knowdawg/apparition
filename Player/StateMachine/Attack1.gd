@@ -14,7 +14,7 @@ func update(delta):
 		player.jump(delta)
 		trasitioned.emit(self, "Jump")
 		return
-	if Input.is_action_pressed("Bash"):
+	if Input.is_action_pressed("Bash") or player.getRightStickStrength():
 		var bashTarget = player.bashProximity.get_bash_target()
 		if bashTarget:
 			player.bashSetup(bashTarget)

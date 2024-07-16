@@ -44,7 +44,10 @@ func bashSetup(bashTarget : BashComponent):
 
 func bashComplete():
 	stateMachine.onChildTransition(stateMachine.current_state, "Stun")
-	currentKnockbackVector = (global_position - get_global_mouse_position()).normalized() * 300.0
+	if Game.controler:
+		currentKnockbackVector = getControllerBashVector() * -300.0
+	else:
+		currentKnockbackVector = (global_position - get_global_mouse_position()).normalized() * 300.0
 	if curBashTarget.parrent is platformingBash:
 		currentKnockbackVector *= 3.0
 	curBashTarget = null
@@ -53,10 +56,21 @@ func bashComplete():
 		$HeroSprite/HealFlashComponent.flash()
 		healthComponent.set_health(healthComponent.get_health() + 0.5)
 
+func getControllerBashVector() -> Vector2:
+	var stickVector = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), 
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)).normalized()
+	return stickVector
+	
+func getRightStickStrength():
+	var stickVector = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), 
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
+	return stickVector.length() >= 0.8
+
 func initialize(health : float, facingLeft : bool, isDead : bool = false, maxHealth : float = 10.0, weaponDamage : float = 1.0):
 	healthComponent.set_max_health(maxHealth)
 	healthComponent.set_health(health)
 	hitbox.attack_damage = weaponDamage
+	
 	if facingLeft == true:
 		sprite.flip_h = true
 	else:
@@ -76,6 +90,8 @@ func _ready():
 func _process(_delta):
 	healthComponent.set_max_health(Game.maxPlayerHealth)
 	hitbox.attack_damage = Game.playerDmg
+	if Game.playerDmg > 1.0:
+		$UI/Control/HealthBarComponent.upgradeSword()
 	
 	var c = $CameraProximityChecker.get_camera_bounds()
 	if c:

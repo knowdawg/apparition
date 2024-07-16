@@ -5,7 +5,7 @@ var dirrection = Vector2.ZERO
 
 func initialize(dir : Vector2):
 	dirrection = dir
-	look_at(get_global_mouse_position())
+	rotation = dir.angle()
 
 func _process(delta):
 	position += dirrection * SPEED * delta

@@ -1,5 +1,7 @@
 extends Node
 
+var controler = true
+
 var currentLevel
 var currentCamera : Camera2DPlus
 var player : Player

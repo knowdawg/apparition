@@ -35,7 +35,15 @@ var bash_going = false
 func _process(_delta):
 	bashShield = bashShieldComponent.getShield()
 	if bash_going:
-		sprite.look_at(get_global_mouse_position())
+		if Game.controler:
+			sprite.rotation = getControllerBashVector().angle()
+		else:
+			sprite.look_at(get_global_mouse_position())
+
+func getControllerBashVector() -> Vector2:
+	var stickVector = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), 
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)).normalized()
+	return stickVector
 
 func move(towardsPlayer : bool, delta):
 	var motion = (global_position - Game.player.global_position).normalized() * movementSpeed * delta

@@ -40,7 +40,13 @@ func update(health : float, MAX_HEALTH : float):
 			containers[i].visible = false
 		else:
 			containers[i].visible = true
-	
+
+var upgradedSword = preload(\"res://Player/HealthBat/SwordHelathbarUpgrade.png\")
+var upgraded = false
+func upgradeSword():
+	if upgraded == false:
+		$Sword.texture = upgradedSword
+		upgraded = true
 "
 
 [node name="HealthBarComponent" type="Control"]

@@ -82,7 +82,7 @@ script = ExtResource("2_jm2ie")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_n5vgs")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-210.662, 7.62939e-06)
+position = Vector2(-210.661, 7.62939e-06)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_utnbh")]
