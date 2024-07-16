@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://erldsxuovydh"]
+[gd_scene load_steps=28 format=3 uid="uid://erldsxuovydh"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_b8ler"]
 [ext_resource type="Script" path="res://addons/nklbdev.previewing_parallax_background/PreviewingParallaxBackground.gd" id="2_c2bxm"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://doc5e7niq0fjc" path="res://Objects/WorldObjects/Gate/checkpoint_gate.tscn" id="10_ti8h5"]
 [ext_resource type="PackedScene" uid="uid://cby6s3vgxgcrd" path="res://Objects/WorldObjects/RespawnPoint/respawn_point.tscn" id="11_36jqt"]
 [ext_resource type="Texture2D" uid="uid://bqql6e1fxgmnr" path="res://Assets/Sprites/Effects/Circle.png" id="11_yqqby"]
-[ext_resource type="PackedScene" uid="uid://e01lg4b2g0wy" path="res://Objects/Upgrades/sword_upgrade.tscn" id="12_l5257"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqjmn"]
 size = Vector2(40, 20)
@@ -88,7 +87,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-339.275, 0)
+position = Vector2(-215.382, 7.62939e-06)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -98,13 +97,13 @@ script = ExtResource("2_c2bxm")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_3w5tg")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-107.139, 0)
+position = Vector2(-68.0153, 7.62939e-06)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_1b44d")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-35.7131, 0)
+position = Vector2(-22.6718, 7.62939e-06)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("5_f4eu8")]
@@ -251,21 +250,12 @@ shape = SubResource("RectangleShape2D_mpwyk")
 position = Vector2(0, -8)
 respawnScene = "res://Levels/MainAreaLevels/central_save_room.tscn"
 
-[node name="SwordUpgrade" parent="Foreground" node_paths=PackedStringArray("room") instance=ExtResource("12_l5257")]
-position = Vector2(-40, 176)
-room = NodePath("../..")
-
-[node name="SwordUpgrade2" parent="Foreground" node_paths=PackedStringArray("room") instance=ExtResource("12_l5257")]
-position = Vector2(40, 176)
-isHilt = false
-room = NodePath("../..")
-
 [node name="Front" type="ParallaxBackground" parent="."]
 layer = 1
 script = ExtResource("2_c2bxm")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(71.4263, 32.491)
+position = Vector2(45.3436, 14.3016)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -280,7 +270,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(142.853, 64.9819)
+position = Vector2(90.6871, 28.6031)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

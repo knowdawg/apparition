@@ -80,7 +80,7 @@ void fragment() {
 	
 	//Raymarching
 	int numOfCasts = 0;
-	for(int i = 0; i < 80; i++){
+	for(int i = 0; i < 30; i++){
 		vec3 p = rayOrigin + rayDirection * totalDis;
 		float SDFdis = map(p);
 		totalDis += SDFdis;
