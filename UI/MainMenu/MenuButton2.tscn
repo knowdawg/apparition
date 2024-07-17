@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2v5hfbp7h6vc"]
+
+[ext_resource type="Theme" uid="uid://b2orsuuil3dch" path="res://UI/MainMenu/Theme.tres" id="1_7qo43"]
+
+[node name="Button" type="Button"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7qo43")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "TEST"
+alignment = 0

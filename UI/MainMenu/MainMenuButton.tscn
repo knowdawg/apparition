@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8d6qm836alay"]
+
+[ext_resource type="Texture2D" uid="uid://cuaw8gxqd6kbq" path="res://Assets/Sprites/UI/MainMenuButons1.png" id="1_ltp1r"]
+[ext_resource type="Texture2D" uid="uid://cba5nnujku77q" path="res://Assets/Sprites/UI/MainMenuButons2.png" id="2_ab4bn"]
+[ext_resource type="Texture2D" uid="uid://vxh65b271vt0" path="res://Assets/Sprites/UI/MainMenuButons3.png" id="3_wvxch"]
+[ext_resource type="Texture2D" uid="uid://d3ilsne5n3rib" path="res://Assets/Sprites/UI/MainMenuButons4.png" id="4_dru2r"]
+[ext_resource type="Texture2D" uid="uid://cek55nf41mgcb" path="res://Assets/Sprites/UI/MainMenuButons5.png" id="5_7dsbg"]
+
+[node name="TextureButton" type="TextureButton"]
+texture_filter = 1
+size_flags_vertical = 3
+texture_normal = ExtResource("1_ltp1r")
+stretch_mode = 4
+
+[node name="Shard1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ab4bn")
+stretch_mode = 4
+
+[node name="Shard2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wvxch")
+stretch_mode = 4
+
+[node name="Shard3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_dru2r")
+stretch_mode = 4
+
+[node name="Shard4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_7dsbg")
+stretch_mode = 4
