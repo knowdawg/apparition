@@ -22,14 +22,14 @@
 _data = [Vector2(0, 0.722826), 0.0, 0.0, 0, 0, Vector2(0.108247, 1), 0.0, 0.0, 0, 0, Vector2(0.860825, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_uiubr"]
+[sub_resource type="CurveTexture" id="CurveTexture_i42t5"]
 curve = SubResource("Curve_lwyib")
 
 [sub_resource type="Curve" id="Curve_0cgb1"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.252577, 0.826087), 0.0, 0.0, 0, 0, Vector2(0.850515, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_fkykw"]
+[sub_resource type="CurveTexture" id="CurveTexture_v85hq"]
 curve = SubResource("Curve_0cgb1")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ykkjk"]
@@ -41,9 +41,9 @@ initial_velocity_max = 1.0
 gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
 scale_min = 0.03
 scale_max = 0.05
-scale_curve = SubResource("CurveTexture_fkykw")
+scale_curve = SubResource("CurveTexture_v85hq")
 color = Color(0, 0, 0, 1)
-alpha_curve = SubResource("CurveTexture_uiubr")
+alpha_curve = SubResource("CurveTexture_i42t5")
 
 [node name="DefaultLevel" type="Node2D"]
 script = ExtResource("1_nx425")
@@ -65,6 +65,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
+position = Vector2(-568.93, 0)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -74,11 +75,13 @@ script = ExtResource("2_32tdh")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_k0gb3")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-179.662, 0)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("7_8jmng")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-59.8875, 0)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("8_cbm5n")]
@@ -144,6 +147,7 @@ layer = 1
 script = ExtResource("2_32tdh")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
+position = Vector2(119.775, 51.587)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -158,6 +162,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
+position = Vector2(239.55, 103.174)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

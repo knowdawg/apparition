@@ -674,7 +674,7 @@ size = Vector2(6, 15)
 
 [node name="Reaper" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 0
 script = ExtResource("1_sm7wu")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

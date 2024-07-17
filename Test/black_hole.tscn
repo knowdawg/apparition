@@ -16,6 +16,7 @@ noise = SubResource("FastNoiseLite_1x1ds")
 shader = ExtResource("1_yonqk")
 shader_parameter/color = Color(1, 0.121569, 0.12549, 1)
 shader_parameter/brightness = 0.05
+shader_parameter/speed = 0.5
 shader_parameter/noise = SubResource("NoiseTexture2D_yqo0b")
 
 [sub_resource type="Gradient" id="Gradient_0i34m"]
@@ -143,7 +144,7 @@ color_initial_ramp = SubResource("GradientTexture1D_om3ns")
 
 [sub_resource type="Curve" id="Curve_fn5n3"]
 min_value = -1.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.206806, -1), 3.41251, 3.41251, 0, 0, Vector2(0.497382, 0), 0.0, 0.0, 0, 0, Vector2(1, -0.00231212), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.249117, -1), 3.41251, 3.41251, 0, 0, Vector2(0.503534, -0.000298262), 0.0, 0.0, 0, 0, Vector2(1, 0.0035789), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_cpdut"]

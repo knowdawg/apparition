@@ -61,7 +61,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(82.5969, -7.62939e-06)
+position = Vector2(-93.045, 7.62939e-06)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -71,13 +71,13 @@ script = ExtResource("2_qo16i")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_sdrm2")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(26.0832, -7.62939e-06)
+position = Vector2(-29.3826, 7.62939e-06)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_1uy0h")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(8.6944, -7.62939e-06)
+position = Vector2(-9.79422, 7.62939e-06)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("5_nqnpm")]
@@ -108,6 +108,12 @@ shape = SubResource("RectangleShape2D_ih3yi")
 [node name="Marker2D" type="Marker2D" parent="Foreground/Doors/RightDoor"]
 position = Vector2(-8, 0)
 
+[node name="Spawn" parent="Foreground/Doors" instance=ExtResource("8_h8c7f")]
+sceneToSwitchTo = "res://Levels/TutorialArea/tutorial_save_room.tscn"
+doorToGoTo = "LeftDoor"
+
+[node name="Marker2D" type="Marker2D" parent="Foreground/Doors/Spawn"]
+
 [node name="Enemies" type="Node2D" parent="Foreground"]
 
 [node name="CameraBounds" type="Node2D" parent="Foreground"]
@@ -131,7 +137,7 @@ layer = 1
 script = ExtResource("2_qo16i")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(-17.3888, 9.8411)
+position = Vector2(19.5884, 15.9042)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -146,7 +152,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(-34.7776, 19.6822)
+position = Vector2(39.1768, 31.8083)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

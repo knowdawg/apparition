@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://dxe4p2on2g6r3"]
+[gd_scene load_steps=97 format=3 uid="uid://dxe4p2on2g6r3"]
 
 [ext_resource type="Script" path="res://Objects/Enemies/Zombie/zombie.gd" id="1_1hldc"]
 [ext_resource type="Texture2D" uid="uid://ddu1odcpbxf30" path="res://Assets/Sprites/Enemies/BlackWhiteZombie.png" id="1_eb75s"]
@@ -693,6 +693,9 @@ _data = {
 "RESET": SubResource("Animation_bngij")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klx78"]
+size = Vector2(4, 4)
+
 [node name="Zombie" type="CharacterBody2D"]
 texture_filter = 1
 collision_layer = 4
@@ -817,4 +820,13 @@ libraries = {
 "": SubResource("AnimationLibrary_fw48h")
 }
 
+[node name="HazardChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardChecker"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_klx78")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Slash" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="HazardChecker" to="." method="_on_hazard_checker_area_entered"]

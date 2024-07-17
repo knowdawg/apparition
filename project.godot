@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Apparition"
-run/main_scene="res://Levels/TutorialArea/starting_level.tscn"
+run/main_scene="res://UI/MainMenu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,7 +23,7 @@ Game="*res://Classes/Game.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [editor]
 
@@ -87,3 +87,8 @@ Bash={
 2d_physics/layer_4="Hazards"
 2d_physics/layer_5="Camera"
 2d_physics/layer_6="Bash"
+2d_physics/layer_7="BirdNoGoZone"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

@@ -629,7 +629,7 @@ offset_top = -136.0
 offset_right = 24.0
 
 [node name="Altar" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(2.08165e-12, -7.5)
 texture = ExtResource("2_8tsf7")
 
 [node name="TwoWayPlatformComponent" parent="Altar" node_paths=PackedStringArray("c") instance=ExtResource("6_w3ocn")]

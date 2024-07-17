@@ -1,6 +1,6 @@
 extends Node
 
-var controler = true
+var controler = false
 
 var currentLevel
 var currentCamera : Camera2DPlus
@@ -102,8 +102,9 @@ func switch_scene(data : SwitchSceneData):
 		s.fadeIn()
 		s.fadeInComplete.connect(fadeComplete)
 	else:
+		if player:
+			playerHealth = player.get_health()
 		doorEnterName = data.door
-		playerHealth = player.get_health()
 		playerFacingLeft = data.facingLeft
 		p = data.scene
 		s = screenTransition.instantiate()

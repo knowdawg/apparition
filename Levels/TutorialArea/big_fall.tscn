@@ -292,7 +292,8 @@ metadata/_edit_use_anchors_ = true
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
 
 [node name="RayMarchingSDF" parent="Cavern/ParallaxLayer4" instance=ExtResource("4_hpuf8")]
-position = Vector2(0, -127)
+position = Vector2(0, -128)
+scale = Vector2(8, 8)
 
 [node name="BlackHoleRings" parent="Cavern/ParallaxLayer4" instance=ExtResource("3_u33t4")]
 position = Vector2(-1.52588e-05, -135)
@@ -304,6 +305,7 @@ script = ExtResource("2_lpn01")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_3eirh")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-108.375, 0)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_wv44b")]
@@ -311,6 +313,7 @@ position = Vector2(-3.90612, 1.52588e-05)
 layer_0/tile_data = PackedInt32Array(-327680, 196608, 1, -327676, 65536, 3, -393212, 65536, 2, -458748, 65536, 2, -524284, 65536, 2, -589820, 65536, 2, -655356, 65536, 2, -262140, 196608, 3, -720892, 65536, 2, -786428, 65536, 1, -786433, 65536, 1, -720897, 196608, 2, -655361, 196608, 2, -589825, 196608, 2, -524289, 196608, 2, -458753, 196608, 2, -393217, 196608, 2, -327681, 196608, 2, -262144, 196608, 3, -262145, 131072, 2, -196609, 131072, 3, -262146, 65536, 2, -327682, 65536, 2, -393218, 65536, 2, -458754, 65536, 2, -524290, 65536, 2, -589826, 65536, 2, -655362, 65536, 2, -720898, 65536, 1, -393211, 196608, 2, -458747, 196608, 2, -524283, 196608, 2, -589819, 196608, 2, -655355, 196608, 2, -720891, 196608, 2, -327675, 196608, 3, -786427, 196608, 1, -196610, 65536, 3)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-36.125, 0)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("5_p38ys")]
@@ -383,6 +386,7 @@ visible = false
 script = ExtResource("2_lpn01")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
+position = Vector2(72.25, 51.9)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -397,6 +401,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
+position = Vector2(144.5, 103.8)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

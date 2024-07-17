@@ -7,15 +7,16 @@ shader = ExtResource("1_gjaka")
 shader_parameter/FOV = 1.0
 shader_parameter/cameraPos = Vector3(2.08165e-12, 2.08165e-12, -3)
 shader_parameter/hRes = 256.0
-shader_parameter/vRes = 128.0
+shader_parameter/vRes = 256.0
 
 [sub_resource type="Gradient" id="Gradient_0gkee"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_v61e0"]
 gradient = SubResource("Gradient_0gkee")
-width = 256
-height = 128
+width = 32
+height = 16
 
 [node name="RayMarchingSDF" type="Sprite2D"]
 material = SubResource("ShaderMaterial_b53er")
+scale = Vector2(8, 8)
 texture = SubResource("GradientTexture2D_v61e0")

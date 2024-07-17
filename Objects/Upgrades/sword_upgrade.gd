@@ -41,8 +41,11 @@ func hasOtherUpgrade():
 	for i in Game.weaponUpgradeStatus.values():
 		if i == false:
 			return false
-	Game.playerDmg = 1.5
-	return true
+	if Game.weaponUpgradeStatus.size() == 2:
+		Game.playerDmg = 1.5
+		return true
+	else:
+		return false
 
 func showUI():
 	if isHilt:

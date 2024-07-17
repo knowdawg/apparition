@@ -330,6 +330,7 @@ size = Vector2(14, 10)
 
 [node name="Bird" type="CharacterBody2D"]
 collision_layer = 0
+collision_mask = 65
 script = ExtResource("1_qsfc8")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
