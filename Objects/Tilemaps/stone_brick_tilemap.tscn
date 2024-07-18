@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6a3uq44eym1"]
+[gd_scene load_steps=13 format=3 uid="uid://6a3uq44eym1"]
 
 [ext_resource type="Texture2D" uid="uid://clclicj1po4s5" path="res://Assets/Sprites/Tilesets/8x8StoneTileset.png" id="1_bye3r"]
 [ext_resource type="PackedScene" uid="uid://denhaun4uir3b" path="res://Objects/Enemies/Spikes/spikes.tscn" id="1_kwy6q"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fxl1j6j6r2ex" path="res://Objects/WorldObjects/TwoWayPlatforms/1x_1_two_way_platform.tscn" id="3_ghl10"]
 [ext_resource type="PackedScene" uid="uid://0mjj3vc75xfe" path="res://Objects/WorldObjects/TwoWayPlatforms/1x_1_two_way_platform_flipped.tscn" id="4_nvwx5"]
 [ext_resource type="PackedScene" uid="uid://dx0ipvxqayywl" path="res://Objects/WorldObjects/PlatformingBash/platforming_bash.tscn" id="5_kayru"]
+[ext_resource type="PackedScene" uid="uid://4sywrhachq2" path="res://Objects/Enemies/Spikes/ceiling_spikes.tscn" id="6_b6h6q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sn5ng"]
 
@@ -15,6 +16,7 @@ scenes/2/scene = ExtResource("2_ah8yi")
 scenes/3/scene = ExtResource("3_ghl10")
 scenes/4/scene = ExtResource("4_nvwx5")
 scenes/5/scene = ExtResource("5_kayru")
+scenes/6/scene = ExtResource("6_b6h6q")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dbsdc"]
 diffuse_texture = ExtResource("1_bye3r")

@@ -116,8 +116,10 @@ func fadeComplete():
 	get_tree().call_deferred("change_scene_to_file", p)
 	s.fadeOut()
 
+var playerPlatformRespawning = false
 func platformingRespawn():
-	if Player and isPlayerDead == false:
+	if isPlayerDead == false and playerPlatformRespawning == false:
+		playerPlatformRespawning = true
 		if platformingRespawnPos:
 			if s != null:
 				s.queue_free()
@@ -128,10 +130,9 @@ func platformingRespawn():
 		else:
 			player.position = Vector2.ZERO
 			printerr("No respawn point for platforming respawn!")
-	else:
-		printerr("Player Not Defined!")
 
 func platformRespawnFadeComplete():
+	playerPlatformRespawning = false
 	player.position = platformingRespawnPos
 	s.fadeOut()
 

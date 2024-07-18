@@ -1,11 +1,12 @@
 extends Node2D
 
-func _on_hitbox_component_body_entered(body):
-	$HitboxComponent.generateAttackID()
-	if body == Game.player:
-		if Game.player.get_health() > $HitboxComponent.attack_damage:
-			Game.platformingRespawn()
+func _on_hitbox_component_body_entered(_body):
+	Game.platformingRespawn()
 
 
-func _on_hitbox_component_area_entered(_area):
-	$HitboxComponent.generateAttackID()
+var t = 0.0
+func _process(delta):
+	t -= delta
+	if t <= 0.0:
+		$HitboxComponent.generateAttackID()
+		t = 0.5

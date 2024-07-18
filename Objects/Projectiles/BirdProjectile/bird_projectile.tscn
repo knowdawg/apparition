@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1g8pqbyy2cdv"]
+[gd_scene load_steps=8 format=3 uid="uid://b1g8pqbyy2cdv"]
 
 [ext_resource type="Script" path="res://Objects/Projectiles/BirdProjectile/bird_projectile.gd" id="1_3mtmx"]
 [ext_resource type="Texture2D" uid="uid://c6s0echpxevn7" path="res://Assets/Sprites/Effects/BirdProjectile.png" id="2_8djn4"]
@@ -16,6 +16,9 @@ shader_parameter/add_margins = true
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bj3ve"]
 radius = 1.0
 height = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6d0b"]
+size = Vector2(2, 4)
 
 [node name="BirdProjectile" type="Node2D"]
 script = ExtResource("1_3mtmx")
@@ -36,3 +39,12 @@ knockback_force = 500.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent2"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bj3ve")
+
+[node name="EnvirmentChecker" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnvirmentChecker"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_p6d0b")
+
+[connection signal="body_entered" from="EnvirmentChecker" to="." method="_on_envirment_checker_body_entered"]

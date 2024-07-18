@@ -102,7 +102,7 @@ func death(attack : Attack):
 
 func _on_hazard_checker_area_entered(_area):
 	var a = Attack.new()
-	a.attack_damage = 1
+	a.attack_damage = 10
 	a.knockback_force = 0.0
 	a.attack_position = Vector2.ZERO
 	$HealthComponent.damage(a)

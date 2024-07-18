@@ -774,10 +774,10 @@ disabled = true
 [node name="Proximities" type="Node2D" parent="Components"]
 
 [node name="IdleProximity\'" parent="Components/Proximities" instance=ExtResource("14_go0nf")]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Proximities/IdleProximity\'"]
-visible = false
 shape = SubResource("CircleShape2D_hdcda")
 
 [node name="TeleportProximity" parent="Components/Proximities" instance=ExtResource("14_go0nf")]

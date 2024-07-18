@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cfd7vd4s3uel"]
+[gd_scene load_steps=33 format=3 uid="uid://cfd7vd4s3uel"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_vye86"]
 [ext_resource type="Script" path="res://addons/nklbdev.previewing_parallax_background/PreviewingParallaxBackground.gd" id="2_3br7m"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://e01lg4b2g0wy" path="res://Objects/Upgrades/sword_upgrade.tscn" id="16_4b1u8"]
 [ext_resource type="PackedScene" uid="uid://hrr70v1me6jk" path="res://Assets/PlarformingRespawnPoint/platforming_respawn_point.tscn" id="16_kf54t"]
 [ext_resource type="Texture2D" uid="uid://bqql6e1fxgmnr" path="res://Assets/Sprites/Effects/Circle.png" id="17_0bwso"]
+[ext_resource type="PackedScene" uid="uid://cby6s3vgxgcrd" path="res://Objects/WorldObjects/RespawnPoint/respawn_point.tscn" id="17_xn7co"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6ym2"]
 
@@ -71,8 +72,10 @@ scale_curve = SubResource("CurveTexture_fkykw")
 color = Color(0, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_uiubr")
 
-[node name="ReaperPillarHell" type="Node2D"]
+[node name="ReaperPillarHell" type="Node2D" node_paths=PackedStringArray("rp")]
 script = ExtResource("1_vye86")
+playerStartingPosOnFalure = Vector2(68, 2.08165e-12)
+rp = NodePath("Foreground/RespawnPoint")
 
 [node name="Cavern" type="ParallaxBackground" parent="."]
 layer = -1
@@ -91,7 +94,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-398.616, 0)
+position = Vector2(-703.793, 0)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -101,13 +104,13 @@ script = ExtResource("2_3br7m")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_dbg7w")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-125.879, 0)
+position = Vector2(-222.25, 0)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_stniv")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-41.9596, 0)
+position = Vector2(-74.0834, 0)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("5_crb3m")]
@@ -243,9 +246,17 @@ exstendRight = false
 
 [node name="CameraBoundriesComponent3" parent="Foreground/CameraBounds" instance=ExtResource("15_n2sfw")]
 position = Vector2(-768, -60)
-polygon = PackedVector2Array(112, -80, 112, 4, 96, 4, 96, 28, -328, 28, -328, -80)
+polygon = PackedVector2Array(112, -80, 112, 4, 96, 4, 96, 28, -272, 28, -272, -80)
 exstendUp = false
 exstendDown = false
+
+[node name="CameraBoundriesComponent4" parent="Foreground/CameraBounds" instance=ExtResource("15_n2sfw")]
+position = Vector2(-1152, -60)
+polygon = PackedVector2Array(145, -80, 145, -76, 112, -76, 112, 20, 145, 20, 145, 28, -272, 28, -272, -80)
+exstendUp = false
+exstendDown = false
+exstendLeft = false
+exstendRight = false
 
 [node name="BridNoGo" type="StaticBody2D" parent="Foreground/CameraBounds"]
 position = Vector2(-516, -5)
@@ -319,12 +330,16 @@ position = Vector2(-696, -64)
 position = Vector2(-992, -48)
 room = NodePath("../..")
 
+[node name="RespawnPoint" parent="Foreground" instance=ExtResource("17_xn7co")]
+position = Vector2(-224, -8)
+respawnScene = "res://Levels/MainAreaLevels/reaper_pillar_hell.tscn"
+
 [node name="Front" type="ParallaxBackground" parent="."]
 layer = 1
 script = ExtResource("2_3br7m")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(83.9193, 33.9801)
+position = Vector2(148.167, 68.9731)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -339,7 +354,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(167.839, 67.9602)
+position = Vector2(296.334, 137.946)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

@@ -189,6 +189,9 @@ func death(attack : Attack):
 func get_health():
 	return(healthComponent.get_health())
 
+func set_health(value : float):
+	healthComponent.set_health(value)
+
 func get_max_health():
 	return(healthComponent.get_max_health())
 

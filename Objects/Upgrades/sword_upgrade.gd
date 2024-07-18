@@ -14,6 +14,7 @@ func _ready():
 		$Blade.visible = true
 		
 	if Game.weaponUpgradeStatus.has(id):
+		$AnimationPlayer.play("Idle")
 		if Game.weaponUpgradeStatus[id] == true:
 			colected = true
 			$AnimationPlayer.play("RESET")

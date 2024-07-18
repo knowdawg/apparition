@@ -10,6 +10,7 @@ func _ready():
 		if Game.healthUpgradeStatus[id] == true:
 			colected = true
 			queue_free()
+		$AnimationPlayer.play("Idle")
 	else:
 		Game.healthUpgradeStatus[id] = false
 		$AnimationPlayer.play("Idle")

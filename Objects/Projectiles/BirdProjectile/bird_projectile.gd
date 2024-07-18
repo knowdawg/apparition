@@ -9,3 +9,7 @@ func initialize(dir : Vector2):
 
 func _process(delta):
 	position += dirrection * SPEED * delta
+
+
+func _on_envirment_checker_body_entered(_body):
+	queue_free()

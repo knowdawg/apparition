@@ -13,6 +13,7 @@ func getRespawnLoc():
 func _on_area_2d_body_entered(body):
 	if body is Player:
 		Game.respawnScene = respawnScene;
+		Game.player.set_health(Game.maxPlayerHealth)
 		if active == false:
 			active = true
 			$AnimationPlayer.play("Activate")
@@ -22,7 +23,7 @@ func playRespawnAnimation():
 
 func respawnPlayer():
 	respawn.emit();
-	Game.currentCamera.set_shake(5.0)
+	Game.currentCamera.set_shake(10.0)
 
 func _process(delta):
 	if $AnimationPlayer.current_animation == "Respawn":
