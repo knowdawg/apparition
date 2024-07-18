@@ -87,7 +87,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-453.119, -1.52588e-05)
+position = Vector2(-347.957, 0)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -97,13 +97,13 @@ script = ExtResource("2_c2bxm")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_3w5tg")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-143.09, -1.52588e-05)
+position = Vector2(-109.881, 0)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_1b44d")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-47.6967, -1.52588e-05)
+position = Vector2(-36.627, 0)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("5_f4eu8")]
@@ -259,7 +259,7 @@ layer = 1
 script = ExtResource("2_c2bxm")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(95.3935, 45.8696)
+position = Vector2(73.254, 31.8744)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -274,7 +274,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(190.787, 91.7391)
+position = Vector2(146.508, 63.7487)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

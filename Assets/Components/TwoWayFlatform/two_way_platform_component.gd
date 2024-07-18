@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name twoWayPlatform
 
 @export var c : CollisionShape2D
 

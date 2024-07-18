@@ -20,6 +20,13 @@ var knockback = Vector2.ZERO
 func _ready():
 	if bashShield:
 		bashShieldComponent.setShield(bashShield)
+	
+	if Game.currentLevel:
+		if is_instance_valid(Game.currentLevel):
+			if Game.currentLevel.name == "BirdRun":
+				set_collision_mask_value(1, false)
+				MAX_MOVEMENT_SPEED *= 2.0
+				movementSpeed *= 2.0
 
 func bash():
 	z_index = 10
