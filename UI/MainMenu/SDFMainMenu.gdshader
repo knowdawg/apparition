@@ -76,7 +76,6 @@ void fragment() {
 		if(SDFdis < 0.001 || SDFdis > 100.0) break;
 	}
 	vec3 position = rayOrigin + rayDirection * totalDis;
-	
 	vec3 normal = calcNormal(rayOrigin + rayDirection * totalDis);
 	
 	float lightFromSource = 1.0 / distance(lightPos, position);

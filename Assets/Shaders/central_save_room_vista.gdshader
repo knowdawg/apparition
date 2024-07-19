@@ -4,7 +4,7 @@ uniform float FOV : hint_range(0.0, 30.0);
 uniform vec3 cameraPos;
 uniform float hRes;
 uniform float vRes;
-uniform vec3 col : source_color;
+uniform vec3 color : source_color;
 
 float sdSphere( vec3 p, float s ){
   return length(p)-s;
@@ -29,23 +29,15 @@ mat2 rot2D(float angle){
 float map(vec3 pos){
 	
 	vec3 spherePos = pos;
-	vec3 squarePos = pos - vec3(0.0, 0.75, 0.0);
-	squarePos.xz *= rot2D(TIME * 0.5);
-	float sphere = max(-sdSphere(spherePos, 0.9), sdBox(squarePos, vec3(0.75)));
+	float sphere = sdSphere(spherePos, 4.5);
 	
-	vec3 squarePos2 = pos - vec3(0.0, -1.0, 0.0);
-	squarePos2.xz *= rot2D(-TIME * 0.5);
-	sphere = min(sphere, max(-sdSphere(spherePos + vec3(0.0, 0.3, 0.0), 0.9), sdBox(squarePos2, vec3(0.75, 0.5, 0.75))));
+	vec3 tempPos = pos;// - vec3(0.5, 0.5, 0.5);
+	tempPos = fract(pos) - 0.5;
 	
-	vec3 tempPos = pos;
-	tempPos = mod(pos, 1.0) - 0.5;
-	tempPos.xy *= rot2D(pos.z);
+	float hole = sdBox(tempPos, vec3(0.3, 0.3, 0.6));
 	
-	float box = sdBox(tempPos, vec3(0.1));
-	
-	float ground = -pos.y + 0.75;
-	
-	return smin(ground, smin(sphere, box, 0.5), 0.5);
+	return max(-hole, -sphere);
+	//return -hole;
 }
 
 void fragment() {
@@ -59,13 +51,15 @@ void fragment() {
 	
 	//Initialization
 	vec3 rayOrigin = cameraPos;
+	//rayOrigin.xy += clipUV * 1.0;
 	vec3 rayDirection = normalize(vec3(clipUV, 1.0 / FOV));
 	float totalDis = 0.0;
-	vec3 color = vec3(0.0);
+	vec3 c = vec3(0.0);
 	
 	//Camera Rotation
-	//rayOrigin.xz *= rot2D(TIME * 0.2);
-	//rayDirection.xz *= rot2D(TIME * 0.2);
+	//rayOrigin.xz *= rot2D(atan(rayDirection.x));
+	//rayDirection.xz *= rot2D(atan(rayDirection.x));
+	
 	
 	//Raymarching
 	int i = 0;
@@ -74,13 +68,13 @@ void fragment() {
 		float SDFdis = map(p);
 		totalDis += SDFdis;
 		
-		color = vec3(float(i) / 80.0);
+		//c = vec3(float(i) / 80.0);
 		if(SDFdis < 0.001 || SDFdis > 100.0) break;
 	}
 	
-	//color *= vec3(totalDis) * 0.2;
-	//color = vec3(1.0) - color;
-	color *= col;
+	c = vec3(totalDis) * 0.12;
+	//c = vec3(1.0) - c;
+	c *= color;
 	
-	COLOR = vec4(color, 1.0);
+	COLOR = vec4(c, 1.0);
 }

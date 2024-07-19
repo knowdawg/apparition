@@ -8,6 +8,7 @@ shader_parameter/FOV = 1.0
 shader_parameter/cameraPos = Vector3(2.08165e-12, 2.08165e-12, -3)
 shader_parameter/hRes = 256.0
 shader_parameter/vRes = 256.0
+shader_parameter/col = Color(1, 0.196078, 0.196078, 1)
 
 [sub_resource type="Gradient" id="Gradient_0gkee"]
 

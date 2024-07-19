@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://dayjy4axwhtb4"]
+
+[ext_resource type="Texture2D" uid="uid://b72ex6c2e8h1w" path="res://Assets/Sprites/EnvirementArt/Chains1.png" id="1_clo24"]
+[ext_resource type="Texture2D" uid="uid://c47lyj68s842m" path="res://Assets/Sprites/EnvirementArt/Chains.png" id="2_w6ywr"]
+[ext_resource type="Texture2D" uid="uid://cjcqjllq5y680" path="res://Assets/Sprites/EnvirementArt/ApparitionDecorations.png" id="3_bns8k"]
+[ext_resource type="Texture2D" uid="uid://bu3tp4roghh4j" path="res://Assets/Sprites/EnvirementArt/Rocks.png" id="4_y1wp8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxd7k"]
+texture = ExtResource("1_clo24")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g7opx"]
+texture = ExtResource("2_w6ywr")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(4, 0)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(4, 0)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(4, 0)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(4, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8a71y"]
+texture = ExtResource("3_bns8k")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfqj6"]
+texture = ExtResource("4_y1wp8")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gcnph"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_jxd7k")
+sources/5 = SubResource("TileSetAtlasSource_g7opx")
+sources/6 = SubResource("TileSetAtlasSource_8a71y")
+sources/7 = SubResource("TileSetAtlasSource_cfqj6")
+
+[node name="Decorations" type="TileMap"]
+texture_filter = 1
+tile_set = SubResource("TileSet_gcnph")
+format = 2
