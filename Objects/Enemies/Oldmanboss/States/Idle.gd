@@ -21,14 +21,17 @@ var crazyComboCooldown = 15
 
 func update(delta):
 	#If recharging, next move will not be selected until stamina has recharged
+	if parent.phase == 2:
+		stamina = 100
+	
 	timer -= delta
 	if recharge == true:
-		if stamina >= 200:
+		if stamina >= 100:
 			recharge = false
-			stamina = 200
+			stamina = 100
 		if timer < 0:
 			timer += 0.4
-			stamina += 80
+			stamina += 30
 		parent.align()
 		return
 		
@@ -49,7 +52,7 @@ func update(delta):
 		#trasitioned.emit(self, "Snap")
 	
 	if isPlayerClose:
-		var nextMove = randi_range(0,10)
+		var nextMove = randi_range(0,4)
 		if nextMove == 0 or nextMove == 1:
 			if prevMove != "Uppercut":
 				stamina -= staminaCosts["Uppercut"]
@@ -62,7 +65,7 @@ func update(delta):
 			if prevMove != "PalmStrike":
 				stamina -= staminaCosts["PalmStrike"]
 				trasitioned.emit(self, "PalmStrike")
-		if nextMove == 4 or nextMove == 5:
+		if nextMove == 4:
 			if prevMove != "Dash":
 				stamina -= staminaCosts["Dash"]
 				trasitioned.emit(self, "Dash")
@@ -72,20 +75,20 @@ func update(delta):
 				trasitioned.emit(self, "Teleport")
 			
 	if isPlayerMedium:
-		var nextMove = randi_range(0, 7)
+		var nextMove = randi_range(0, 5)
 		if nextMove == 1 or nextMove == 2:
 			if prevMove != "PalmStrike":
 				stamina -= staminaCosts["PalmStrike"]
 				trasitioned.emit(self, "PalmStrike")
-		if nextMove == 3 or nextMove == 4 or nextMove == 5:
+		if nextMove == 3:
 			if prevMove != "Dash":
 				stamina -= staminaCosts["Dash"]
 				trasitioned.emit(self, "Dash")
-		if nextMove == 6:
+		if nextMove == 4:
 			if prevMove != "GroundSlam":
 				stamina -= staminaCosts["GroundSlam"]
 				trasitioned.emit(self, "GroundSlam")
-		if nextMove > 6:
+		if nextMove == 5:
 			if prevMove != "Teleport":
 				stamina -= staminaCosts["Teleport"]
 				trasitioned.emit(self, "Teleport")

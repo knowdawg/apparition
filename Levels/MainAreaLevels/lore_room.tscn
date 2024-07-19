@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://3alpwn0ukje1"]
+[gd_scene load_steps=20 format=3 uid="uid://3alpwn0ukje1"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_nqn52"]
 [ext_resource type="Script" path="res://addons/nklbdev.previewing_parallax_background/PreviewingParallaxBackground.gd" id="2_fu7xl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://csjfgugsav4pt" path="res://Assets/SceneSwitchDoor/door.tscn" id="8_mjton"]
 [ext_resource type="PackedScene" uid="uid://b0rw13dj3fjac" path="res://Assets/Components/CameraBoundriesComponent/camera_boundries_component.tscn" id="9_arxm6"]
 [ext_resource type="PackedScene" uid="uid://hrr70v1me6jk" path="res://Assets/PlarformingRespawnPoint/platforming_respawn_point.tscn" id="10_ymn43"]
+[ext_resource type="PackedScene" uid="uid://lh4kp2mhbvvh" path="res://Objects/Upgrades/health_upgrade.tscn" id="11_2nbk0"]
 [ext_resource type="Texture2D" uid="uid://bqql6e1fxgmnr" path="res://Assets/Sprites/Effects/Circle.png" id="11_l050i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06s3s"]
@@ -63,7 +64,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-385.225, 0)
+position = Vector2(-235.665, -2.28882e-05)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -73,13 +74,13 @@ script = ExtResource("2_fu7xl")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_dd1o0")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-121.65, 0)
+position = Vector2(-74.4205, -2.28882e-05)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_7bihg")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-40.55, 0)
+position = Vector2(-24.8069, -2.28882e-05)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("5_g2s43")]
@@ -140,12 +141,16 @@ exstendRight = false
 
 [node name="Marker2D" type="Marker2D" parent="Foreground/PlatformRespawnPoints/PlatformingRespawnPoint"]
 
+[node name="HealthUpgrade" parent="Foreground" node_paths=PackedStringArray("room") instance=ExtResource("11_2nbk0")]
+position = Vector2(0, -12)
+room = NodePath("../..")
+
 [node name="Front" type="ParallaxBackground" parent="."]
 layer = 1
 script = ExtResource("2_fu7xl")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(81.1, 38.45)
+position = Vector2(49.6136, 23.471)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -160,7 +165,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(162.2, 76.9)
+position = Vector2(99.2271, 46.942)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

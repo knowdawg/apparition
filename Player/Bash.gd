@@ -8,7 +8,7 @@ func enter():
 	animated_player_sprite.play("Hurt")
 
 func update(delta):
-	Game.player.position = lerp(Game.player.position, Game.player.bashTargetPosition, 6.0 * delta)
+	Game.player.position = lerp(Game.player.position, Game.player.bashTargetPosition, 25.0 * delta)
 
 func update_physics(_delta):
 	Game.player.move_and_slide()

@@ -54,7 +54,7 @@ func bashComplete():
 	
 	if canHealFromBash == true:
 		$HeroSprite/HealFlashComponent.flash()
-		healthComponent.set_health(healthComponent.get_health() + 0.5)
+		healthComponent.set_health(healthComponent.get_health() + 1.0)
 
 func getControllerBashVector() -> Vector2:
 	var stickVector = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), 

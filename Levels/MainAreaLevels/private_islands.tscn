@@ -114,7 +114,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-426.621, 0)
+position = Vector2(-647.635, -1.52588e-05)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -124,13 +124,13 @@ script = ExtResource("2_chtxq")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_3pdpf")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-134.722, 0)
+position = Vector2(-204.516, -1.52588e-05)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_82dvj")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-44.9075, 0)
+position = Vector2(-68.1721, -1.52588e-05)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("5_eo1ch")]
@@ -174,6 +174,9 @@ position = Vector2(28, 4)
 
 [node name="BottomLeftDoor" parent="Foreground/Doors" instance=ExtResource("8_br41i")]
 position = Vector2(-108, 164)
+sceneToSwitchTo = "res://Levels/MainAreaLevels/preciesion_bashes.tscn"
+doorToGoTo = "TopDoor"
+facingLeftNextScene = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/Doors/BottomLeftDoor"]
 shape = SubResource("RectangleShape2D_0ckjq")
@@ -425,7 +428,7 @@ layer = 1
 script = ExtResource("2_chtxq")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(89.8149, 38.4977)
+position = Vector2(136.344, 49.5214)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -440,7 +443,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(179.63, 76.9953)
+position = Vector2(272.688, 99.0427)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

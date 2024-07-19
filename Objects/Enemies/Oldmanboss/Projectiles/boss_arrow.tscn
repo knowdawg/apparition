@@ -292,7 +292,7 @@ shape = SubResource("RectangleShape2D_4ute6")
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("1_7pt1b")]
 collision_mask = 2
 collisionShape = NodePath("CollisionShape2D")
-attack_damage = 2.0
+attack_damage = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 visible = false
@@ -333,7 +333,7 @@ shape = SubResource("CircleShape2D_mwsmn")
 [node name="Recall" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("1_7pt1b")]
 collision_mask = 2
 collisionShape = NodePath("CollisionShape2D")
-attack_damage = 2.0
+attack_damage = 6.0
 knockback_force = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Recall"]

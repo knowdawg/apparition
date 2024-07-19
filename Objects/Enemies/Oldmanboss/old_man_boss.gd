@@ -37,11 +37,23 @@ func align():
 		sprite.flip_h = false
 
 
+var arrowFlashObject = preload("res://Objects/Enemies/Oldmanboss/arrow_flash.tscn")
+func arrowFlash(pos : Vector2, rotDeg : float, isQuad : bool, whatPhase : int = 1, animSpeed : float = 1.0):
+	if whatPhase <= phase:
+		var a = arrowFlashObject.instantiate()
+		add_child(a)
+		a.initiate(pos, rotDeg, isQuad, animSpeed)
+		
+		if $Sprite.flip_h == true:
+			a.scale.x = -1
+			a.position.x *= -1
+		else:
+			a.scale.x = 1
 
 func hit(attack : Attack):
 	do_hit_effect(attack)
 	
-	if $Components/HealthComponent.health < $Components/HealthComponent.MAX_HEALTH / 2.0 and phase == 1:
+	if $Components/HealthComponent.health < $Components/HealthComponent.MAX_HEALTH * 0.6 and phase == 1:
 		phase = 2
 		velocity *= 2
 		stateMachine.current_state.trasitioned.emit(stateMachine.current_state, "PhaseTransition")

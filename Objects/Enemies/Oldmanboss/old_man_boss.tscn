@@ -84,6 +84,7 @@ fill_to = Vector2(0.8, 0.8)
 [sub_resource type="Animation" id="Animation_8bpfo"]
 resource_name = "CrazyCombo"
 length = 10.4
+step = 0.01
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -91,7 +92,7 @@ tracks/0/path = NodePath("StateMachine/CrazyCombo")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.1, 1.6, 2.1, 2.6, 3.4, 3.7, 4.2, 4.7, 5.2, 5.3, 5.4, 5.5, 6.8, 7.1, 7.5, 7.8, 9.8),
+"times": PackedFloat32Array(1.1, 1.6, 2.1, 2.6, 3.4, 3.7, 4.2, 4.6, 5.2, 5.3, 5.4, 5.5, 6.8, 7.1, 7.5, 7.8, 9.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -201,14 +202,26 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(2.6, 4.7, 5.4, 6.5, 7.1, 7.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2.6, 2.9, 4.6, 4.7, 4.8, 4.9, 5.4, 6.5, 6.55, 6.56, 7.1, 7.25, 7.26, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"align"
 }, {
+"args": [Vector2(-3, -11), 0.0, true, 1],
+"method": &"arrowFlash"
+}, {
 "args": [],
 "method": &"align"
+}, {
+"args": [Vector2(-6, -6), 0.0, false, 1],
+"method": &"arrowFlash"
+}, {
+"args": [Vector2(-6, -6), 22.0, false, 1],
+"method": &"arrowFlash"
+}, {
+"args": [Vector2(-6, -6), -10.0, false, 1],
+"method": &"arrowFlash"
 }, {
 "args": [],
 "method": &"align"
@@ -216,8 +229,20 @@ tracks/5/keys = {
 "args": [],
 "method": &"align"
 }, {
+"args": [Vector2(4, -6), 0.0, true, 1, 2.0],
+"method": &"arrowFlash"
+}, {
+"args": [Vector2(4, -6), 45.0, true, 1, 2.0],
+"method": &"arrowFlash"
+}, {
 "args": [],
 "method": &"align"
+}, {
+"args": [Vector2(4, -6), 0.0, true, 1, 2.0],
+"method": &"arrowFlash"
+}, {
+"args": [Vector2(4, -6), 45.0, true, 1, 2.0],
+"method": &"arrowFlash"
 }, {
 "args": [],
 "method": &"align"
@@ -363,10 +388,31 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(2.08165e-12, -7)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [Vector2(-6, -6), 0.0, false],
+"method": &"arrowFlash"
+}, {
+"args": [Vector2(-6, -6), 22.0, false, 2],
+"method": &"arrowFlash"
+}, {
+"args": [Vector2(-6, -6), -10.0, false, 2],
+"method": &"arrowFlash"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_phmq5"]
 resource_name = "GroundSlam"
 length = 1.9
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -404,6 +450,23 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(2.08165e-12, -2)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.11),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(4, -6), 45.0, true],
+"method": &"arrowFlash"
+}, {
+"args": [Vector2(4, -6), 2.08165e-12, true, 2],
+"method": &"arrowFlash"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ydvmr"]
@@ -1026,6 +1089,23 @@ tracks/2/keys = {
 "update": 1,
 "values": [Vector2(2.08165e-12, -11), Vector2(0, -4)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(-2, -12), 2.08165e-12, true],
+"method": &"arrowFlash"
+}, {
+"args": [Vector2(3, -4), 45.0, true, 2],
+"method": &"arrowFlash"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_npm78"]
 _data = {
@@ -1240,7 +1320,7 @@ z_index = -1
 position = Vector2(0, 3)
 collision_mask = 2
 collisionShape = NodePath("LineShape")
-attack_damage = 3.0
+attack_damage = 5.0
 knockback_force = 500.0
 
 [node name="LineShape" type="CollisionShape2D" parent="ConstantLocations/PalmStrikeHitbox"]
@@ -1300,7 +1380,7 @@ shape = SubResource("RectangleShape2D_x47jx")
 [node name="HealthComponent" parent="Components" node_paths=PackedStringArray("parrent", "bar") instance=ExtResource("4_k8nst")]
 parrent = NodePath("../..")
 bar = NodePath("../../CanvasLayer/Control/HealthBar")
-MAX_HEALTH = 80.0
+MAX_HEALTH = 100.0
 
 [node name="BashShieldComponent" parent="Components" node_paths=PackedStringArray("healthComponent", "nonAnimatedSprite") instance=ExtResource("5_puw3m")]
 healthComponent = NodePath("../HealthComponent")
@@ -1342,8 +1422,8 @@ scale = Vector2(0.5, 0.5)
 [node name="ExplotionHitbox" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("19_8lodf")]
 collision_mask = 2
 collisionShape = NodePath("First")
-attack_damage = 4.0
-knockback_force = 500.0
+attack_damage = 8.0
+knockback_force = 800.0
 
 [node name="First" type="CollisionShape2D" parent="ExplotionHitbox"]
 visible = false
