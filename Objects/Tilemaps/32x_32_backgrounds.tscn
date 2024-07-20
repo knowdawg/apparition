@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvibw3b55bye"]
+
+[ext_resource type="Texture2D" uid="uid://jp7p7p23vaxt" path="res://Assets/Sprites/EnvirementArt/SpikeBackground1.png" id="1_yv0mf"]
+[ext_resource type="Texture2D" uid="uid://dwy8wuaemvw4d" path="res://Assets/Sprites/EnvirementArt/SpikeBackground2.png" id="2_8fbve"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8jpm"]
+texture = ExtResource("1_yv0mf")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_013v2"]
+texture = ExtResource("2_8fbve")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xhp4q"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_v8jpm")
+sources/1 = SubResource("TileSetAtlasSource_013v2")
+
+[node name="32x32Backgrounds" type="TileMap"]
+tile_set = SubResource("TileSet_xhp4q")
+format = 2

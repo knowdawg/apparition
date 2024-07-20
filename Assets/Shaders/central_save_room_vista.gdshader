@@ -29,15 +29,22 @@ mat2 rot2D(float angle){
 float map(vec3 pos){
 	
 	vec3 spherePos = pos;
-	float sphere = sdSphere(spherePos, 4.5);
+	spherePos.xy -= vec2(0.5, 0.5);
+	float sphere = sdSphere(spherePos, 2.5);
+	float sphere2 = sdSphere(spherePos, 3.0);
+	float spheres = max(-sphere, sphere2);
 	
-	vec3 tempPos = pos;// - vec3(0.5, 0.5, 0.5);
+	vec3 tempPos = pos;
 	tempPos = fract(pos) - 0.5;
 	
-	float hole = sdBox(tempPos, vec3(0.3, 0.3, 0.6));
+	//tempPos.x -= 0.0;
 	
-	return max(-hole, -sphere);
-	//return -hole;
+	float hole = sdBox(tempPos, vec3(0.2, 0.3, 0.6));
+	
+	float walls = -abs(pos.y) + 1.8;
+	
+	return min(walls, max(-hole, spheres));
+	//return spheres;
 }
 
 void fragment() {
@@ -51,30 +58,61 @@ void fragment() {
 	
 	//Initialization
 	vec3 rayOrigin = cameraPos;
-	//rayOrigin.xy += clipUV * 1.0;
 	vec3 rayDirection = normalize(vec3(clipUV, 1.0 / FOV));
 	float totalDis = 0.0;
-	vec3 c = vec3(0.0);
+	vec3 c = vec3(1.0);
 	
 	//Camera Rotation
-	//rayOrigin.xz *= rot2D(atan(rayDirection.x));
-	//rayDirection.xz *= rot2D(atan(rayDirection.x));
+	//float angle = PI / 7.0;
+	//rayOrigin.xz *= rot2D(angle);
+	//rayDirection.xz *= rot2D(angle);
 	
 	
 	//Raymarching
-	int i = 0;
-	for(int i = 0; i < 40; i++){
+	for(int i = 0; i < 30; i++){
 		vec3 p = rayOrigin + rayDirection * totalDis;
 		float SDFdis = map(p);
 		totalDis += SDFdis;
 		
-		//c = vec3(float(i) / 80.0);
+		c = vec3(float(i) / 60.0);
 		if(SDFdis < 0.001 || SDFdis > 100.0) break;
 	}
 	
-	c = vec3(totalDis) * 0.12;
-	//c = vec3(1.0) - c;
+	float pasiveLight = totalDis * 0.2;
+	
+	//c = vec3(pasiveLight);
+	//c *= color;
+	
+	
+	//Shadows
+	vec3 position = rayOrigin + rayDirection * totalDis;
+	vec3 lightPos = vec3(0.0, 0, 10.0);
+	//lightPos.xz *= rot2D(TIME * 0.3);
+	
+	rayOrigin = position;
+	rayDirection = normalize(lightPos - rayOrigin);
+	totalDis = 0.1;
+	
+	float shadow = 0.0;
+	for(int i = 0; i < 40; i++){
+		vec3 p = rayOrigin + rayDirection * totalDis;
+		float SDFdis = map(p);
+		SDFdis = clamp(SDFdis, 0.0, distance(p, lightPos));
+		totalDis += SDFdis;
+		
+		if(SDFdis < 0.001) break;
+		if(SDFdis < map(p)){
+			shadow = 1.0 - (float(i) / 40.0);
+			break;
+		}
+	}
+	
+	//c *= shadow;
+	c += vec3(pasiveLight) * shadow;
+	c = clamp(c, vec3(0.0), vec3(1.0));
 	c *= color;
+	
+	//c = abs(normal);
 	
 	COLOR = vec4(c, 1.0);
 }

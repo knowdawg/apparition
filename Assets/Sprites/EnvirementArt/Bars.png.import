@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjcqjllq5y680"
-path="res://.godot/imported/ApparitionDecorations.png-babc21c4a7664294f70afa315b08592e.ctex"
+uid="uid://pg6f0jdoey6c"
+path="res://.godot/imported/Bars.png-3827c2c28df9f6f91f06bdf8b1ff5e3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/EnvirementArt/ApparitionDecorations.png"
-dest_files=["res://.godot/imported/ApparitionDecorations.png-babc21c4a7664294f70afa315b08592e.ctex"]
+source_file="res://Assets/Sprites/EnvirementArt/Bars.png"
+dest_files=["res://.godot/imported/Bars.png-3827c2c28df9f6f91f06bdf8b1ff5e3a.ctex"]
 
 [params]
 
