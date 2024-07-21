@@ -15,6 +15,12 @@ float sdBox( vec3 p, vec3 b ){
   return length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);
 }
 
+float sdVerticalCapsule( vec3 p, float h, float r )
+{
+  p.y -= clamp( p.y, 0.0, h );
+  return length( p ) - r;
+}
+
 float smin(float a, float b, float k){
 	float h = max(k - abs(a-b), 0.0) / k;
 	return min(a, b) - h * h * h * k * (1.0/6.0);
@@ -28,22 +34,20 @@ mat2 rot2D(float angle){
 
 float map(vec3 pos){
 	
-	vec3 spherePos = pos;
-	spherePos.xy -= vec2(0.5, 0.5);
-	float sphere = sdSphere(spherePos, 2.5);
-	float sphere2 = sdSphere(spherePos, 3.0);
-	float spheres = max(-sphere, sphere2);
+	//vec3 spherePos = pos;
+	//float sphere = sdSphere(spherePos, 0.5);
 	
 	vec3 tempPos = pos;
-	tempPos = fract(pos) - 0.5;
+	tempPos.xz = fract(pos).xz - 0.5;
+	tempPos.y += 1.5;
 	
+	float pillar = sdVerticalCapsule(tempPos, 3.0, 0.05);
 	//tempPos.x -= 0.0;
 	
-	float hole = sdBox(tempPos, vec3(0.2, 0.3, 0.6));
 	
-	float walls = -abs(pos.y) + 1.8;
+	float walls = -abs(pos.y) + 1.5;
 	
-	return min(walls, max(-hole, spheres));
+	return smin(walls, pillar, 0.5);
 	//return spheres;
 }
 
@@ -80,18 +84,15 @@ void fragment() {
 	
 	float pasiveLight = totalDis * 0.2;
 	
-	//c = vec3(pasiveLight);
-	//c *= color;
-	
 	
 	//Shadows
 	vec3 position = rayOrigin + rayDirection * totalDis;
-	vec3 lightPos = vec3(0.0, 0, 10.0);
+	vec3 lightPos = vec3(0.0, 0.0, 3.0);
 	//lightPos.xz *= rot2D(TIME * 0.3);
 	
 	rayOrigin = position;
 	rayDirection = normalize(lightPos - rayOrigin);
-	totalDis = 0.1;
+	totalDis = 0.01;
 	
 	float shadow = 0.0;
 	for(int i = 0; i < 40; i++){
@@ -107,8 +108,10 @@ void fragment() {
 		}
 	}
 	
-	//c *= shadow;
-	c += vec3(pasiveLight) * shadow;
+	c *= shadow;
+	c += vec3(pasiveLight) * 0.1;
+	
+	
 	c = clamp(c, vec3(0.0), vec3(1.0));
 	c *= color;
 	

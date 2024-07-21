@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bncm78kh0uysf"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/GodRays.gdshader" id="1_wwu4d"]
+
+[sub_resource type="Gradient" id="Gradient_i2a21"]
+offsets = PackedFloat32Array(0.0137795)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vjx3x"]
+gradient = SubResource("Gradient_i2a21")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htl3r"]
+shader = ExtResource("1_wwu4d")
+shader_parameter/angle = -0.3
+shader_parameter/position = 2.08165e-12
+shader_parameter/spread = 0.29
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 2.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+shader_parameter/color = SubResource("GradientTexture2D_vjx3x")
+
+[sub_resource type="Gradient" id="Gradient_f0plr"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80yjy"]
+gradient = SubResource("Gradient_f0plr")
+width = 128
+height = 128
+
+[node name="GodRays" type="Sprite2D"]
+material = SubResource("ShaderMaterial_htl3r")
+texture = SubResource("GradientTexture2D_80yjy")
