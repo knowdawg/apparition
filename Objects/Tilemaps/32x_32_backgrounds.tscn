@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvibw3b55bye"]
+[gd_scene load_steps=10 format=3 uid="uid://dvibw3b55bye"]
 
 [ext_resource type="Texture2D" uid="uid://jp7p7p23vaxt" path="res://Assets/Sprites/EnvirementArt/SpikeBackground1.png" id="1_yv0mf"]
 [ext_resource type="Texture2D" uid="uid://dwy8wuaemvw4d" path="res://Assets/Sprites/EnvirementArt/SpikeBackground2.png" id="2_8fbve"]
+[ext_resource type="Texture2D" uid="uid://mlqeydd0cciw" path="res://Assets/Sprites/EnvirementArt/RockBackground.png" id="3_18nka"]
+[ext_resource type="Texture2D" uid="uid://gax5kcaq4s13" path="res://Assets/Sprites/EnvirementArt/WoodBackground.png" id="4_lx4dj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8jpm"]
 texture = ExtResource("1_yv0mf")
@@ -13,10 +15,24 @@ texture = ExtResource("2_8fbve")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65sdv"]
+texture = ExtResource("3_18nka")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqn4p"]
+texture = ExtResource("4_lx4dj")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_xhp4q"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_v8jpm")
 sources/1 = SubResource("TileSetAtlasSource_013v2")
+sources/2 = SubResource("TileSetAtlasSource_65sdv")
+sources/4 = SubResource("TileSetAtlasSource_vqn4p")
 
 [node name="32x32Backgrounds" type="TileMap"]
 tile_set = SubResource("TileSet_xhp4q")

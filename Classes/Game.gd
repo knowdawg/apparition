@@ -71,7 +71,7 @@ func _exit_tree():
 	save()
 
 func _ready():
-	createNewSave()
+	#createNewSave()
 	loadSave()
 
 func _process(delta):
