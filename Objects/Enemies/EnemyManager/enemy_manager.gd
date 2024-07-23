@@ -28,7 +28,11 @@ func encounterStart():
 	if currentWave == 0:
 		call_deferred("nextWave")
 
+func onEncounterEnd():
+	pass
+
 func encounterEnd():
+	onEncounterEnd()
 	encounterStated = true
 	encounterCompleted = true
 	var id : String = Game.currentLevel.get_name() + get_name()
@@ -74,12 +78,14 @@ func _on_body_entered(body):
 		encounterStart()
 		encounterStated = true
 
+func onNextWave():
+	pass
 
 func nextWave():
+	onNextWave()
 	for sp in enemySpawns:
 		if sp.wave == currentWave:
 			enemySpawnQue.append(sp)
-			#sp.spawn()
 
 
 func addEnemy(newEnemy, enemyPosition):

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwcdeenr1f3rx"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/final_boss_room.gdshader" id="1_obvj7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnl7c"]
+shader = ExtResource("1_obvj7")
+shader_parameter/FOV = 1.0
+shader_parameter/cameraPos = Vector3(-0.05, -0.125, -0.8)
+shader_parameter/hRes = 192.0
+shader_parameter/vRes = 108.0
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/xDisplacemnt = null
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_bnl7c")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true

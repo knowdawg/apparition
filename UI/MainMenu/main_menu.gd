@@ -9,16 +9,19 @@ func _ready():
 	
 	Game.loadSave()
 	$Options/HBoxContainer/Continiue.disabled = !Game.respawnScene
+	
+	$Options/HBoxContainer/Continiue.grab_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
 func _on_settings_pressed():
 	$Settings.visible = true
 	$Options.visible = false
+	$Settings/VBoxContainer/Back.grab_focus()
 
 
 func _on_quit_pressed():
@@ -27,6 +30,7 @@ func _on_quit_pressed():
 func _on_back_pressed():
 	$Settings.visible = false
 	$Options.visible = true
+	$Options/HBoxContainer/Continiue.grab_focus()
 
 func _on_start_new_game_pressed():
 	$Settings.visible = false

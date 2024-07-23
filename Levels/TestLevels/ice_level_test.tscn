@@ -146,6 +146,7 @@ grow_vertical = 2
 color = Color(0.309804, 0.560784, 0.729412, 1)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground3"]
+position = Vector2(-180, 0)
 motion_scale = Vector2(2.08165e-12, 1)
 
 [node name="Sprite2D2" type="Sprite2D" parent="PreviewingParallaxBackground3/ParallaxLayer3"]
@@ -166,6 +167,7 @@ layer = -2
 script = ExtResource("2_ki17x")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-178.2, 0)
 motion_scale = Vector2(0.01, 1)
 
 [node name="Sprite2D3" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer4"]
@@ -197,6 +199,7 @@ layer = -1
 script = ExtResource("2_ki17x")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground"]
+position = Vector2(-126, 0)
 motion_scale = Vector2(0.3, 1)
 
 [node name="Sprite2D2" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer2"]
@@ -210,6 +213,7 @@ position = Vector2(254.859, -2)
 texture = ExtResource("6_6pkag")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground"]
+position = Vector2(-90, 0)
 motion_scale = Vector2(0.5, 1)
 
 [node name="Sprite2D2" type="Sprite2D" parent="PreviewingParallaxBackground/ParallaxLayer"]
@@ -390,6 +394,7 @@ layer = 1
 script = ExtResource("2_ki17x")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
+position = Vector2(54, 0)
 motion_scale = Vector2(1.3, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Front/ParallaxLayer4"]

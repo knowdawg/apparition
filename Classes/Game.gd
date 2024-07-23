@@ -74,7 +74,18 @@ func _ready():
 	#createNewSave()
 	loadSave()
 
+func pause():
+	get_tree().paused = true
+		
+func resume():
+	get_tree().paused = false
+
 func _process(delta):
+	if Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)).length() > 0.1:
+		controler = true
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		controler = false
+	
 	slomoTimer -= delta
 	if slomoTimer <= 0.0:
 		Engine.time_scale = 1.0
@@ -102,7 +113,7 @@ func switch_scene(data : SwitchSceneData):
 		s.fadeIn()
 		s.fadeInComplete.connect(fadeComplete)
 	else:
-		if player:
+		if is_instance_valid(player):
 			playerHealth = player.get_health()
 		doorEnterName = data.door
 		playerFacingLeft = data.facingLeft

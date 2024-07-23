@@ -6,11 +6,14 @@ color = Color(0.156863, 0.0392157, 0.0392157, 1)
 thickness = 10
 vertical = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkdym"]
-bg_color = Color(0.784314, 0.0980392, 0.0980392, 1)
-border_width_right = 200
-border_color = Color(0.784314, 0.0980392, 0.0980392, 0)
-border_blend = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqa33"]
+content_margin_left = 50.0
+bg_color = Color(0.784314, 0.0980392, 0.0980392, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.784314, 0.0980392, 0.0980392, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
@@ -82,7 +85,7 @@ default_font = SubResource("FontFile_70usm")
 default_font_size = 80
 Button/colors/font_disabled_color = Color(0.197937, 0.197937, 0.197937, 1)
 Button/styles/disabled = SubResource("StyleBoxLine_x68kx")
-Button/styles/focus = SubResource("StyleBoxFlat_bkdym")
+Button/styles/focus = SubResource("StyleBoxFlat_oqa33")
 Button/styles/hover = SubResource("StyleBoxFlat_h3vga")
 Button/styles/normal = SubResource("StyleBoxLine_0x258")
 Button/styles/pressed = SubResource("StyleBoxLine_f6oi6")

@@ -1,0 +1,43 @@
+extends Area2D
+
+@export var text : String
+@export var waitTime : float
+@export var enabled = true
+
+var playingInside = false
+
+func _ready():
+	$TutorialIcons/Control/Label.text = text
+	t = waitTime
+	
+
+var t = 0.0
+func _physics_process(delta):
+	if enabled:
+		if playingInside:
+			t -= delta
+			if t <= 0 and $TutorialIcons/Control/Label.modulate.a == 0.0:
+				$AnimationPlayer.play("Show")
+		if !playingInside and $TutorialIcons/Control/Label.modulate.a > 0.0:
+			t = waitTime
+			$AnimationPlayer.play("Hide")
+
+func _on_body_entered(body):
+	if body is Player:
+		playingInside = true
+		#$AnimationPlayer.play("Show")
+		
+
+func _on_body_exited(body):
+	if body is Player:
+		playingInside= false
+		#$AnimationPlayer.play("Hide")
+
+func enable():
+	enabled = true
+
+func disable():
+	enabled = false
+	if $TutorialIcons/Control/Label.modulate.a > 0.0:
+		$AnimationPlayer.play("Hide")
+	

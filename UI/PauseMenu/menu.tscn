@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2yp5ws8trq4k"]
+
+[ext_resource type="Theme" uid="uid://b2orsuuil3dch" path="res://UI/MainMenu/Theme.tres" id="1_c247y"]
+[ext_resource type="Script" path="res://UI/PauseMenu/menu.gd" id="1_fyn32"]
+[ext_resource type="PackedScene" uid="uid://d2v5hfbp7h6vc" path="res://UI/MainMenu/MenuButton2.tscn" id="1_hrfam"]
+
+[node name="Menu" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_fyn32")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c247y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.65
+anchor_right = 0.4
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" parent="Panel/VBoxContainer" instance=ExtResource("1_hrfam")]
+layout_mode = 2
+text = "Resume"
+
+[node name="Save" parent="Panel/VBoxContainer" instance=ExtResource("1_hrfam")]
+layout_mode = 2
+text = "Save"
+
+[node name="Quit" parent="Panel/VBoxContainer" instance=ExtResource("1_hrfam")]
+layout_mode = 2
+text = "Quit To Menu"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
