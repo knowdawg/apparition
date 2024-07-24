@@ -3,6 +3,7 @@ class_name PlayerJump
 
 @export var animated_player_sprite : AnimatedSprite2D
 @export var player : Player
+@export var sound : AudioStreamPlayer
 
 func update(delta):
 	player.update_physics(delta)
@@ -22,3 +23,5 @@ func update(delta):
 
 func enter():
 	animated_player_sprite.play("Jump")
+	#sound.pitch_scale = randf_range(6.0, 7.0)
+	#sound.play()

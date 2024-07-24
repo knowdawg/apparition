@@ -92,7 +92,7 @@ color = Color(0.0784314, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-212.227, 0)
+position = Vector2(-869.11, 0)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -103,7 +103,7 @@ script = ExtResource("2_js8nk")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
 modulate = Color(1, 0.235294, 0.262745, 1)
-position = Vector2(-134.038, 0)
+position = Vector2(-548.912, 0)
 motion_scale = Vector2(0.4, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer5" instance=ExtResource("5_44u1y")]
@@ -117,7 +117,7 @@ layer_0/tile_data = PackedInt32Array(-65534, 1, 0, -65535, 1, 0, -65536, 1, 0, -
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
 modulate = Color(1, 0.470588, 0.529412, 1)
-position = Vector2(-89.3588, 0)
+position = Vector2(-365.941, 0)
 motion_scale = Vector2(0.6, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer4" instance=ExtResource("5_44u1y")]
@@ -133,7 +133,7 @@ layer_0/tile_data = PackedInt32Array(-65534, 1, 0, -65535, 1, 0, -65536, 1, 0, -
 position = Vector2(297.545, -7.62939e-06)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-44.6794, 0)
+position = Vector2(-182.971, 0)
 motion_scale = Vector2(0.8, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("5_44u1y")]
@@ -146,7 +146,7 @@ scale = Vector2(1, -1)
 layer_0/tile_data = PackedInt32Array(-65534, 1, 0, -65535, 1, 0, -65536, 1, 0, -1, 1, 0, -65532, 1, 0, -65533, 1, 0, -2, 1, 0, -3, 1, 0, -4, 1, 0, -5, 1, 0, -6, 1, 0, -7, 1, 0, -8, 1, 0, -9, 1, 0, -10, 1, 0, -11, 1, 0, -12, 1, 0, -13, 1, 0, -196603, 1, 536870912, -131086, 1, 536870912)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-22.3397, 0)
+position = Vector2(-91.4853, 0)
 motion_scale = Vector2(0.9, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer2" instance=ExtResource("5_44u1y")]
@@ -383,7 +383,7 @@ layer = 1
 script = ExtResource("2_js8nk")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(44.6794, 25.0376)
+position = Vector2(182.971, 55.9565)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -398,7 +398,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(89.3588, 50.0752)
+position = Vector2(365.941, 111.913)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

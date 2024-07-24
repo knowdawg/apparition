@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://d35rebr6i83wr"]
+[gd_scene load_steps=104 format=3 uid="uid://d35rebr6i83wr"]
 
 [ext_resource type="Texture2D" uid="uid://c0e3gcyrliq4" path="res://Assets/Sprites/Enemies/Reaper.png" id="1_6umt5"]
 [ext_resource type="Shader" path="res://Objects/Enemies/Outline.gdshader" id="1_d5kf7"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://brujq4dkn34nd" path="res://Assets/Components/ProximityArea/proximity_area.tscn" id="14_go0nf"]
 [ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="15_a5c7c"]
 [ext_resource type="PackedScene" uid="uid://cru06e3xm5mc4" path="res://Assets/Components/BashSieldComponent/bash_shield_component.tscn" id="16_kqrxl"]
+[ext_resource type="AudioStream" uid="uid://vip0n70pgf66" path="res://SoundEffects/EnemyHit.wav" id="20_5sw1c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bubww"]
 radius = 3.0
@@ -810,3 +811,6 @@ position = Vector2(0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_p1hsr")
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_5sw1c")

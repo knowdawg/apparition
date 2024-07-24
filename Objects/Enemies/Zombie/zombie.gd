@@ -68,6 +68,7 @@ func do_hit_effect(attack: Attack):
 	if attack.attack_damage > 0.0:
 		$HitAnimator.play("Hit")
 		$EnemyHitEffectComponent.hit()
+		$HitSound.play()
 	
 	velocity.x = (global_position - attack.attack_position).normalized().x * attack.knockback_force
 	

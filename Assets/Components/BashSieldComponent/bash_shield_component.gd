@@ -24,6 +24,7 @@ func setShield(on : bool):
 		currSprite.material.set_shader_parameter("color", Color(1.0, 1.0, 1.0, 1.0))
 		$AnimationPlayer.play("ShieldBreak")
 		$EnemyHitEffectComponent.play("Hit")
+		$BreakSound.play()
 		Game.slow_down(0.5, 0.05)
 
 func getShield():

@@ -13,13 +13,14 @@ func getRespawnLoc():
 func _on_area_2d_body_entered(body):
 	if body is Player:
 		Game.respawnScene = respawnScene;
-		Game.player.set_health(Game.maxPlayerHealth)
+		Game.player.set_health(Game.maxPlayerHealth) 
 		if active == false:
 			active = true
 			$AnimationPlayer.play("Activate")
 
 func playRespawnAnimation():
 	$AnimationPlayer.play("Respawn")
+	$AudioStreamPlayer.play()
 
 func respawnPlayer():
 	respawn.emit();

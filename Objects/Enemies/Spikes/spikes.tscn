@@ -29,4 +29,3 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_asrc2")
 
 [connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]
-[connection signal="body_entered" from="HitboxComponent" to="." method="_on_hitbox_component_body_entered"]

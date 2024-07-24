@@ -99,7 +99,7 @@ script = ExtResource("4_piuog")
 originNode = NodePath("../../Foreground/ShaderMarker")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-463.151, 0)
+position = Vector2(-444.02, 0)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -109,7 +109,7 @@ script = ExtResource("2_c2bxm")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_3w5tg")]
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-341.269, -81.0224)
+position = Vector2(-327.173, -96.9496)
 motion_scale = Vector2(0.3, 0.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer4"]
@@ -118,7 +118,7 @@ position = Vector2(65.6155, 54.3367)
 texture = ExtResource("4_e878o")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-316.893, -75.2351)
+position = Vector2(-303.803, -90.0246)
 motion_scale = Vector2(0.35, 0.35)
 
 [node name="Sprite2D" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer2"]
@@ -127,7 +127,7 @@ position = Vector2(68.2858, 68.3127)
 texture = ExtResource("4_d0may")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-243.764, -57.8731)
+position = Vector2(-233.695, -69.2497)
 motion_scale = Vector2(0.5, 0.5)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_1b44d")]
@@ -312,7 +312,7 @@ layer = 1
 script = ExtResource("2_c2bxm")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(97.5055, 23.1493)
+position = Vector2(93.4779, 27.6999)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -327,7 +327,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(195.011, 46.2985)
+position = Vector2(186.956, 55.3997)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

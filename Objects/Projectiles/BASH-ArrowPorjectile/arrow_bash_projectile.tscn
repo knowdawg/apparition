@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6m7cqg63d4rf"]
+[gd_scene load_steps=8 format=3 uid="uid://b6m7cqg63d4rf"]
 
 [ext_resource type="Shader" path="res://Objects/Enemies/Outline.gdshader" id="1_a0yyd"]
 [ext_resource type="Script" path="res://Objects/Projectiles/BASH-ArrowPorjectile/arrow_bash_projectile.gd" id="1_iewia"]
 [ext_resource type="Texture2D" uid="uid://c6s0echpxevn7" path="res://Assets/Sprites/Effects/BirdProjectile.png" id="2_g17sj"]
 [ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="4_r66yt"]
+[ext_resource type="AudioStream" uid="uid://bxqjtfwkp1ftp" path="res://SoundEffects/ArrowBash.wav" id="5_id6kq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w6y0j"]
 shader = ExtResource("1_a0yyd")
@@ -27,9 +28,6 @@ material = SubResource("ShaderMaterial_w6y0j")
 texture = ExtResource("2_g17sj")
 offset = Vector2(2.08165e-12, -0.5)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-
 [node name="HitboxComponent2" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("4_r66yt")]
 collision_mask = 4
 collisionShape = NodePath("CollisionShape2D")
@@ -41,4 +39,8 @@ isBashAttack = true
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_afgtk")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_id6kq")
+volume_db = -5.0
+
+[connection signal="finished" from="SpawnSound" to="." method="_on_spawn_sound_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ccdq3y2oyesby"]
+[gd_scene load_steps=55 format=3 uid="uid://ccdq3y2oyesby"]
 
 [ext_resource type="Texture2D" uid="uid://beljv3j8xirn7" path="res://Assets/Sprites/Enemies/BlackWhiteBird.png" id="1_cpx11"]
 [ext_resource type="Script" path="res://Objects/Enemies/Bird/bird.gd" id="1_qsfc8"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://brujq4dkn34nd" path="res://Assets/Components/ProximityArea/proximity_area.tscn" id="12_iga81"]
 [ext_resource type="PackedScene" uid="uid://cru06e3xm5mc4" path="res://Assets/Components/BashSieldComponent/bash_shield_component.tscn" id="16_hw1nk"]
 [ext_resource type="PackedScene" uid="uid://c022a8gxx3h8r" path="res://Assets/Components/BashComponent/bash_component.tscn" id="18_kj3cw"]
+[ext_resource type="AudioStream" uid="uid://vip0n70pgf66" path="res://SoundEffects/EnemyHit.wav" id="20_mal7c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ux1ta"]
 radius = 6.0
@@ -447,3 +448,6 @@ animation = &"Idle"
 visible = false
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_4htlj")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_mal7c")

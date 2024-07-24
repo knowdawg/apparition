@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c362yw200mlwi"]
+[gd_scene load_steps=18 format=3 uid="uid://c362yw200mlwi"]
 
 [ext_resource type="Script" path="res://Objects/Projectiles/BASH-ShotgunProjectile/shotgun_bash_effect.gd" id="1_8idhu"]
 [ext_resource type="Shader" path="res://Objects/Enemies/Outline.gdshader" id="2_3tpcn"]
 [ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="2_35gfw"]
 [ext_resource type="Texture2D" uid="uid://b6h2amdm85178" path="res://Assets/Sprites/Effects/ShotgunBash.png" id="2_j2lea"]
+[ext_resource type="AudioStream" uid="uid://ceh3r46654t12" path="res://SoundEffects/ShotgunBash.wav" id="5_berik"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kvero"]
 shader = ExtResource("2_3tpcn")
@@ -133,4 +134,9 @@ libraries = {
 "": SubResource("AnimationLibrary_2kxs8")
 }
 
+[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_berik")
+volume_db = -5.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="SpawnSound" to="." method="_on_spawn_sound_finished"]

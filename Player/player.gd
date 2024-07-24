@@ -16,8 +16,8 @@ var jump_force : float = (2 * jump_hieght)/jump_time
 
 var coyote_time = false
 var prejump = false
-@export var prejumpTimer : Timer;
-@export var CoyoteTimer : Timer;
+@export var prejumpTimer : Timer
+@export var CoyoteTimer : Timer
 
 @onready var sprite = $HeroSprite
 @onready var hitbox = $HitboxComponent
@@ -41,6 +41,8 @@ func bashSetup(bashTarget : BashComponent):
 	bashTargetPosition = curBashTarget.global_position
 	
 	canHealFromBash = bashTarget.oneShot #only heal if its a one time bash
+	
+	$BashSound.play()
 
 func bashComplete():
 	stateMachine.onChildTransition(stateMachine.current_state, "Stun")
@@ -100,7 +102,13 @@ func _process(_delta):
 		Game.currentCamera.limit_top = c.upLimit
 		Game.currentCamera.limit_bottom = c.downLimit
 
+var wasOnFloor = true
 func update_physics(delta):
+	
+	if is_on_floor() == true and wasOnFloor == false:
+		$HitGroundSound.pitch_scale = randf_range(0.5, 1.0)
+		$HitGroundSound.play()
+	wasOnFloor = is_on_floor()
 	
 	var x_input = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	
@@ -174,8 +182,10 @@ func hit(attack : Attack):
 	$IframeAnimator.play("Iframe")
 	Game.slow_down(0.3, 0.1)
 	$HitSprite.rotation_degrees = randf_range(0.0, 360.0)
+	$HitSound.pitch_scale = randf_range(0.7, 1.5)
 	$HitSprite.play("Hit")
 	camera.set_shake(5.0)
+	$HitSound.play()
 
 func death(attack : Attack):
 	currentKnockbackVector = (global_position - attack.attack_position).normalized() * attack.knockback_force
@@ -183,6 +193,8 @@ func death(attack : Attack):
 	stateMachine.onChildTransition(stateMachine.current_state, "Dead")
 	Game.slow_down(1.0, 0.1)
 	camera.set_shake(10.0)
+	$HitSound.play()
+	#$HitSound.pitch_scale = randf_range(0.9, 1.1)
 	$IframeAnimator.play("Death")
 	$HurtboxComponent.call_deferred("disable")
 
