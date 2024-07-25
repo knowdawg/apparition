@@ -86,7 +86,7 @@ alpha_curve = SubResource("CurveTexture_uiubr")
 
 [node name="ReaperPillarHell" type="Node2D" node_paths=PackedStringArray("rp")]
 script = ExtResource("1_vye86")
-playerStartingPosOnFalure = Vector2(68, 2.08165e-12)
+playerStartingPosOnFalure = Vector2(2.08165e-12, 2.08165e-12)
 rp = NodePath("Foreground/RespawnPoint")
 
 [node name="Cavern" type="ParallaxBackground" parent="."]
@@ -106,7 +106,7 @@ originNode = NodePath("../../Foreground/Doors/RightDoor/Marker2D")
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-46.1823, 0)
+position = Vector2(-448.214, 7.62939e-06)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -116,13 +116,13 @@ script = ExtResource("2_3br7m")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_dbg7w")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-14.5839, 0)
+position = Vector2(-141.541, 7.62939e-06)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_stniv")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-4.8613, 0)
+position = Vector2(-47.1804, 7.62939e-06)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("5_crb3m")]
@@ -374,7 +374,7 @@ layer = 1
 script = ExtResource("2_3br7m")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(9.72258, 36.7951)
+position = Vector2(94.3608, 24.508)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -389,7 +389,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(19.4452, 73.5902)
+position = Vector2(188.721, 49.0159)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

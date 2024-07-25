@@ -29,9 +29,17 @@ var playerDmg : float
 
 var playerFile = "user://save.dat"
 
+var masterVolume : float = 1.0
+var soundEfectsVolume : float = 1.0
+var musicVolume : float = 1.0
+var settingFile = "user://settings.dat"
+
 func save():
 	var file = FileAccess.open(playerFile, FileAccess.WRITE)
 	file.store_var(createPlayerData())
+	
+	var sFile = FileAccess.open(settingFile, FileAccess.WRITE)
+	sFile.store_var(createSettingsData())
 
 func createNewSave():
 	enemyManagerCompletionStatus = {}
@@ -41,6 +49,7 @@ func createNewSave():
 	respawnScene = ""
 	maxPlayerHealth = 10.0
 	playerDmg = 1.0
+	
 	save()
 
 func loadSave():
@@ -55,6 +64,14 @@ func loadSave():
 		maxPlayerHealth = loadedData.maxHealth
 		playerDmg = loadedData.playerDmg
 
+func loadSettingSave():
+	if FileAccess.file_exists(settingFile):
+		var file = FileAccess.open(settingFile, FileAccess.READ)
+		var loadedData = file.get_var()
+		masterVolume = loadedData.masterVolume
+		soundEfectsVolume = loadedData.soundEfectsVolume
+		musicVolume = loadedData.musicVolume
+
 func createPlayerData():
 	var playerData : Dictionary = {
 		"enemyManagerData" : enemyManagerCompletionStatus,
@@ -67,18 +84,35 @@ func createPlayerData():
 	}
 	return playerData
 
+func createSettingsData():
+	var sData : Dictionary = {
+		"masterVolume" : masterVolume,
+		"soundEfectsVolume" : soundEfectsVolume,
+		"musicVolume" : musicVolume
+	}
+	return sData
+
 func _exit_tree():
 	save()
 
 func _ready():
 	#createNewSave()
 	loadSave()
+	loadSettingSave()
 
 func pause():
 	get_tree().paused = true
 		
 func resume():
 	get_tree().paused = false
+
+func get_volume(isEffect : bool):
+	var db = 1.0
+	if isEffect:
+		db = log(masterVolume * soundEfectsVolume)
+	else:
+		db = log(masterVolume * musicVolume)
+	return(db * 20.0)
 
 func _process(delta):
 	if Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)).length() > 0.1:

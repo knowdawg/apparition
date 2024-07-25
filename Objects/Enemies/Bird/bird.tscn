@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ccdq3y2oyesby"]
+[gd_scene load_steps=59 format=3 uid="uid://ccdq3y2oyesby"]
 
 [ext_resource type="Texture2D" uid="uid://beljv3j8xirn7" path="res://Assets/Sprites/Enemies/BlackWhiteBird.png" id="1_cpx11"]
 [ext_resource type="Script" path="res://Objects/Enemies/Bird/bird.gd" id="1_qsfc8"]
@@ -20,6 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://cru06e3xm5mc4" path="res://Assets/Components/BashSieldComponent/bash_shield_component.tscn" id="16_hw1nk"]
 [ext_resource type="PackedScene" uid="uid://c022a8gxx3h8r" path="res://Assets/Components/BashComponent/bash_component.tscn" id="18_kj3cw"]
 [ext_resource type="AudioStream" uid="uid://vip0n70pgf66" path="res://SoundEffects/EnemyHit.wav" id="20_mal7c"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="20_vl28b"]
+[ext_resource type="AudioStream" uid="uid://dgqhqhpobyedu" path="res://SoundEffects/SpawnPulsate.wav" id="22_uyjms"]
+[ext_resource type="AudioStream" uid="uid://btvlinrdqck0o" path="res://SoundEffects/EnemyDead.wav" id="23_1jq4w"]
+[ext_resource type="AudioStream" uid="uid://clfrnam3efbp2" path="res://SoundEffects/PlayerSwing.wav" id="24_g7i3f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ux1ta"]
 radius = 6.0
@@ -357,10 +361,11 @@ parent = NodePath("../..")
 sprite = NodePath("../../BirdSprite")
 proximityComponent = NodePath("../../Components/Proximities/ChaseProximity")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "sprite")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "sprite", "attackSound")]
 script = ExtResource("6_pjuk0")
 parent = NodePath("../..")
 sprite = NodePath("../../BirdSprite")
+attackSound = NodePath("../../Flap")
 
 [node name="Stun" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "sprite")]
 script = ExtResource("4_pjdpl")
@@ -449,5 +454,19 @@ visible = false
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_4htlj")
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+[node name="HitSound" parent="." instance=ExtResource("20_vl28b")]
 stream = ExtResource("20_mal7c")
+
+[node name="HitSound2" parent="." instance=ExtResource("20_vl28b")]
+stream = ExtResource("22_uyjms")
+pitch_scale = 3.0
+volumeAdd = -7.0
+
+[node name="DeathSound" parent="." instance=ExtResource("20_vl28b")]
+stream = ExtResource("23_1jq4w")
+volumeAdd = -12.0
+
+[node name="Flap" parent="." instance=ExtResource("20_vl28b")]
+stream = ExtResource("24_g7i3f")
+pitch_scale = 2.0
+volumeAdd = -12.0

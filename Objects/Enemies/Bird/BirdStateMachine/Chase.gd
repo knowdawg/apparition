@@ -3,6 +3,7 @@ class_name BirdAttack
 
 @export var parent : Bird
 @export var sprite : AnimatedSprite2D
+@export var attackSound : SoundPlayer
 
 var timer = 0.0
 var has_attacked = false
@@ -11,6 +12,7 @@ func update_physics(delta):
 	if timer > 0.5:
 		parent.velocity = Vector2.ZERO
 	elif timer < 0.5 and timer > 0.4:
+		attackSound.playSound(1.0, 1.5)
 		parent.move(false, delta)
 		parent.velocity = parent.velocity.normalized() * 2500.0 * delta
 		if has_attacked == false:

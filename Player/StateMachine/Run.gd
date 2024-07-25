@@ -3,15 +3,14 @@ class_name PlayerRun
 
 @export var animated_player_sprite : AnimatedSprite2D
 @export var player : Player
-@export var sound : AudioStreamPlayer
+@export var sound : AudioStreamPlayer2D
 
 var soundTimer = 0.0
 func update(delta):
 	soundTimer -= delta
 	if soundTimer <= 0.0:
 		soundTimer = 0.3
-		sound.pitch_scale = randf_range(0.5, 1.0)
-		sound.play()
+		sound.playSound(0.5, 1.0)
 	
 	player.update_physics(delta)
 	

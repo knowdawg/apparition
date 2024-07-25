@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://dxe4p2on2g6r3"]
+[gd_scene load_steps=103 format=3 uid="uid://dxe4p2on2g6r3"]
 
 [ext_resource type="Script" path="res://Objects/Enemies/Zombie/zombie.gd" id="1_1hldc"]
 [ext_resource type="Texture2D" uid="uid://ddu1odcpbxf30" path="res://Assets/Sprites/Enemies/BlackWhiteZombie.png" id="1_eb75s"]
@@ -19,6 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://d4gtkk8c7u11v" path="res://Assets/Components/EnemyDeathEffectComponent/enemy_death_effect_component.tscn" id="16_osxfy"]
 [ext_resource type="PackedScene" uid="uid://c022a8gxx3h8r" path="res://Assets/Components/BashComponent/bash_component.tscn" id="18_8rgli"]
 [ext_resource type="AudioStream" uid="uid://vip0n70pgf66" path="res://SoundEffects/EnemyHit.wav" id="19_l2c2w"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="19_mwkjf"]
+[ext_resource type="AudioStream" uid="uid://dk7avd3l0us74" path="res://SoundEffects/EnemyHit2.wav" id="21_tfw26"]
+[ext_resource type="AudioStream" uid="uid://btvlinrdqck0o" path="res://SoundEffects/EnemyDead.wav" id="22_p6pym"]
+[ext_resource type="AudioStream" uid="uid://dnpogr0y4nve" path="res://SoundEffects/PlayerWalk.wav" id="23_lbwv6"]
+[ext_resource type="AudioStream" uid="uid://clfrnam3efbp2" path="res://SoundEffects/PlayerSwing.wav" id="24_jk5k4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yn4l7"]
 size = Vector2(10, 5)
@@ -725,12 +730,13 @@ parrent = NodePath("../..")
 proximityArea = NodePath("../../ProximityArea")
 sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("parrent", "proximityArea", "attackProximityArea", "sprite")]
+[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("parrent", "proximityArea", "attackProximityArea", "sprite", "walkSound")]
 script = ExtResource("4_cfobj")
 parrent = NodePath("../..")
 proximityArea = NodePath("../../ProximityArea")
 attackProximityArea = NodePath("../../AttackProximityArea")
 sprite = NodePath("../../AnimatedSprite2D")
+walkSound = NodePath("../../Footsteps")
 
 [node name="HitStun" type="Node" parent="StateMachine" node_paths=PackedStringArray("parrent", "sprite")]
 script = ExtResource("5_72eww")
@@ -738,11 +744,12 @@ parrent = NodePath("../..")
 sprite = NodePath("../../AnimatedSprite2D")
 stunTime = 0.2
 
-[node name="Slash" type="Node" parent="StateMachine" node_paths=PackedStringArray("parrent", "sprite", "hitbox")]
+[node name="Slash" type="Node" parent="StateMachine" node_paths=PackedStringArray("parrent", "sprite", "hitbox", "attackSound")]
 script = ExtResource("6_8qex7")
 parrent = NodePath("../..")
 sprite = NodePath("../../AnimatedSprite2D")
 hitbox = NodePath("../../HitboxComponent")
+attackSound = NodePath("../../AttackSound")
 
 [node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("parrent")]
 script = ExtResource("6_gdxy1")
@@ -829,8 +836,24 @@ collision_mask = 8
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_klx78")
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+[node name="HitSound" parent="." instance=ExtResource("19_mwkjf")]
 stream = ExtResource("19_l2c2w")
+
+[node name="HitSound2" parent="." instance=ExtResource("19_mwkjf")]
+stream = ExtResource("21_tfw26")
+volumeAdd = -8.0
+
+[node name="DeathSound" parent="." instance=ExtResource("19_mwkjf")]
+stream = ExtResource("22_p6pym")
+volumeAdd = -10.0
+
+[node name="Footsteps" parent="." instance=ExtResource("19_mwkjf")]
+stream = ExtResource("23_lbwv6")
+volumeAdd = -12.0
+
+[node name="AttackSound" parent="." instance=ExtResource("19_mwkjf")]
+stream = ExtResource("24_jk5k4")
+volumeAdd = -5.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Slash" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="HazardChecker" to="." method="_on_hazard_checker_area_entered"]

@@ -3,7 +3,7 @@ extends Node2D
 func _ready():
 	$Sprite.play("Blast")
 	$AnimationPlayer.play("Blast")
-	$SpawnSound.play()
+	$SpawnSound.playSound()
 
 func _on_timer_timeout():
 	$HitboxComponent/CollisionShape2D.disabled = true

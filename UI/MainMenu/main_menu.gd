@@ -11,11 +11,11 @@ func _ready():
 	$Options/HBoxContainer/Continiue.disabled = !Game.respawnScene
 	
 	$Options/HBoxContainer/Continiue.grab_focus()
+	
+	$Settings/VBoxContainer/Volume.value = Game.masterVolume * 100.0
+	$Settings/VBoxContainer/Effects.value = Game.soundEfectsVolume * 100.0
+	$Settings/VBoxContainer/Music.value = Game.musicVolume * 100.0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 
 func _on_settings_pressed():
@@ -49,3 +49,13 @@ func _on_continiue_pressed():
 	
 	Game.loadSave()
 	Game.playerDead()
+
+
+func _on_volume_value_changed(value):
+	Game.masterVolume = value / 100.0
+
+func _on_effects_value_changed(value):
+	Game.soundEfectsVolume = value / 100.0
+
+func _on_music_value_changed(value):
+	Game.musicVolume = value / 100.0

@@ -22,6 +22,7 @@ func _on_area_2d_body_entered(body):
 		$AnimationPlayer.play("RESET")
 		$Sprite.visible = false
 		$CanvasLayer.visible = true
+		$Colect.playSound()
 		impale()
 
 func _process(_delta):
@@ -51,8 +52,14 @@ func impaleReady(_index):
 		$CanvasLayer/ImpaleParticles.emitting = true
 		$AnimationPlayer.play("Impale")
 		hasImpaled = true
+		$Impale.playSound()
 
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Impale":
 		Game.maxPlayerHealth += 1
+
+
+func _on_timer_timeout():
+	if !colected:
+		$Ambience.playSound()

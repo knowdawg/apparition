@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4ryc8tsnc78p"]
+
+[ext_resource type="Script" path="res://SoundEffects/SoundObjects/SoundPlayer.gd" id="2_rnts8"]
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D"]
+max_distance = 128.0
+script = ExtResource("2_rnts8")

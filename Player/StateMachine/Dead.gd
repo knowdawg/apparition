@@ -3,7 +3,6 @@ class_name PlayerDead
 
 @export var animated_player_sprite : AnimatedSprite2D
 @export var player : Player
-@export var sound : AudioStreamPlayer
 
 var d = false
 
@@ -18,7 +17,6 @@ func update_physics(delta):
 		k.x = lerp(k.x, 0.0, 0.2 * delta * 60)
 		if d == false:
 			animated_player_sprite.play("Death", 1.0)
-			sound.play()
 			d = true;
 	
 	k.y = lerp(k.y, 0.0, 0.2 * delta * 60)

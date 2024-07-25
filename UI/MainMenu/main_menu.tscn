@@ -203,4 +203,7 @@ text = "Back"
 [connection signal="pressed" from="Options/HBoxContainer/StartNewGame" to="." method="_on_start_new_game_pressed"]
 [connection signal="pressed" from="Options/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Options/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/Effects" to="." method="_on_effects_value_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/Music" to="." method="_on_music_value_changed"]
 [connection signal="pressed" from="Settings/VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://brujq4dkn34nd" path="res://Assets/Components/ProximityArea/proximity_area.tscn" id="26_sjwpr"]
 [ext_resource type="AudioStream" uid="uid://bixffyybsmca0" path="res://SoundEffects/Bash.wav" id="32_qtfjk"]
 [ext_resource type="AudioStream" uid="uid://ba2cooqc02vq1" path="res://SoundEffects/PlayerHit.wav" id="33_lsy4h"]
-[ext_resource type="AudioStream" uid="uid://c1rwil42bg1sa" path="res://SoundEffects/PlayerDeadHitGround.wav" id="34_w75y8"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="35_kia5y"]
 [ext_resource type="AudioStream" uid="uid://clfrnam3efbp2" path="res://SoundEffects/PlayerSwing.wav" id="35_s14tk"]
 [ext_resource type="AudioStream" uid="uid://dnpogr0y4nve" path="res://SoundEffects/PlayerWalk.wav" id="36_tcj4y"]
 [ext_resource type="AudioStream" uid="uid://dcj3sjipkvhpb" path="res://SoundEffects/PlayerLand.wav" id="37_fpdhm"]
@@ -1061,11 +1061,10 @@ player = NodePath("../..")
 Hitbox = NodePath("../../HitboxComponent")
 sound = NodePath("../../AttackSound")
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_player_sprite", "player", "sound")]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_player_sprite", "player")]
 script = ExtResource("7_eokli")
 animated_player_sprite = NodePath("../../HeroSprite")
 player = NodePath("../..")
-sound = NodePath("../../AttackSound")
 
 [node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_player_sprite", "player")]
 script = ExtResource("8_utn5n")
@@ -1082,11 +1081,10 @@ script = ExtResource("11_xbf5p")
 animated_player_sprite = NodePath("../../HeroSprite")
 player = NodePath("../..")
 
-[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_player_sprite", "player", "sound")]
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_player_sprite", "player")]
 script = ExtResource("12_4uqs7")
 animated_player_sprite = NodePath("../../HeroSprite")
 player = NodePath("../..")
-sound = NodePath("../../DeathHitFloorSound")
 
 [node name="Getup" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "player")]
 script = ExtResource("13_ehtvg")
@@ -1199,28 +1197,27 @@ collision_mask = 32
 visible = false
 shape = SubResource("CircleShape2D_27qyu")
 
-[node name="BashSound" type="AudioStreamPlayer" parent="."]
+[node name="BashSound" parent="." instance=ExtResource("35_kia5y")]
 stream = ExtResource("32_qtfjk")
-volume_db = -10.0
+volumeAdd = -10.0
 
-[node name="HitSound" type="AudioStreamPlayer" parent="."]
+[node name="HitSound" parent="." instance=ExtResource("35_kia5y")]
 stream = ExtResource("33_lsy4h")
 
-[node name="DeathHitFloorSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("34_w75y8")
-
-[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+[node name="AttackSound" parent="." instance=ExtResource("35_kia5y")]
 stream = ExtResource("35_s14tk")
-volume_db = -12.0
-pitch_scale = 3.0
+volumeAdd = -15.0
 
-[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+[node name="WalkSound" parent="." instance=ExtResource("35_kia5y")]
 stream = ExtResource("36_tcj4y")
-volume_db = -10.0
+volumeAdd = -10.0
 
-[node name="HitGroundSound" type="AudioStreamPlayer" parent="."]
+[node name="HitGroundSound" parent="." instance=ExtResource("35_kia5y")]
 stream = ExtResource("37_fpdhm")
-volume_db = -20.0
+volumeAdd = -20.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
 
 [connection signal="animation_finished" from="HeroSprite" to="StateMachine/Dead" method="_on_hero_sprite_animation_finished"]
 [connection signal="timeout" from="Timers/PrejumpTime" to="." method="_on_prejump_time_timeout"]

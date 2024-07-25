@@ -42,7 +42,7 @@ func bashSetup(bashTarget : BashComponent):
 	
 	canHealFromBash = bashTarget.oneShot #only heal if its a one time bash
 	
-	$BashSound.play()
+	$BashSound.playSound()
 
 func bashComplete():
 	stateMachine.onChildTransition(stateMachine.current_state, "Stun")
@@ -106,8 +106,7 @@ var wasOnFloor = true
 func update_physics(delta):
 	
 	if is_on_floor() == true and wasOnFloor == false:
-		$HitGroundSound.pitch_scale = randf_range(0.5, 1.0)
-		$HitGroundSound.play()
+		$HitGroundSound.playSound(0.5, 1.0)
 	wasOnFloor = is_on_floor()
 	
 	var x_input = Input.get_action_strength("Right") - Input.get_action_strength("Left")
@@ -182,10 +181,9 @@ func hit(attack : Attack):
 	$IframeAnimator.play("Iframe")
 	Game.slow_down(0.3, 0.1)
 	$HitSprite.rotation_degrees = randf_range(0.0, 360.0)
-	$HitSound.pitch_scale = randf_range(0.7, 1.5)
 	$HitSprite.play("Hit")
 	camera.set_shake(5.0)
-	$HitSound.play()
+	$HitSound.playSound(0.75, 1.5)
 
 func death(attack : Attack):
 	currentKnockbackVector = (global_position - attack.attack_position).normalized() * attack.knockback_force
@@ -193,8 +191,7 @@ func death(attack : Attack):
 	stateMachine.onChildTransition(stateMachine.current_state, "Dead")
 	Game.slow_down(1.0, 0.1)
 	camera.set_shake(10.0)
-	$HitSound.play()
-	#$HitSound.pitch_scale = randf_range(0.9, 1.1)
+	$HitSound.playSound()
 	$IframeAnimator.play("Death")
 	$HurtboxComponent.call_deferred("disable")
 

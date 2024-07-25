@@ -52,7 +52,14 @@ func getControllerBashVector() -> Vector2:
 		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)).normalized()
 	return stickVector
 
+var sTimer = 0.4
+
 func move(towardsPlayer : bool, delta):
+	sTimer -= delta
+	if sTimer <= 0.0:
+		$Flap.playSound(1.7, 2.3)
+		sTimer = 0.4
+	
 	var motion = (global_position - Game.player.global_position).normalized() * movementSpeed * delta
 	if towardsPlayer == true:
 		motion *= -1.0
@@ -100,7 +107,8 @@ func do_hit_effect(attack):
 	if attack.attack_damage > 0.0:
 		$Components/HitAnimator.play("Hit")
 		$Components/EnemyHitEffectComponent.hit()
-		$HitSound.play()
+		$HitSound.playSound(0.75, 1.5)
+		$HitSound2.playSound(0.3, 4.0)
 	
 	velocity = Vector2.ZERO
 	knockback = (global_position - attack.attack_position).normalized() * attack.knockback_force
@@ -120,4 +128,5 @@ func death(attack : Attack):
 	$Components/EnemyDeathEffectComponent.die()
 	$Components/HurtboxComponent.call_deferred("disable")
 	bashComponent.call_deferred("activate")
+	$DeathSound.playSound()
 	

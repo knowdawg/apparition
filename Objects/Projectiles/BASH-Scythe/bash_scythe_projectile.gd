@@ -19,3 +19,4 @@ func initialize(dir : Vector2):
 	$AnimationPlayer.play("Spin")
 	dirrection = dir
 	$AnimatedSprite2D.play("Spin")
+	$BashSound.playSound()

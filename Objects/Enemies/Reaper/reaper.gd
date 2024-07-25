@@ -78,7 +78,8 @@ func do_hit_effect(attack : Attack):
 	if attack.attack_damage > 0.0:
 		$Components/HitAnimator.play("Hit")
 		$Components/EnemyHitEffectComponent.hit()
-		$Hurt.play()
+		$HitSound.playSound(0.75, 1.5)
+		$HitSound2.playSound(1.0, 1.5)
 	
 	velocity = Vector2.ZERO
 	knockback = (global_position - attack.attack_position).normalized() * attack.knockback_force
@@ -101,4 +102,5 @@ func death(attack : Attack):
 	$Components/HurtboxComponent.call_deferred("disable")
 	$Components/HitboxComponent.call_deferred("disable")
 	bashComponent.call_deferred("activate")
+	$HitSound2.playSound(1.0, 1.0)
 	

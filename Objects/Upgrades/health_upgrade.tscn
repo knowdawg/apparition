@@ -1,9 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://lh4kp2mhbvvh"]
+[gd_scene load_steps=22 format=3 uid="uid://lh4kp2mhbvvh"]
 
 [ext_resource type="Texture2D" uid="uid://bidm82fvtxd6q" path="res://Player/HealthBat/HealthContainerProgress.png" id="1_qjyts"]
 [ext_resource type="Script" path="res://Objects/Upgrades/health_upgrade.gd" id="1_w3b8j"]
 [ext_resource type="Texture2D" uid="uid://byjb5tpnsxg4n" path="res://Player/HealthBat/HealthContainerOver.png" id="2_xtq0d"]
 [ext_resource type="Texture2D" uid="uid://bjqntgfm20g4b" path="res://Player/HealthBat/HealthContainerUnder.png" id="4_e0jq8"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="5_ov6s1"]
+[ext_resource type="AudioStream" uid="uid://b15umglhpshgq" path="res://SoundEffects/HealthUpgradeAmbience.wav" id="6_hm4rc"]
+[ext_resource type="AudioStream" uid="uid://cd3c13irlmtl8" path="res://SoundEffects/HealthUpgradeColect.wav" id="7_crhfk"]
+[ext_resource type="AudioStream" uid="uid://bar146hrq0ltk" path="res://SoundEffects/HealthUpgradeHealthBarImpact.wav" id="8_fg1xn"]
 
 [sub_resource type="Curve" id="Curve_nqdfn"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.114841, 1), 0.0, 0.0, 0, 0, Vector2(0.572438, 0.718908), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -279,5 +283,21 @@ explosiveness = 0.7
 fixed_fps = 60
 trail_lifetime = 0.1
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Ambience" parent="." instance=ExtResource("5_ov6s1")]
+stream = ExtResource("6_hm4rc")
+volumeAdd = -25.0
+
+[node name="Colect" parent="." instance=ExtResource("5_ov6s1")]
+stream = ExtResource("7_crhfk")
+volumeAdd = -10.0
+
+[node name="Impale" parent="." instance=ExtResource("5_ov6s1")]
+stream = ExtResource("8_fg1xn")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

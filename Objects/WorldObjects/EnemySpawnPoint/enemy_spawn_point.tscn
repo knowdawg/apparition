@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://kvp8nj10hso6"]
+[gd_scene load_steps=19 format=3 uid="uid://kvp8nj10hso6"]
 
 [ext_resource type="Script" path="res://Objects/WorldObjects/EnemySpawnPoint/enemy_spawn_point.gd" id="1_iabm2"]
 [ext_resource type="Texture2D" uid="uid://cb1nnmkafljg7" path="res://Assets/Sprites/Effects/EnemySpawnEffect.png" id="2_6ycei"]
 [ext_resource type="Shader" path="res://Objects/Enemies/Outline.gdshader" id="2_ku653"]
 [ext_resource type="Texture2D" uid="uid://bqql6e1fxgmnr" path="res://Assets/Sprites/Effects/Circle.png" id="4_fwa3x"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="5_dxqkc"]
+[ext_resource type="AudioStream" uid="uid://bru20mrxbcyyc" path="res://SoundEffects/EnemySpawn.wav" id="6_5cskb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4oj7r"]
 resource_local_to_scene = true
@@ -160,5 +162,9 @@ texture = ExtResource("4_fwa3x")
 libraries = {
 "": SubResource("AnimationLibrary_hgscd")
 }
+
+[node name="SoundPlayer" parent="." instance=ExtResource("5_dxqkc")]
+stream = ExtResource("6_5cskb")
+volumeAdd = 5.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

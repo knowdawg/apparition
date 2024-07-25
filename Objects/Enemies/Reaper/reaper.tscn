@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://d35rebr6i83wr"]
+[gd_scene load_steps=111 format=3 uid="uid://d35rebr6i83wr"]
 
 [ext_resource type="Texture2D" uid="uid://c0e3gcyrliq4" path="res://Assets/Sprites/Enemies/Reaper.png" id="1_6umt5"]
 [ext_resource type="Shader" path="res://Objects/Enemies/Outline.gdshader" id="1_d5kf7"]
@@ -19,7 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://brujq4dkn34nd" path="res://Assets/Components/ProximityArea/proximity_area.tscn" id="14_go0nf"]
 [ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="15_a5c7c"]
 [ext_resource type="PackedScene" uid="uid://cru06e3xm5mc4" path="res://Assets/Components/BashSieldComponent/bash_shield_component.tscn" id="16_kqrxl"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="20_1rfth"]
 [ext_resource type="AudioStream" uid="uid://vip0n70pgf66" path="res://SoundEffects/EnemyHit.wav" id="20_5sw1c"]
+[ext_resource type="AudioStream" uid="uid://btvlinrdqck0o" path="res://SoundEffects/EnemyDead.wav" id="22_i604q"]
+[ext_resource type="AudioStream" uid="uid://dmybc0ex0fu52" path="res://SoundEffects/ReaperDeath.wav" id="23_t7xiv"]
+[ext_resource type="AudioStream" uid="uid://b7urlfpy4oau" path="res://SoundEffects/ReaperTeleport.wav" id="24_4a7gb"]
+[ext_resource type="AudioStream" uid="uid://dvog27dcct2fp" path="res://SoundEffects/ReaperEffect.wav" id="25_274io"]
+[ext_resource type="AudioStream" uid="uid://c5ddpr3160f8j" path="res://SoundEffects/ReaperAttack.wav" id="26_6pgxc"]
+[ext_resource type="AudioStream" uid="uid://clfrnam3efbp2" path="res://SoundEffects/PlayerSwing.wav" id="27_untut"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bubww"]
 radius = 3.0
@@ -695,22 +702,28 @@ sprite = NodePath("../../ReaperSprite")
 teleportProximity = NodePath("../../Components/Proximities/TeleportProximity")
 attackProximity = NodePath("../../Components/Proximities/AttackProximity")
 
-[node name="Teleport" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "sprite", "attackProximity")]
+[node name="Teleport" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "sprite", "attackProximity", "sound")]
 script = ExtResource("4_muyjp")
 parent = NodePath("../..")
 sprite = NodePath("../../ReaperSprite")
 attackProximity = NodePath("../../Components/Proximities/AttackProximity")
+sound = NodePath("../../TeleportSound")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "sprite", "hitbox")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "sprite", "hitbox", "effectSound", "attack1Sound", "attack2Sound")]
 script = ExtResource("5_bj0vg")
 parent = NodePath("../..")
 sprite = NodePath("../../ReaperSprite")
 hitbox = NodePath("../../Components/HitboxComponent")
+effectSound = NodePath("../../EffectSound")
+attack1Sound = NodePath("../../ScytheAttack")
+attack2Sound = NodePath("../../ScytheAttack2")
 
-[node name="Death" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "sprite")]
+[node name="Death" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "sprite", "sound", "effectsSound")]
 script = ExtResource("6_vy7ee")
 parent = NodePath("../..")
 sprite = NodePath("../../ReaperSprite")
+sound = NodePath("../../ScythClang")
+effectsSound = NodePath("../../EffectSound")
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -812,5 +825,27 @@ position = Vector2(0, 1)
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_p1hsr")
 
-[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+[node name="HitSound" parent="." instance=ExtResource("20_1rfth")]
 stream = ExtResource("20_5sw1c")
+
+[node name="HitSound2" parent="." instance=ExtResource("20_1rfth")]
+stream = ExtResource("22_i604q")
+volumeAdd = -10.0
+
+[node name="ScythClang" parent="." instance=ExtResource("20_1rfth")]
+stream = ExtResource("23_t7xiv")
+volumeAdd = -5.0
+
+[node name="TeleportSound" parent="." instance=ExtResource("20_1rfth")]
+stream = ExtResource("24_4a7gb")
+
+[node name="EffectSound" parent="." instance=ExtResource("20_1rfth")]
+stream = ExtResource("25_274io")
+volumeAdd = -12.0
+
+[node name="ScytheAttack" parent="." instance=ExtResource("20_1rfth")]
+stream = ExtResource("26_6pgxc")
+
+[node name="ScytheAttack2" parent="." instance=ExtResource("20_1rfth")]
+stream = ExtResource("27_untut")
+volumeAdd = -8.0

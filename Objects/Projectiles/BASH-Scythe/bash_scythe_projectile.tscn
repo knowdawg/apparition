@@ -1,9 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://cr6y84wyhv0eu"]
+[gd_scene load_steps=30 format=3 uid="uid://cr6y84wyhv0eu"]
 
 [ext_resource type="Texture2D" uid="uid://iftwpw7bonnh" path="res://Assets/Sprites/Effects/SpinningScythe.png" id="1_72gmv"]
 [ext_resource type="Script" path="res://Objects/Projectiles/BASH-Scythe/bash_scythe_projectile.gd" id="1_lk0ru"]
 [ext_resource type="Shader" path="res://Objects/Enemies/Outline.gdshader" id="2_lie3n"]
 [ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="3_f4kwf"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="5_swqgm"]
+[ext_resource type="AudioStream" uid="uid://cv6w27uvgasil" path="res://SoundEffects/ReaperBash.wav" id="6_uxkxx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jf01e"]
 shader = ExtResource("2_lie3n")
@@ -304,3 +306,6 @@ explosiveness = 0.9
 trail_enabled = true
 trail_sections = 2
 trail_section_subdivisions = 1
+
+[node name="BashSound" parent="." instance=ExtResource("5_swqgm")]
+stream = ExtResource("6_uxkxx")

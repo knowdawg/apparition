@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://e01lg4b2g0wy"]
+[gd_scene load_steps=35 format=3 uid="uid://e01lg4b2g0wy"]
 
 [ext_resource type="Script" path="res://Objects/Upgrades/sword_upgrade.gd" id="1_0ljej"]
 [ext_resource type="Texture2D" uid="uid://mxeiglrxlrsv" path="res://Player/HealthBat/SwordUpgradeHilt.png" id="1_0lm58"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bpsduf6id6jla" path="res://Assets/Components/TwoWayFlatform/two_way_platform_component.tscn" id="6_w3ocn"]
 [ext_resource type="Texture2D" uid="uid://b28qmk2g2j305" path="res://Player/HealthBat/SwordUpgradeOutline.png" id="7_yyr1x"]
 [ext_resource type="Texture2D" uid="uid://cy6aqh0fbp4ps" path="res://Player/HealthBat/SwordHelathbarUpgrade.png" id="8_4d8aj"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="10_2hgo6"]
+[ext_resource type="AudioStream" uid="uid://e3jr3kgceb2c" path="res://SoundEffects/SwordUpgradeAmbience.wav" id="11_nemiu"]
+[ext_resource type="AudioStream" uid="uid://c6e0hkhqf5wc0" path="res://SoundEffects/SwordUpgradeCollect.wav" id="12_cfyum"]
 
 [sub_resource type="Gradient" id="Gradient_na30p"]
 offsets = PackedFloat32Array(0)
@@ -729,4 +732,16 @@ visible = false
 position = Vector2(-3.6923, 0.153846)
 texture = SubResource("GradientTexture2D_dvm0w")
 
+[node name="Ambience" parent="." instance=ExtResource("10_2hgo6")]
+stream = ExtResource("11_nemiu")
+volumeAdd = -10.0
+
+[node name="Collect" parent="." instance=ExtResource("10_2hgo6")]
+stream = ExtResource("12_cfyum")
+
+[node name="AmbientTimer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="AmbientTimer" to="." method="_on_ambient_timer_timeout"]

@@ -20,7 +20,7 @@ func _on_area_2d_body_entered(body):
 
 func playRespawnAnimation():
 	$AnimationPlayer.play("Respawn")
-	$AudioStreamPlayer.play()
+	$SoundPlayer.playSound()
 
 func respawnPlayer():
 	respawn.emit();

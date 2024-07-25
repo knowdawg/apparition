@@ -4,6 +4,7 @@ class_name ReaperTeleport
 @export var parent : Reaper
 @export var sprite : AnimatedSprite2D
 @export var attackProximity : ProximityAreaComponent
+@export var sound : SoundPlayer
 
 var t = 0.9
 var hasTeleported = false
@@ -26,6 +27,7 @@ func update(delta):
 			trasitioned.emit(self, "Run")
 
 func enter():
+	sound.playSound(0.9, 1.1)
 	t = 0.9
 	hasTeleported = false
 	parent.velocity = Vector2.ZERO

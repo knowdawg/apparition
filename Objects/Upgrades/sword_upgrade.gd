@@ -29,6 +29,7 @@ func _on_area_2d_body_entered(body):
 		Game.weaponUpgradeStatus[id] = true
 		colected = true
 		$AnimationPlayer.play("Colect")
+		$Collect.playSound()
 		if isHilt:
 			$CanvasLayer/Outline/Blade.visible = hasOtherUpgrade()
 			$CanvasLayer/Outline/Blade2.visible = hasOtherUpgrade()
@@ -54,3 +55,7 @@ func showUI():
 	else:
 		$CanvasLayer/Outline/Blade.visible = true
 		$CanvasLayer/Outline/Blade2.visible = true
+
+func _on_ambient_timer_timeout():
+	if colected == false:
+		$Ambience.playSound()

@@ -14,6 +14,7 @@ func _ready():
 func spawn():
 	$AnimatedSprite2D.visible = true
 	$AnimatedSprite2D.play("Spawn")
+	$SoundPlayer.playSound(0.9, 1.1)
 
 
 func _on_animated_sprite_2d_animation_finished():

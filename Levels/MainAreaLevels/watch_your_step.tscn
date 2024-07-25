@@ -146,7 +146,7 @@ scale = Vector2(1, -1)
 layer_0/tile_data = PackedInt32Array(-65534, 1, 0, -65535, 1, 0, -65536, 1, 0, -1, 1, 0, -65532, 1, 0, -65533, 1, 0, -2, 1, 0, -3, 1, 0, -4, 1, 0, -5, 1, 0, -6, 1, 0, -7, 1, 0, -8, 1, 0, -9, 1, 0, -10, 1, 0, -11, 1, 0, -12, 1, 0, -13, 1, 0, -196603, 1, 536870912, -131086, 1, 536870912)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-91.4853, 0)
+position = Vector2(-91.4854, 0)
 motion_scale = Vector2(0.9, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer2" instance=ExtResource("5_44u1y")]
@@ -383,7 +383,7 @@ layer = 1
 script = ExtResource("2_js8nk")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(182.971, 55.9565)
+position = Vector2(182.971, 55.9566)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]

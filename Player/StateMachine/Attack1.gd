@@ -4,7 +4,7 @@ class_name PlayerAttack1
 @export var animated_player_sprite : AnimatedSprite2D
 @export var player : Player
 @export var Hitbox : HitboxComponent
-@export var sound : AudioStreamPlayer
+@export var sound : AudioStreamPlayer2D
 
 var animation_cancel_timer = 0.3
 
@@ -40,8 +40,7 @@ func enter():
 	animated_player_sprite.play("Attack1")
 	animation_cancel_timer = 0.3
 	Hitbox.generateAttackID()
-	sound.pitch_scale = randf_range(3.0, 4.0)
-	sound.play()
+	sound.playSound(3.0, 4.0)
 	player.align()
 
 func exit(_newState):

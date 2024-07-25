@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2v5hfbp7h6vc"]
+[gd_scene load_steps=6 format=3 uid="uid://d2v5hfbp7h6vc"]
 
 [ext_resource type="Theme" uid="uid://b2orsuuil3dch" path="res://UI/MainMenu/Theme.tres" id="1_7qo43"]
+[ext_resource type="Script" path="res://UI/MainMenu/MenuButton2.gd" id="2_reero"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="3_dnn2w"]
+[ext_resource type="AudioStream" uid="uid://bcdg46c0sq8i4" path="res://SoundEffects/UISound.wav" id="4_l6b4q"]
+[ext_resource type="AudioStream" uid="uid://cbgyqtmrd8go6" path="res://SoundEffects/UISound2.wav" id="5_tuqmi"]
 
 [node name="Button" type="Button"]
 texture_filter = 1
@@ -15,3 +19,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "TEST"
 alignment = 0
+script = ExtResource("2_reero")
+
+[node name="SoundPlayer" parent="." instance=ExtResource("3_dnn2w")]
+stream = ExtResource("4_l6b4q")
+max_distance = 10000.0
+volumeAdd = -15.0
+
+[node name="SoundPlayer2" parent="." instance=ExtResource("3_dnn2w")]
+stream = ExtResource("5_tuqmi")
+max_distance = 10000.0
+volumeAdd = -10.0
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

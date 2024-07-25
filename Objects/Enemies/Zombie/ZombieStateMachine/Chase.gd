@@ -5,15 +5,22 @@ class_name ZombieChase
 @export var proximityArea : ProximityAreaComponent
 @export var attackProximityArea : ProximityAreaComponent
 @export var sprite : AnimatedSprite2D
+@export var walkSound : AudioStreamPlayer2D
 
 var player : Player
+
+var soundTimer = 0.0
 
 func update_physics(delta):
 	parrent.update_physics(delta)
 	parrent.check_for_jump()
 	parrent.move(1.0, delta)
 
-func update(_delta):
+func update(delta):
+	soundTimer -= delta
+	if soundTimer <= 0.0:
+		walkSound.playSound(0.25, 0.5)
+		soundTimer = 0.3
 	if player:
 		parrent.align(player)
 	
@@ -24,6 +31,7 @@ func update(_delta):
 		trasitioned.emit(self, "Idle")
 
 func enter():
+	soundTimer = 0.1
 	sprite.play("Run")
 	player = proximityArea.get_player()
 	if player == null: #if player is not inside the area, it returns null

@@ -6,7 +6,7 @@ var dirrection = Vector2.ZERO
 func initialize(dir : Vector2):
 	dirrection = dir
 	rotation = dir.angle()
-	$SpawnSound.play()
+	$SpawnSound.playSound()
 
 func _process(delta):
 	position += dirrection * SPEED * delta
