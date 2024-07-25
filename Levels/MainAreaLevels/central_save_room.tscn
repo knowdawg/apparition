@@ -127,7 +127,7 @@ position = Vector2(68.2858, 68.3127)
 texture = ExtResource("4_d0may")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-468.742, -91.2841)
+position = Vector2(-468.742, -91.284)
 motion_scale = Vector2(0.5, 0.5)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_1b44d")]
@@ -327,7 +327,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(374.994, 73.0273)
+position = Vector2(374.994, 73.0272)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

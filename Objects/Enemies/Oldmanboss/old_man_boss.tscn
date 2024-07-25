@@ -1809,7 +1809,7 @@ shape = SubResource("RectangleShape2D_x47jx")
 [node name="HealthComponent" parent="Components" node_paths=PackedStringArray("parrent", "bar") instance=ExtResource("4_k8nst")]
 parrent = NodePath("../..")
 bar = NodePath("../../CanvasLayer/Control/HealthBar")
-MAX_HEALTH = 100.0
+MAX_HEALTH = 80.0
 
 [node name="BashShieldComponent" parent="Components" node_paths=PackedStringArray("healthComponent", "nonAnimatedSprite") instance=ExtResource("5_puw3m")]
 healthComponent = NodePath("../HealthComponent")

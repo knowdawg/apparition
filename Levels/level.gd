@@ -15,6 +15,8 @@ func add_projectile(p):
 
 func _ready():
 	
+	MainAreaMusic.play()
+	
 	Game.currentLevel = self
 	
 	if Game.isPlayerDead == true:

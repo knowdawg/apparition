@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c38v76vgqp0jl"]
+
+[ext_resource type="AudioStream" uid="uid://c13p2c0rep24s" path="res://Music/MainAreaAmbience.wav" id="1_06dqe"]
+[ext_resource type="Script" path="res://Music/main_area_music.gd" id="1_d7fug"]
+[ext_resource type="AudioStream" uid="uid://c136r8xelnk0s" path="res://Music/MainAreaAmbienceCombat.wav" id="2_fhsdk"]
+
+[node name="MainAreaMusic" type="Node"]
+script = ExtResource("1_d7fug")
+vol = -10.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_06dqe")
+
+[node name="Combat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fhsdk")
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

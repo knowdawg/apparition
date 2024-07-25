@@ -22,11 +22,13 @@ config/windows_native_icon="res://Assets/Misc/HeroIcon.ico"
 
 Game="*res://Classes/Game.gd"
 Menu="*res://UI/PauseMenu/menu.tscn"
+MainAreaMusic="*res://Music/main_area_music.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor]

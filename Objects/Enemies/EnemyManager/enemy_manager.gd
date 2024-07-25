@@ -27,6 +27,7 @@ func encounterStart():
 		enemy.encounterStart();
 	if currentWave == 0:
 		call_deferred("nextWave")
+	MainAreaMusic.combat = true
 
 func onEncounterEnd():
 	pass
@@ -39,6 +40,7 @@ func encounterEnd():
 	Game.enemyManagerCompletionStatus[id] = true
 	for gate in gates:
 		gate.open()
+	MainAreaMusic.combat = false
 
 func _ready():
 	for child in get_children():

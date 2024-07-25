@@ -17,6 +17,7 @@ func _ready():
 	$Settings/VBoxContainer/Music.value = Game.musicVolume * 100.0
 	
 	$Music.playSound()
+	MainAreaMusic.stop()
 
 
 

@@ -189,3 +189,4 @@ func playerDead():
 	var data = SwitchSceneData.new()
 	data.scene = respawnScene
 	switch_scene(data)
+	MainAreaMusic.combat = false
