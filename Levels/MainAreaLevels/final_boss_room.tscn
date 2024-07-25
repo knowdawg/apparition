@@ -76,6 +76,7 @@ size = Vector2(64, 20)
 
 [node name="FinalBossRoom" type="Node2D" node_paths=PackedStringArray("rp")]
 script = ExtResource("1_sajpu")
+playerStartingPosOnFalure = Vector2(-112, 2.08165e-12)
 rp = NodePath("Foreground/RespawnPoint")
 
 [node name="Cavern" type="ParallaxBackground" parent="."]
@@ -90,7 +91,7 @@ texture = ExtResource("3_esofl")
 visible = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-1182.21, 0)
+position = Vector2(-4572.2, 0)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -100,7 +101,7 @@ script = ExtResource("2_eca1k")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_fcr0s")]
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(0, -57.0895)
+position = Vector2(0, -530.13)
 motion_scale = Vector2(1, 0.6)
 
 [node name="Polygon2D" type="Polygon2D" parent="PreviewingParallaxBackground2/ParallaxLayer2"]
@@ -109,7 +110,7 @@ color = Color(0.196078, 0, 0, 1)
 polygon = PackedVector2Array(-1856, -699.635, -1856, -164.229, -1408, -164.229, -1408, -708.229)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(0, -28.5447)
+position = Vector2(0, -265.065)
 motion_scale = Vector2(1, 0.8)
 
 [node name="Polygon2D" type="Polygon2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
@@ -138,7 +139,6 @@ layer_0/tile_data = PackedInt32Array(196407, 131076, 0, 261943, 131076, 0, 32747
 [node name="Uro" type="Node2D" parent="Foreground"]
 position = Vector2(-752, 10)
 rotation = -1.57343
-scale = Vector2(1, 1)
 
 [node name="UroSprite" type="Sprite2D" parent="Foreground/Uro"]
 position = Vector2(0, -28)
@@ -325,7 +325,7 @@ layer = 1
 script = ExtResource("2_eca1k")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(248.886, 28.5448)
+position = Vector2(962.568, 265.065)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -340,7 +340,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(497.771, 57.0895)
+position = Vector2(1925.14, 530.13)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

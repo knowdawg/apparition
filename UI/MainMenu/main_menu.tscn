@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy8si6qk5lsnd"]
+[gd_scene load_steps=12 format=3 uid="uid://cy8si6qk5lsnd"]
 
 [ext_resource type="Shader" path="res://UI/MainMenu/SDFMainMenu.gdshader" id="1_04oax"]
 [ext_resource type="Script" path="res://UI/MainMenu/main_menu.gd" id="1_cabx1"]
 [ext_resource type="PackedScene" uid="uid://bakhk407mkat1" path="res://Test/black_hole.tscn" id="2_pedm3"]
 [ext_resource type="Theme" uid="uid://b2orsuuil3dch" path="res://UI/MainMenu/Theme.tres" id="5_cy14d"]
 [ext_resource type="PackedScene" uid="uid://d2v5hfbp7h6vc" path="res://UI/MainMenu/MenuButton2.tscn" id="5_iqa54"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="6_tcrom"]
+[ext_resource type="AudioStream" uid="uid://djeho1msqg4u8" path="res://Music/MainMenu.wav" id="7_6opih"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_087vd"]
 shader = ExtResource("1_04oax")
@@ -198,6 +200,11 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("5_cy14d")
 text = "Back"
+
+[node name="Music" parent="." instance=ExtResource("6_tcrom")]
+stream = ExtResource("7_6opih")
+max_distance = 12800.0
+isSoundEffect = false
 
 [connection signal="pressed" from="Options/HBoxContainer/Continiue" to="." method="_on_continiue_pressed"]
 [connection signal="pressed" from="Options/HBoxContainer/StartNewGame" to="." method="_on_start_new_game_pressed"]

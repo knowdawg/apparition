@@ -15,6 +15,8 @@ func _ready():
 	$Settings/VBoxContainer/Volume.value = Game.masterVolume * 100.0
 	$Settings/VBoxContainer/Effects.value = Game.soundEfectsVolume * 100.0
 	$Settings/VBoxContainer/Music.value = Game.musicVolume * 100.0
+	
+	$Music.playSound()
 
 
 

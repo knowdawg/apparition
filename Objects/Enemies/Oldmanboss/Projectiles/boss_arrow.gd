@@ -33,7 +33,11 @@ func bash_complete():
 	boss.removeProjectile(self)
 	queue_free()
 
+var soundPlayed = false
 func _process(delta):
+	if soundPlayed == false:
+		$Whoosh.playSound(0.9, 1.1)
+		soundPlayed = true
 	if state == "projectile":
 		position += dirrection * SPEED * delta
 		

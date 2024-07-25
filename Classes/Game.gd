@@ -108,7 +108,7 @@ func resume():
 
 func get_volume(isEffect : bool):
 	var db = 1.0
-	if isEffect:
+	if isEffect == true:
 		db = log(masterVolume * soundEfectsVolume)
 	else:
 		db = log(masterVolume * musicVolume)

@@ -3,6 +3,7 @@ class_name BossGroundSlam
 
 @export var parent : OldManBoss
 @export var spriteAnimator : AnimationPlayer
+@export var sound : SoundPlayer
 
 func update(_delta):
 	pass
@@ -11,6 +12,7 @@ func enter():
 	spriteAnimator.play("GroundSlam")
 
 func fire():
+	sound.playSound()
 	var offset = randf_range(-0.05, 0.0)
 	parent.fireProjectile(Vector2(1, offset).normalized(), 200)
 	parent.fireProjectile(Vector2(-1, offset).normalized(), 200)

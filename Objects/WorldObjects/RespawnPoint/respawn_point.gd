@@ -14,6 +14,7 @@ func _on_area_2d_body_entered(body):
 	if body is Player:
 		Game.respawnScene = respawnScene;
 		Game.player.set_health(Game.maxPlayerHealth) 
+		Game.save()
 		if active == false:
 			active = true
 			$AnimationPlayer.play("Activate")

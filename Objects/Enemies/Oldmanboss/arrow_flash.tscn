@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn7u5pn8ktp6q"]
+[gd_scene load_steps=9 format=3 uid="uid://cn7u5pn8ktp6q"]
 
 [ext_resource type="Texture2D" uid="uid://ccvgcnbe3gdfb" path="res://Objects/Enemies/Oldmanboss/BossFlash1.png" id="1_i4hxa"]
 [ext_resource type="Script" path="res://Objects/Enemies/Oldmanboss/arrow_flash.gd" id="2_jc8dd"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="3_15nk0"]
+[ext_resource type="AudioStream" uid="uid://c1eepyas71df6" path="res://SoundEffects/Boss/ArrowTelegraph.wav" id="4_s05lv"]
 
 [sub_resource type="Animation" id="Animation_5s2wg"]
 resource_name = "Flash"
-length = 0.7
 step = 0.01
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -51,6 +52,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../SoundPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.9, 1.1],
+"method": &"playSound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_k14sg"]
@@ -103,7 +118,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_8nl2y"]
 resource_name = "TriFlash"
-length = 0.7
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -138,6 +152,20 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 0)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SoundPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.9, 1.1],
+"method": &"playSound"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6wsn"]
 _data = {
@@ -159,5 +187,10 @@ root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_l6wsn")
 }
+
+[node name="SoundPlayer" parent="." instance=ExtResource("3_15nk0")]
+stream = ExtResource("4_s05lv")
+max_distance = 10000.0
+volumeAdd = -15.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

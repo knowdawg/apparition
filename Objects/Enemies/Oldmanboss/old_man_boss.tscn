@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cxdj67kinl3qh"]
+[gd_scene load_steps=78 format=3 uid="uid://cxdj67kinl3qh"]
 
 [ext_resource type="Texture2D" uid="uid://cres4n0htyhar" path="res://Assets/Sprites/Enemies/OldBossMan.png" id="1_4qgt6"]
 [ext_resource type="Texture2D" uid="uid://cbq53mq0vmfw2" path="res://Assets/Sprites/EnvirementArt/Chair.png" id="1_hcra1"]
@@ -32,6 +32,18 @@
 [ext_resource type="Texture2D" uid="uid://jjxvc8j3uulk" path="res://Objects/Enemies/Oldmanboss/Healthbar/BossHealthBarProgress.png" id="26_8c5kn"]
 [ext_resource type="Texture2D" uid="uid://c6rwtu6jgl43f" path="res://Objects/Enemies/Oldmanboss/Healthbar/BossHealthBarChains.png" id="27_fwlmr"]
 [ext_resource type="Script" path="res://Objects/Enemies/Oldmanboss/HealthBar.gd" id="31_46rc6"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="33_sam5p"]
+[ext_resource type="AudioStream" uid="uid://dbu5jduoy7hes" path="res://SoundEffects/Boss/BossSnap.wav" id="34_q8jkr"]
+[ext_resource type="AudioStream" uid="uid://c2yvumivlp3yp" path="res://SoundEffects/Boss/SnapComeBack.wav" id="35_xerxk"]
+[ext_resource type="AudioStream" uid="uid://vip0n70pgf66" path="res://SoundEffects/EnemyHit.wav" id="36_27d7s"]
+[ext_resource type="AudioStream" uid="uid://c0s32bxhaknli" path="res://SoundEffects/Boss/BossExplotion.wav" id="37_76qyv"]
+[ext_resource type="AudioStream" uid="uid://hgiakoduhlqu" path="res://SoundEffects/Boss/Clothes1.wav" id="38_wg1ep"]
+[ext_resource type="AudioStream" uid="uid://cbj6gckmnu0b8" path="res://SoundEffects/Boss/Clothes2.wav" id="39_dn51a"]
+[ext_resource type="AudioStream" uid="uid://d1hxfhql2bokq" path="res://SoundEffects/Boss/Laser.wav" id="40_b4w5f"]
+[ext_resource type="AudioStream" uid="uid://cyqm8hfej1n12" path="res://SoundEffects/Boss/Teleport.wav" id="41_n5or3"]
+[ext_resource type="AudioStream" uid="uid://vyirlq8706qw" path="res://SoundEffects/Boss/Charge.wav" id="42_xe3te"]
+[ext_resource type="AudioStream" uid="uid://mr1mowhyx7wn" path="res://SoundEffects/Boss/SuperCharge.wav" id="43_dman3"]
+[ext_resource type="AudioStream" uid="uid://3gtf5pbldyru" path="res://SoundEffects/Boss/BossHit.wav" id="44_rgi14"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_uxfyl"]
 length = 160.0
@@ -308,6 +320,138 @@ tracks/10/keys = {
 "update": 1,
 "values": [8, 0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Explotion")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(8.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Clothes2")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(2.8, 3.4, 6.5, 7.3, 8.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [1.5, 2.0],
+"method": &"playSound"
+}, {
+"args": [1.0, 1.2],
+"method": &"playSound"
+}, {
+"args": [0.5, 0.6],
+"method": &"playSound"
+}, {
+"args": [0.5, 0.6],
+"method": &"playSound"
+}, {
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Clothes1")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(4.8, 5.4, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.5, 0.6],
+"method": &"playSound"
+}, {
+"args": [0.8, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Teleport")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.9, 1.4, 1.9, 2.4, 3.5, 4, 4.5, 6.9, 7.6, 8.9, 9.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}, {
+"args": [0.9, 1.1],
+"method": &"playSound"
+}]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Charge")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(8.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("SuperCharge")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_gwqi6"]
 resource_name = "Dash"
@@ -323,6 +467,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Clothes1")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.5, 0.6],
+"method": &"playSound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_jjq6a"]
@@ -408,6 +566,23 @@ tracks/3/keys = {
 "method": &"arrowFlash"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Clothes2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.8, 1.0],
+"method": &"playSound"
+}, {
+"args": [1.0, 1.2],
+"method": &"playSound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_phmq5"]
 resource_name = "GroundSlam"
@@ -466,6 +641,31 @@ tracks/3/keys = {
 }, {
 "args": [Vector2(4, -6), 2.08165e-12, true, 2],
 "method": &"arrowFlash"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Clothes1")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Clothes2")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.4, 0.5],
+"method": &"playSound"
 }]
 }
 
@@ -564,6 +764,54 @@ tracks/5/keys = {
 "values": [{
 "args": [],
 "method": &"generateAttackID"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Clothes1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}, {
+"args": [1.5, 2.0],
+"method": &"playSound"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Clothes2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.9, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [2.0, 2.5],
+"method": &"playSound"
+}, {
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Laser")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
 }]
 }
 
@@ -717,6 +965,85 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Explotion")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(2.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Clothes1")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1.4, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}, {
+"args": [1.0, 1.0],
+"method": &"playSound"
+}, {
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Clothes2")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.9, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [1.5, 2.0],
+"method": &"playSound"
+}, {
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Teleport")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Charge")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_10wj2"]
@@ -962,6 +1289,48 @@ tracks/1/keys = {
 "method": &"fire"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Snap")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArrowComeBack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Clothes1")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.5, 2.0],
+"method": &"playSound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_gnpbf"]
 resource_name = "StandUp"
@@ -989,6 +1358,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Clothes1")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.5, 0.6],
+"method": &"playSound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_1wfoj"]
@@ -1042,6 +1425,20 @@ tracks/3/keys = {
 "values": [{
 "args": [],
 "method": &"teleport"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Teleport")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
 }]
 }
 
@@ -1104,6 +1501,37 @@ tracks/3/keys = {
 }, {
 "args": [Vector2(3, -4), 45.0, true, 2],
 "method": &"arrowFlash"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Clothes2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [1.0, 1.1],
+"method": &"playSound"
+}, {
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Clothes1")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.8, 1.0],
+"method": &"playSound"
 }]
 }
 
@@ -1244,10 +1672,11 @@ sprite = NodePath("../../Sprite")
 leftLoc = NodePath("../../ConstantLocations/LeftPalmStrikeMarker")
 rightLoc = NodePath("../../ConstantLocations/RightPalmStrikeMarker")
 
-[node name="GroundSlam" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "spriteAnimator")]
+[node name="GroundSlam" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "spriteAnimator", "sound")]
 script = ExtResource("7_idvga")
 parent = NodePath("../..")
 spriteAnimator = NodePath("../../AnimationPlayer")
+sound = NodePath("../../FirstImpactForArrow")
 
 [node name="Fireball" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "spriteAnimator", "projectileSpawnPoint")]
 script = ExtResource("8_tinqy")
@@ -1507,6 +1936,61 @@ script = ExtResource("31_46rc6")
 texture_filter = 1
 position = Vector2(65, 16)
 texture = ExtResource("27_fwlmr")
+
+[node name="Snap" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("34_q8jkr")
+max_distance = 10000.0
+volumeAdd = -5.0
+
+[node name="ArrowComeBack" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("35_xerxk")
+max_distance = 10000.0
+volumeAdd = -15.0
+
+[node name="FirstImpactForArrow" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("36_27d7s")
+max_distance = 10000.0
+max_polyphony = 3
+volumeAdd = -15.0
+
+[node name="Explotion" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("37_76qyv")
+max_distance = 10000.0
+volumeAdd = 10.0
+
+[node name="Clothes1" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("38_wg1ep")
+max_distance = 10000.0
+volumeAdd = -15.0
+
+[node name="Clothes2" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("39_dn51a")
+max_distance = 10000.0
+volumeAdd = -15.0
+
+[node name="Laser" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("40_b4w5f")
+max_distance = 10000.0
+volumeAdd = 5.0
+
+[node name="Teleport" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("41_n5or3")
+max_distance = 10000.0
+volumeAdd = 5.0
+
+[node name="Charge" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("42_xe3te")
+max_distance = 10000.0
+volumeAdd = -15.0
+
+[node name="SuperCharge" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("43_dman3")
+max_distance = 10000.0
+volumeAdd = -15.0
+
+[node name="Hit" parent="." instance=ExtResource("33_sam5p")]
+stream = ExtResource("44_rgi14")
+max_distance = 10000.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Sitting" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Snap" method="_on_animation_player_animation_finished"]
