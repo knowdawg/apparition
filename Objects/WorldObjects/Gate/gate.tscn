@@ -110,8 +110,8 @@ libraries = {
 
 [node name="DoorShut" parent="." instance=ExtResource("3_h30yi")]
 stream = ExtResource("3_eaf5i")
-volumeAdd = -12.0
+volumeAdd = -8.0
 
 [node name="DoorOpen" parent="." instance=ExtResource("3_h30yi")]
 stream = ExtResource("5_qdsfe")
-volumeAdd = -15.0
+volumeAdd = -10.0

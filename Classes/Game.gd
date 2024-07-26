@@ -112,7 +112,7 @@ func get_volume(isEffect : bool):
 		db = log(masterVolume * soundEfectsVolume)
 	else:
 		db = log(masterVolume * musicVolume)
-	return(db * 20.0)
+	return((db * 20.0))
 
 func _process(delta):
 	if Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)).length() > 0.1:
