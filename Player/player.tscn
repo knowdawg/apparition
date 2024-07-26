@@ -1127,7 +1127,7 @@ shape = SubResource("RectangleShape2D_rb21y")
 wait_time = 0.1
 
 [node name="CoyoteTime" type="Timer" parent="Timers"]
-wait_time = 0.1
+wait_time = 0.2
 
 [node name="EnableSmoothCameraTimer" type="Timer" parent="Timers"]
 wait_time = 0.1
@@ -1200,9 +1200,11 @@ shape = SubResource("CircleShape2D_27qyu")
 [node name="BashSound" parent="." instance=ExtResource("35_kia5y")]
 stream = ExtResource("32_qtfjk")
 volumeAdd = -10.0
+canBeSlowed = false
 
 [node name="HitSound" parent="." instance=ExtResource("35_kia5y")]
 stream = ExtResource("33_lsy4h")
+canBeSlowed = false
 
 [node name="AttackSound" parent="." instance=ExtResource("35_kia5y")]
 stream = ExtResource("35_s14tk")

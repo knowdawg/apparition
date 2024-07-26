@@ -15,6 +15,11 @@ func _process(_delta):
 	elif !prox.is_player_inside() and open == true:
 		book.close()
 		open = false
+		
+	if prox.is_player_inside():
+		$KeyIcon.visible = true
+	else:
+		$KeyIcon.visible = false
 	
 	if open == true:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

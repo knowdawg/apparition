@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4dgt4fqmqxfo"]
+[gd_scene load_steps=6 format=3 uid="uid://b4dgt4fqmqxfo"]
 
 [ext_resource type="PackedScene" uid="uid://brujq4dkn34nd" path="res://Assets/Components/ProximityArea/proximity_area.tscn" id="1_obuio"]
 [ext_resource type="Script" path="res://UI/BookUI/book_interactable.gd" id="1_qd43k"]
 [ext_resource type="Texture2D" uid="uid://3j8snjrtxkir" path="res://Assets/Sprites/Objects/BookHolder.png" id="3_yxwa3"]
+[ext_resource type="Texture2D" uid="uid://b6cjktjt46r8i" path="res://Assets/Sprites/Art/InteractPopup.png" id="4_nxj2n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vve8p"]
 radius = 8.0
@@ -18,3 +19,7 @@ shape = SubResource("CircleShape2D_vve8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_yxwa3")
+
+[node name="KeyIcon" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+texture = ExtResource("4_nxj2n")

@@ -10,6 +10,7 @@ var platformingRespawnPos : Vector2
 var isPlayerDead = false;
 
 var slomoTimer = 0.0
+var normalTimeScale = 1.0
 func slow_down(durration: float, time_scale : float):
 	slomoTimer = (durration * time_scale)
 	Engine.time_scale = time_scale
@@ -119,6 +120,7 @@ func _process(delta):
 		controler = true
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		controler = false
+	
 	
 	slomoTimer -= delta
 	if slomoTimer <= 0.0:

@@ -123,7 +123,7 @@ func update_physics(delta):
 	
 	if is_on_floor():
 		coyote_time = true
-		CoyoteTimer.start(0.1)
+		CoyoteTimer.start(0.2)
 	if is_on_floor() or coyote_time == true:
 		if prejump == true: #Input.is_action_pressed("ui_space"):
 			velocity.y = -jump_force
@@ -149,7 +149,7 @@ func update_physics_no_movement(delta):
 	
 	if is_on_floor():
 		coyote_time = true
-		CoyoteTimer.start(0.1)
+		CoyoteTimer.start(0.2)
 	if is_on_floor() or coyote_time == true:
 		if prejump == true: #Input.is_action_pressed("ui_space"):
 			velocity.y = -jump_force

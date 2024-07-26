@@ -303,15 +303,14 @@ shape = SubResource("RectangleShape2D_2ssfo")
 
 [node name="OldManArrow" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-2, 0)
+position = Vector2(-1, 0)
 rotation = 1.5708
 scale = Vector2(0.5, 1)
 texture = ExtResource("2_ctux3")
 offset = Vector2(2.08165e-12, -0.5)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(8, 2.08165e-12)
+target_position = Vector2(7, 0)
 
 [node name="Glow" type="Sprite2D" parent="."]
 scale = Vector2(1e-05, 1e-05)

@@ -17,6 +17,7 @@ func _process(delta):
 
 func play():
 	if $Music.playing == false:
+		combatVolumeMultiplier = -100.0
 		$Music.play()
 		$Combat.play()
 

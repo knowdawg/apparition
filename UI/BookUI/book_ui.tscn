@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bikqnlk1yih0x"]
+[gd_scene load_steps=14 format=3 uid="uid://bikqnlk1yih0x"]
 
 [ext_resource type="Texture2D" uid="uid://di7xabl33fr4m" path="res://Assets/Sprites/UI/Notes.png" id="1_26dxe"]
 [ext_resource type="Script" path="res://UI/BookUI/book_ui.gd" id="1_hi1nf"]
+[ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="3_7ohy8"]
+[ext_resource type="AudioStream" uid="uid://dmkdvueosqt6v" path="res://SoundEffects/BookLand.wav" id="4_bxhm3"]
+[ext_resource type="AudioStream" uid="uid://btbdau6i17ji6" path="res://SoundEffects/BookPaperLand.wav" id="5_6njsf"]
+[ext_resource type="AudioStream" uid="uid://c4intlm40dq6k" path="res://SoundEffects/BookTurnPage.wav" id="6_cji2j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilm3w"]
 atlas = ExtResource("1_26dxe")
@@ -134,6 +138,34 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hard")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Paper")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0, 1.0],
+"method": &"playSound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_4ngws"]
 resource_name = "PutAway"
@@ -220,6 +252,20 @@ tracks/1/keys = {
 "method": &"nextLeft"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageTurn")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.95, 1.05],
+"method": &"playSound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_4fm1i"]
 resource_name = "TurnPageBack"
@@ -252,6 +298,20 @@ tracks/1/keys = {
 }, {
 "args": [true],
 "method": &"nextRight"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageTurn")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.95, 1.05],
+"method": &"playSound"
 }]
 }
 
@@ -287,8 +347,6 @@ anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.286275)
-theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
@@ -308,8 +366,6 @@ anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.286275)
-theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
@@ -321,3 +377,16 @@ text = "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TE
 libraries = {
 "": SubResource("AnimationLibrary_b75ym")
 }
+
+[node name="Hard" parent="." instance=ExtResource("3_7ohy8")]
+stream = ExtResource("4_bxhm3")
+max_distance = 128000.0
+
+[node name="Paper" parent="." instance=ExtResource("3_7ohy8")]
+stream = ExtResource("5_6njsf")
+max_distance = 128000.0
+
+[node name="PageTurn" parent="." instance=ExtResource("3_7ohy8")]
+stream = ExtResource("6_cji2j")
+max_distance = 128000.0
+volumeAdd = -5.0
