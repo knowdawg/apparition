@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://8ouxmqvcbs1u"]
+[gd_scene load_steps=23 format=3 uid="uid://8ouxmqvcbs1u"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_le8pl"]
 [ext_resource type="Script" path="res://addons/nklbdev.previewing_parallax_background/PreviewingParallaxBackground.gd" id="2_qo16i"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://6a3uq44eym1" path="res://Objects/Tilemaps/stone_brick_tilemap.tscn" id="7_qaakg"]
 [ext_resource type="PackedScene" uid="uid://csjfgugsav4pt" path="res://Assets/SceneSwitchDoor/door.tscn" id="8_h8c7f"]
 [ext_resource type="PackedScene" uid="uid://4acpdbofrb1k" path="res://UI/tutorial_icons.tscn" id="11_e5ar6"]
+[ext_resource type="PackedScene" uid="uid://b4dgt4fqmqxfo" path="res://UI/BookUI/book_interactable.tscn" id="12_s6apn"]
+[ext_resource type="PackedScene" uid="uid://bikqnlk1yih0x" path="res://UI/BookUI/book_ui.tscn" id="13_iiuwn"]
 [ext_resource type="PackedScene" uid="uid://b0rw13dj3fjac" path="res://Assets/Components/CameraBoundriesComponent/camera_boundries_component.tscn" id="15_ma44h"]
 [ext_resource type="Texture2D" uid="uid://bqql6e1fxgmnr" path="res://Assets/Sprites/Effects/Circle.png" id="16_sm0q5"]
 
@@ -69,7 +71,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-172.465, 3.05176e-05)
+position = Vector2(-413.906, 1.52588e-05)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -79,14 +81,14 @@ script = ExtResource("2_qo16i")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_sdrm2")]
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-90.7713, 3.05176e-05)
+position = Vector2(-217.845, 1.52588e-05)
 motion_scale = Vector2(0.5, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer2" instance=ExtResource("4_1uy0h")]
 position = Vector2(52.4386, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-36.3085, 3.05176e-05)
+position = Vector2(-87.1381, 1.52588e-05)
 motion_scale = Vector2(0.8, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("5_nqnpm")]
@@ -94,7 +96,7 @@ position = Vector2(85.1453, 0)
 layer_0/tile_data = PackedInt32Array(-393216, 1, 0, -262145, 1, 0, -327681, 1, 0, -327682, 1, 0, -262147, 1, 0, -262146, 65537, 0, -196609, 1, 0, -262144, 1, 0, -327680, 1, 0, -327683, 1, 0, -262148, 1, 0, -196610, 1, 0, -327684, 1, 0, -196612, 1, 0, -131076, 1, 0, -131075, 65537, 0, -131074, 1, 0, -196611, 1, 0, -65539, 1, 0, -65538, 1, 0, -65537, 1, 0, -131073, 1, 0, -3, 1, 0, -2, 65537, 0, -1, 1, 0, -131072, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, -65536, 1, 0, -131071, 1, 0, -196608, 1, 0, -4, 1, 0, -393218, 1, 0, 131070, 1, 0, 131071, 1, 0, -262143, 1, 0, -131077, 1, 0, -65540, 1, 0, -65541, 1, 0, -5, 1, 0, 65533, 1, 0, -262149, 1, 0, 65532, 1, 0)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(1.52588e-05, 3.05176e-05)
+position = Vector2(0, 1.52588e-05)
 
 [node name="Decorations" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("6_6jt68")]
 layer_0/tile_data = PackedInt32Array(-524288, 3, 0, -458752, 131075, 0, -262144, 3, 0, -196608, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 3, 0, -196601, 65539, 0, -262137, 3, 0, -393209, 3, 0, -458745, 131075, 0, -524281, 65539, 0, -524282, 3, 0, -524283, 3, 0, -524284, 3, 0, -524285, 3, 0, -524286, 3, 0, -524287, 3, 0, -458751, 131075, 0, -458750, 131075, 0, -458749, 131075, 0, -458748, 131075, 0, -458747, 131075, 0, -458746, 131075, 0, -393214, 3, 0, -393213, 3, 0, -393212, 3, 0, -393211, 3, 0, -327678, 3, 0, -327677, 3, 0, -327676, 65539, 0, -262143, 3, 0, -262142, 3, 0, -262141, 3, 0, -262140, 3, 0, -262139, 3, 0, -196605, 3, 0, -196604, 3, 0, -196603, 3, 0, -196602, 3, 0, -196606, 3, 0, -131068, 131075, 0, -131067, 131075, 0, -131069, 196611, 0, -131070, 131075, 0, -196607, 65539, 0, -327675, 3, 0, -327674, 3, 0, -262138, 3, 0, -393210, 3, 0, -327673, 3, 0, -393216, 3, 0, -327680, 3, 0, -327679, 3, 0, -393215, 3, 0, -262136, 3, 0, -327672, 3, 0, -393208, 3, 0, -458744, 3, 0, -65530, 3, 0, -131066, 131075, 0, -131065, 131075, 0, -65529, 3, 0, -65536, 3, 0, -131072, 131075, 0, -131071, 131075, 0, -65535, 3, 0)
@@ -168,12 +170,19 @@ waitTime = 1.0
 position = Vector2(116, -4)
 shape = SubResource("RectangleShape2D_uavik")
 
+[node name="BookInteractable" parent="Foreground" node_paths=PackedStringArray("book") instance=ExtResource("12_s6apn")]
+position = Vector2(-204, -32)
+book = NodePath("BookUI")
+
+[node name="BookUI" parent="Foreground/BookInteractable" instance=ExtResource("13_iiuwn")]
+pageNames = ["FirstContact1", "FirstContact2", "FirstContact3", "FirstContact4", "FirstContact5", "FirstContact6", "FirstContact7", "FirstContact8", "FirstContact9", "FirstContact10"]
+
 [node name="Front" type="ParallaxBackground" parent="."]
 layer = 1
 script = ExtResource("2_qo16i")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(36.3085, 29.0305)
+position = Vector2(87.1382, 38.9546)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -188,7 +197,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(72.6171, 58.0609)
+position = Vector2(174.276, 77.9092)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

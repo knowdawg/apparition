@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://bu5ierx1xmy2g"]
+[gd_scene load_steps=172 format=3 uid="uid://bu5ierx1xmy2g"]
 
 [ext_resource type="Texture2D" uid="uid://dmrn2v3cqc272" path="res://Assets/Sprites/Hero/Hero.png" id="1_bbnab"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kok6j"]
@@ -40,6 +40,7 @@
 [ext_resource type="AudioStream" uid="uid://clfrnam3efbp2" path="res://SoundEffects/PlayerSwing.wav" id="35_s14tk"]
 [ext_resource type="AudioStream" uid="uid://dnpogr0y4nve" path="res://SoundEffects/PlayerWalk.wav" id="36_tcj4y"]
 [ext_resource type="AudioStream" uid="uid://dcj3sjipkvhpb" path="res://SoundEffects/PlayerLand.wav" id="37_fpdhm"]
+[ext_resource type="AudioStream" uid="uid://cdrtl57epn6ks" path="res://SoundEffects/PlayerFirstTimeWakeUp.wav" id="41_vvbn2"]
 
 [sub_resource type="Gradient" id="Gradient_4lr1k"]
 offsets = PackedFloat32Array(0.36236, 0.99)
@@ -1130,7 +1131,7 @@ frame_progress = 1.0
 clip_children = 2
 position = Vector2(-1, -2)
 sprite_frames = SubResource("SpriteFrames_7dne2")
-animation = &"PlatformingGetup"
+animation = &"Getup"
 offset = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("4_7dqrg")
 
@@ -1242,6 +1243,11 @@ volumeAdd = -10.0
 [node name="HitGroundSound" parent="." instance=ExtResource("35_kia5y")]
 stream = ExtResource("37_fpdhm")
 volumeAdd = -20.0
+
+[node name="FirstTimeWakeUp" parent="." instance=ExtResource("35_kia5y")]
+stream = ExtResource("41_vvbn2")
+max_distance = 1280.0
+volumeAdd = -10.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true

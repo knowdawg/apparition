@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://cxdj67kinl3qh"]
+[gd_scene load_steps=81 format=3 uid="uid://cxdj67kinl3qh"]
 
 [ext_resource type="Texture2D" uid="uid://cres4n0htyhar" path="res://Assets/Sprites/Enemies/OldBossMan.png" id="1_4qgt6"]
 [ext_resource type="Texture2D" uid="uid://cbq53mq0vmfw2" path="res://Assets/Sprites/EnvirementArt/Chair.png" id="1_hcra1"]
@@ -46,6 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://3gtf5pbldyru" path="res://SoundEffects/Boss/BossHit.wav" id="44_rgi14"]
 [ext_resource type="PackedScene" uid="uid://dfnilvpe7kk1r" path="res://Objects/Dialog/dialog_buble.tscn" id="45_1uck3"]
 [ext_resource type="Script" path="res://Objects/Enemies/Oldmanboss/scripts/Dialog.gd" id="45_s3sd5"]
+[ext_resource type="Script" path="res://Objects/Enemies/Oldmanboss/RetryDialog.gd" id="47_uwb7m"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_uxfyl"]
 length = 160.0
@@ -1656,11 +1657,12 @@ spriteAnimator = NodePath("../../AnimationPlayer")
 longRangeProximity = NodePath("../../Components/LongRangeProximity")
 closeRangeProximity = NodePath("../../Components/CloseRangeProxiity")
 
-[node name="Sitting" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "spriteAnimator", "dialog")]
+[node name="Sitting" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "spriteAnimator", "dialog", "reapeatDialog")]
 script = ExtResource("4_wxlfw")
 parent = NodePath("../..")
 spriteAnimator = NodePath("../../AnimationPlayer")
 dialog = NodePath("../../Dialog")
+reapeatDialog = NodePath("../../RetryDialog")
 
 [node name="Snap" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "spriteAnimator")]
 script = ExtResource("5_0jlmw")
@@ -2074,6 +2076,16 @@ isCutScene = true
 position = Vector2(52, -4)
 text = "Fellow ghost, return to oblivion from where you came."
 time = 4.0
+isCutScene = true
+
+[node name="RetryDialog" type="Node" parent="." node_paths=PackedStringArray("animator", "sitState")]
+script = ExtResource("47_uwb7m")
+animator = NodePath("../AnimationPlayer")
+sitState = NodePath("../StateMachine/Sitting")
+
+[node name="OldManTalk1" parent="RetryDialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -2)
+text = "I'll kill you as many times as it takes!"
 isCutScene = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Sitting" method="_on_animation_player_animation_finished"]

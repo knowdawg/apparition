@@ -9,6 +9,9 @@ var platformingRespawnPos : Vector2
 
 var isPlayerDead = false;
 
+var playerSpawnForFirstTime = false
+var bossDialogFirstTime = true
+
 var slomoTimer = 0.0
 var normalTimeScale = 1.0
 func slow_down(durration: float, time_scale : float):
@@ -158,6 +161,9 @@ func switch_scene(data : SwitchSceneData):
 		add_child(s)
 		s.fadeIn()
 		s.fadeInComplete.connect(fadeComplete)
+
+func switchSceneNoData(scenePath):
+	get_tree().call_deferred("change_scene_to_file", scenePath)
 
 func fadeComplete():
 	get_tree().call_deferred("change_scene_to_file", p)

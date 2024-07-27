@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var text : String
+@export_multiline var text : String
 @export var waitTime : float
 @export var enabled = true
 

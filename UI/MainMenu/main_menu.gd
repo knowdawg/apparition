@@ -40,19 +40,13 @@ func _on_start_new_game_pressed():
 	
 	Game.createNewSave()
 	Game.loadSave()
-	var s = SwitchSceneData.new()
-	s.scene = "res://Levels/TutorialArea/starting_level.tscn"
-	s.door = "Spawn"
-	s.facingLeft = false
-	Game.switch_scene(s)
-
+	Game.switchSceneNoData("res://Levels/StartingCutscene/start_of_game_cutscene.tscn")
 
 func _on_continiue_pressed():
 	$Settings.visible = false
 	
 	Game.loadSave()
 	Game.playerDead()
-
 
 func _on_volume_value_changed(value):
 	Game.masterVolume = value / 100.0

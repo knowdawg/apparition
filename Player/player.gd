@@ -88,6 +88,11 @@ func _ready():
 	
 	camera.position_smoothing_enabled = false
 	$Timers/EnableSmoothCameraTimer.start()
+	
+	if Game.playerSpawnForFirstTime:
+		Game.playerSpawnForFirstTime = false
+		stateMachine.onChildTransition(stateMachine.current_state, "Getup")
+		$FirstTimeWakeUp.playSound()
 
 func _process(_delta):
 	healthComponent.set_max_health(Game.maxPlayerHealth)
