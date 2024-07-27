@@ -28,3 +28,6 @@ func is_iframe_active():
 	if ift >= 0:
 		return true
 	return false
+
+func setIFrameTimer(val : float):
+	ift = val

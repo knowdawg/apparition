@@ -25,13 +25,10 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if body is Player:
 		playingInside = true
-		#$AnimationPlayer.play("Show")
-		
 
 func _on_body_exited(body):
 	if body is Player:
-		playingInside= false
-		#$AnimationPlayer.play("Hide")
+		playingInside = false
 
 func enable():
 	enabled = true

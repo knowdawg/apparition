@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://cxdj67kinl3qh"]
+[gd_scene load_steps=80 format=3 uid="uid://cxdj67kinl3qh"]
 
 [ext_resource type="Texture2D" uid="uid://cres4n0htyhar" path="res://Assets/Sprites/Enemies/OldBossMan.png" id="1_4qgt6"]
 [ext_resource type="Texture2D" uid="uid://cbq53mq0vmfw2" path="res://Assets/Sprites/EnvirementArt/Chair.png" id="1_hcra1"]
@@ -44,6 +44,8 @@
 [ext_resource type="AudioStream" uid="uid://vyirlq8706qw" path="res://SoundEffects/Boss/Charge.wav" id="42_xe3te"]
 [ext_resource type="AudioStream" uid="uid://mr1mowhyx7wn" path="res://SoundEffects/Boss/SuperCharge.wav" id="43_dman3"]
 [ext_resource type="AudioStream" uid="uid://3gtf5pbldyru" path="res://SoundEffects/Boss/BossHit.wav" id="44_rgi14"]
+[ext_resource type="PackedScene" uid="uid://dfnilvpe7kk1r" path="res://Objects/Dialog/dialog_buble.tscn" id="45_1uck3"]
+[ext_resource type="Script" path="res://Objects/Enemies/Oldmanboss/scripts/Dialog.gd" id="45_s3sd5"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_uxfyl"]
 length = 160.0
@@ -1654,10 +1656,11 @@ spriteAnimator = NodePath("../../AnimationPlayer")
 longRangeProximity = NodePath("../../Components/LongRangeProximity")
 closeRangeProximity = NodePath("../../Components/CloseRangeProxiity")
 
-[node name="Sitting" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "spriteAnimator")]
+[node name="Sitting" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "spriteAnimator", "dialog")]
 script = ExtResource("4_wxlfw")
 parent = NodePath("../..")
 spriteAnimator = NodePath("../../AnimationPlayer")
+dialog = NodePath("../../Dialog")
 
 [node name="Snap" type="Node" parent="StateMachine" node_paths=PackedStringArray("parent", "spriteAnimator")]
 script = ExtResource("5_0jlmw")
@@ -1991,6 +1994,87 @@ volumeAdd = -15.0
 [node name="Hit" parent="." instance=ExtResource("33_sam5p")]
 stream = ExtResource("44_rgi14")
 max_distance = 10000.0
+
+[node name="Dialog" type="Node" parent="." node_paths=PackedStringArray("animator", "sitState")]
+script = ExtResource("45_s3sd5")
+animator = NodePath("../AnimationPlayer")
+sitState = NodePath("../StateMachine/Sitting")
+
+[node name="OldManTalk1" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -2)
+text = "So which one are you?"
+isCutScene = true
+
+[node name="OldManTalk2" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -3)
+text = "I asume you already know who I am..."
+isCutScene = true
+
+[node name="OldManTalk3" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -4)
+text = "...unless..."
+isCutScene = true
+
+[node name="PlayerTalk1" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(-32, -4)
+text = "I don't belive we have met."
+isCutScene = true
+
+[node name="PlayerTalk2" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(-32, -4)
+text = "I am a knight in search of my family. I have followed thier voices here."
+time = 4.0
+isCutScene = true
+
+[node name="OldManTalk4" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -4)
+text = "Ha!"
+isCutScene = true
+
+[node name="PlayerTalk3" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(-32, -4)
+text = "If you know what is best for you, you will tell me what you know."
+time = 4.0
+isCutScene = true
+
+[node name="OldManTalk5" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -4)
+text = "So thats thier plan."
+isCutScene = true
+
+[node name="PlayerTalk4" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(-32, -4)
+text = "Are you even listening to me!"
+isCutScene = true
+
+[node name="OldManTalk6" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -4)
+text = "Find someone who is easily minipulated in hopes of killing me."
+time = 4.0
+isCutScene = true
+
+[node name="OldManTalk7" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -4)
+text = "Fine, I'll play along"
+isCutScene = true
+
+[node name="OldManTalk8" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -4)
+text = "Let me give your your situation plainly."
+time = 3.0
+isCutScene = true
+
+[node name="OldManTalk9" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -4)
+text = "You and your family are actulay long dead."
+time = 4.0
+isCutScene = true
+
+[node name="OldManTalk10" parent="Dialog" instance=ExtResource("45_1uck3")]
+position = Vector2(52, -4)
+text = "Fellow ghost, return to oblivion from where you came."
+time = 4.0
+isCutScene = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Sitting" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Snap" method="_on_animation_player_animation_finished"]

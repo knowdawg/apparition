@@ -1,0 +1,247 @@
+[gd_scene load_steps=21 format=3 uid="uid://bukg3himsubwy"]
+
+[ext_resource type="Texture2D" uid="uid://dgf36q8spx6au" path="res://Assets/Sprites/Art/StartOfGameCutscene/StartOfGameCutscen5.png" id="1_adknf"]
+[ext_resource type="Script" path="res://Levels/StartingCutscene/start_of_game_cutscene.gd" id="1_ul10p"]
+[ext_resource type="Script" path="res://addons/nklbdev.previewing_parallax_background/PreviewingParallaxBackground.gd" id="2_fwrx2"]
+[ext_resource type="Texture2D" uid="uid://cowuv0r8kqf51" path="res://Assets/Sprites/Art/StartOfGameCutscene/StartOfGameCutscen4.png" id="2_u03e0"]
+[ext_resource type="Texture2D" uid="uid://b2hivixlrlaua" path="res://Assets/Sprites/Art/StartOfGameCutscene/StartOfGameCutscen3.png" id="3_wwjbt"]
+[ext_resource type="Texture2D" uid="uid://c0ore0qkf2nbe" path="res://Assets/Sprites/Art/StartOfGameCutscene/StartOfGameCutsceneAnimation.png" id="4_swqti"]
+[ext_resource type="Texture2D" uid="uid://bpbte64mns15l" path="res://Assets/Sprites/Art/StartOfGameCutscene/StartOfGameCutscen2.png" id="5_0vapk"]
+[ext_resource type="Texture2D" uid="uid://cu18nn804hlfu" path="res://Assets/Sprites/Art/StartOfGameCutscene/StartOfGameCutscene1.png" id="6_226qa"]
+[ext_resource type="PackedScene" uid="uid://4acpdbofrb1k" path="res://UI/tutorial_icons.tscn" id="9_6bt3s"]
+
+[sub_resource type="Animation" id="Animation_igm7m"]
+resource_name = "Animate"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(192, 2.08165e-12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flag2/ParallaxLayer2/BlackBox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(136, 1.13687e-13), Vector2(-1000, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_ra08e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flag2/ParallaxLayer2/BlackBox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(136, 1.13687e-13)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cw8j"]
+_data = {
+"Animate": SubResource("Animation_igm7m"),
+"RESET": SubResource("Animation_ra08e")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esqp2"]
+atlas = ExtResource("4_swqti")
+region = Rect2(0, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfl8o"]
+atlas = ExtResource("4_swqti")
+region = Rect2(192, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5jjp"]
+atlas = ExtResource("4_swqti")
+region = Rect2(384, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kobj"]
+atlas = ExtResource("4_swqti")
+region = Rect2(576, 0, 192, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ttnu1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esqp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfl8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5jjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kobj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_6onbv"]
+offsets = PackedFloat32Array(0.880488, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_byl61"]
+gradient = SubResource("Gradient_6onbv")
+width = 512
+height = 4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmdw2"]
+
+[node name="StartOfGameCutscene" type="Node2D"]
+script = ExtResource("1_ul10p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2cw8j")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(10, 10)
+
+[node name="Sky" type="ParallaxBackground" parent="."]
+script = ExtResource("2_fwrx2")
+preview_enabled = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Sky"]
+motion_scale = Vector2(2.08165e-12, 1)
+
+[node name="Sky" type="Sprite2D" parent="Sky/ParallaxLayer"]
+position = Vector2(96.125, 0)
+texture = ExtResource("1_adknf")
+
+[node name="Clouds" type="ParallaxBackground" parent="."]
+script = ExtResource("2_fwrx2")
+preview_enabled = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Clouds"]
+motion_scale = Vector2(-0.05, 1)
+motion_mirroring = Vector2(192, 108)
+
+[node name="Clouds" type="Sprite2D" parent="Clouds/ParallaxLayer"]
+position = Vector2(115.35, 0)
+texture = ExtResource("2_u03e0")
+
+[node name="Clouds2" type="Sprite2D" parent="Clouds/ParallaxLayer"]
+position = Vector2(-76, 0)
+texture = ExtResource("2_u03e0")
+
+[node name="Clouds3" type="Sprite2D" parent="Clouds/ParallaxLayer"]
+position = Vector2(-268, 0)
+texture = ExtResource("2_u03e0")
+
+[node name="Mountains" type="ParallaxBackground" parent="."]
+script = ExtResource("2_fwrx2")
+preview_enabled = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Mountains"]
+motion_scale = Vector2(-0.1, 1)
+motion_mirroring = Vector2(192, 108)
+
+[node name="Mountains" type="Sprite2D" parent="Mountains/ParallaxLayer"]
+position = Vector2(124.462, 0)
+texture = ExtResource("3_wwjbt")
+
+[node name="Mountains2" type="Sprite2D" parent="Mountains/ParallaxLayer"]
+position = Vector2(-68, 0)
+texture = ExtResource("3_wwjbt")
+
+[node name="Mountains3" type="Sprite2D" parent="Mountains/ParallaxLayer"]
+position = Vector2(-263, 1)
+texture = ExtResource("3_wwjbt")
+
+[node name="Grass" type="ParallaxBackground" parent="."]
+script = ExtResource("2_fwrx2")
+preview_enabled = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Grass"]
+motion_scale = Vector2(2.08165e-12, 1)
+
+[node name="Grass" type="AnimatedSprite2D" parent="Grass/ParallaxLayer"]
+position = Vector2(95.9259, 0)
+sprite_frames = SubResource("SpriteFrames_ttnu1")
+frame_progress = 0.129896
+
+[node name="Flag1" type="ParallaxBackground" parent="."]
+script = ExtResource("2_fwrx2")
+preview_enabled = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Flag1"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(192, 108)
+
+[node name="Flag1" type="Sprite2D" parent="Flag1/ParallaxLayer"]
+position = Vector2(53.5625, 0)
+texture = ExtResource("5_0vapk")
+
+[node name="Flag2" type="Sprite2D" parent="Flag1/ParallaxLayer"]
+position = Vector2(246, 0)
+texture = ExtResource("5_0vapk")
+
+[node name="Flag3" type="Sprite2D" parent="Flag1/ParallaxLayer"]
+position = Vector2(438, 0)
+texture = ExtResource("5_0vapk")
+
+[node name="Flag2" type="ParallaxBackground" parent="."]
+script = ExtResource("2_fwrx2")
+preview_enabled = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Flag2"]
+motion_scale = Vector2(2, 1)
+motion_mirroring = Vector2(192, 108)
+
+[node name="Flag2" type="Sprite2D" parent="Flag2/ParallaxLayer"]
+texture = ExtResource("6_226qa")
+
+[node name="Flag3" type="Sprite2D" parent="Flag2/ParallaxLayer"]
+position = Vector2(192, 0)
+texture = ExtResource("6_226qa")
+
+[node name="Flag4" type="Sprite2D" parent="Flag2/ParallaxLayer"]
+position = Vector2(384, 0)
+texture = ExtResource("6_226qa")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Flag2"]
+motion_scale = Vector2(2.08165e-12, 1)
+
+[node name="BlackBox" type="Sprite2D" parent="Flag2/ParallaxLayer2"]
+position = Vector2(136, 1.13687e-13)
+scale = Vector2(0.555106, 27)
+texture = SubResource("GradientTexture2D_byl61")
+
+[node name="TutorialIcon" parent="." instance=ExtResource("9_6bt3s")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialIcon"]
+visible = false
+shape = SubResource("CircleShape2D_jmdw2")
+disabled = true

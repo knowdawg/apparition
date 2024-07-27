@@ -3,6 +3,7 @@ class_name BossSitting
 
 @export var parent : OldManBoss
 @export var spriteAnimator : AnimationPlayer
+@export var dialog : Node
 
 func update(_delta):
 	pass
@@ -11,8 +12,7 @@ func enter():
 	spriteAnimator.play("RESET")
 
 func stand():
-	spriteAnimator.play("StandUp")
+	dialog.start()
 
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "StandUp":
-		trasitioned.emit(self, "Idle")
+func cutsceneDone():
+	trasitioned.emit(self, "Idle")

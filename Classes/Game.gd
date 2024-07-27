@@ -181,6 +181,7 @@ func platformingRespawn():
 func platformRespawnFadeComplete():
 	playerPlatformRespawning = false
 	player.position = platformingRespawnPos
+	player.platformingStun()
 	s.fadeOut()
 
 func cameraBoundsChanged():

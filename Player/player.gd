@@ -195,6 +195,12 @@ func death(attack : Attack):
 	$IframeAnimator.play("Death")
 	$HurtboxComponent.call_deferred("disable")
 
+func setCutsceneMode(enter : bool):
+	if enter:
+		stateMachine.onChildTransition(stateMachine.current_state, "Cutscene")
+	else:
+		stateMachine.onChildTransition(stateMachine.current_state, "Idle")
+
 func get_health():
 	return(healthComponent.get_health())
 
@@ -220,3 +226,6 @@ func _on_iframe_animator_animation_finished(anim_name):
 	if anim_name == "Death":
 		pass
 		#Game.playerDead()
+
+func platformingStun():
+	stateMachine.onChildTransition(stateMachine.current_state, "PlatformingRespawnStun")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://bu5ierx1xmy2g"]
+[gd_scene load_steps=171 format=3 uid="uid://bu5ierx1xmy2g"]
 
 [ext_resource type="Texture2D" uid="uid://dmrn2v3cqc272" path="res://Assets/Sprites/Hero/Hero.png" id="1_bbnab"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kok6j"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://Player/StateMachine/Dead.gd" id="12_4uqs7"]
 [ext_resource type="Texture2D" uid="uid://do3nu8ula5nvt" path="res://Assets/Sprites/Hero/HeroHurt.png" id="13_450sa"]
 [ext_resource type="Script" path="res://Player/StateMachine/Getup.gd" id="13_ehtvg"]
+[ext_resource type="Script" path="res://Player/StateMachine/PlatformingRespawnStun.gd" id="14_bkjdk"]
+[ext_resource type="Script" path="res://Player/StateMachine/Cutscene.gd" id="15_m4sqc"]
 [ext_resource type="Texture2D" uid="uid://cdmn07k2g2p6t" path="res://Assets/Sprites/Hero/HeroDeath.png" id="16_i17mf"]
 [ext_resource type="PackedScene" uid="uid://basi3gkp6u5gf" path="res://Assets/Components/HitboxComponent/Hitbox_component.tscn" id="17_owx4m"]
 [ext_resource type="PackedScene" uid="uid://dhqsxanjb1t2y" path="res://Assets/Components/HitFlashComponent/hit_flash_component.tscn" id="17_xnvk1"]
@@ -30,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cljnnlu1mpnmf" path="res://Assets/Sprites/Hero/HeroGetup.png" id="19_x6dgm"]
 [ext_resource type="Texture2D" uid="uid://uksk7xghxttu" path="res://Assets/Sprites/Effects/PlayerHitEffect.png" id="20_80jl2"]
 [ext_resource type="PackedScene" uid="uid://cuj56qr8m5w0d" path="res://Player/HealthBat/health_bar_component.tscn" id="21_6ipaf"]
+[ext_resource type="Texture2D" uid="uid://byal35md6qha4" path="res://Assets/Sprites/Hero/HeroPlatformingStun.png" id="24_r2k8g"]
 [ext_resource type="PackedScene" uid="uid://brujq4dkn34nd" path="res://Assets/Components/ProximityArea/proximity_area.tscn" id="26_sjwpr"]
 [ext_resource type="AudioStream" uid="uid://bixffyybsmca0" path="res://SoundEffects/Bash.wav" id="32_qtfjk"]
 [ext_resource type="AudioStream" uid="uid://ba2cooqc02vq1" path="res://SoundEffects/PlayerHit.wav" id="33_lsy4h"]
@@ -476,6 +479,10 @@ region = Rect2(96, 0, 32, 16)
 atlas = ExtResource("11_u1lod")
 region = Rect2(128, 0, 32, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hywi6"]
+atlas = ExtResource("24_r2k8g")
+region = Rect2(0, 0, 32, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oy2q5"]
 atlas = ExtResource("3_b57o4")
 region = Rect2(0, 0, 32, 16)
@@ -858,6 +865,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hywi6")
+}],
+"loop": false,
+"name": &"PlatformingGetup",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_oy2q5")
 }, {
 "duration": 1.0,
@@ -1091,6 +1106,18 @@ script = ExtResource("13_ehtvg")
 sprite = NodePath("../../HeroSprite")
 player = NodePath("../..")
 
+[node name="PlatformingRespawnStun" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "player", "hurtBox", "iFramAnim")]
+script = ExtResource("14_bkjdk")
+sprite = NodePath("../../HeroSprite")
+player = NodePath("../..")
+hurtBox = NodePath("../../HurtboxComponent")
+iFramAnim = NodePath("../../IframeAnimator")
+
+[node name="Cutscene" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "player")]
+script = ExtResource("15_m4sqc")
+sprite = NodePath("../../HeroSprite")
+player = NodePath("../..")
+
 [node name="HitSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1, 0)
@@ -1103,9 +1130,7 @@ frame_progress = 1.0
 clip_children = 2
 position = Vector2(-1, -2)
 sprite_frames = SubResource("SpriteFrames_7dne2")
-animation = &"Getup"
-frame = 37
-frame_progress = 1.0
+animation = &"PlatformingGetup"
 offset = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("4_7dqrg")
 

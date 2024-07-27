@@ -155,3 +155,4 @@ texture = ExtResource("3_hq7kp")
 
 [node name="BreakSound" parent="." instance=ExtResource("5_yewvh")]
 stream = ExtResource("5_2a4bt")
+canBeSlowed = false

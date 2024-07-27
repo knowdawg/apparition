@@ -20,6 +20,9 @@ var currentWave : int = 0
 
 @export var fodderSpawn : EnemySpawnPoint
 
+func onEncounterStart():
+	pass
+
 func encounterStart():
 	for gate in gates:
 		gate.close()
@@ -28,6 +31,7 @@ func encounterStart():
 	if currentWave == 0:
 		call_deferred("nextWave")
 	MainAreaMusic.combat = true
+	onEncounterStart()
 
 func onEncounterEnd():
 	pass
