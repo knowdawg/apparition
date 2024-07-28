@@ -50,5 +50,5 @@ func enter():
 		direction = -1
 		return
 
-func exit():
+func exit(_newState):
 	player.dashV = Vector2.ZERO

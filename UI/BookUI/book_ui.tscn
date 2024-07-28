@@ -327,6 +327,7 @@ _data = {
 [node name="BookUI" type="CanvasLayer"]
 layer = 10
 script = ExtResource("1_hi1nf")
+pageNames = ["BLANK", "BLANK"]
 
 [node name="BookTexture" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)

@@ -16,21 +16,20 @@ func _ready():
 	else:
 		Game.checkpointGateActivationStatus[id] = false
 
+func open():
+	state = "opening"
+	Game.checkpointGateActivationStatus[id] = true
+	$AnimationPlayer.play("Open")
+	
 func _process(_delta):
 	if state == 'closed':
 		$StaticBody2D/CollisionShape2D.position.y = 0
 	elif state == 'open':
 		$StaticBody2D/CollisionShape2D.position.y = -25
 
-func open():
-	state = "opening"
-	Game.checkpointGateActivationStatus[id] = true
-	$AnimationPlayer.play("Open")
-
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Open":
 		state = "open"
-
 
 func _on_body_entered(body):
 	if state == "closed":
