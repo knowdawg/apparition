@@ -84,7 +84,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-413.126, 0)
+position = Vector2(-413.126, -1.52588e-05)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -94,7 +94,7 @@ script = ExtResource("2_ny1p6")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_dh3wj")]
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-173.948, -61.1479)
+position = Vector2(-173.948, -61.148)
 motion_scale = Vector2(0.6, 0.6)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer4" instance=ExtResource("8_t21hj")]
@@ -127,6 +127,7 @@ layer_0/tile_data = PackedInt32Array(-458748, 0, 131072, -458747, 0, 131072, -45
 layer_0/tile_data = PackedInt32Array(65533, 0, 0, 65532, 0, 0, 65531, 0, 0, 65530, 0, 0, 65529, 0, 0, 65534, 0, 0, 65528, 0, 0, -6, 0, 536870912, -5, 0, 536870912, -4, 0, 536870912, -3, 0, 536870912, -7, 0, 536870912, 65535, 0, 0, -8, 0, 536870912, -2, 0, 536870912)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-3.05176e-05, -1.52588e-05)
 
 [node name="Decorations" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("6_i0b3h")]
 position = Vector2(76, 40)
@@ -263,7 +264,7 @@ position = Vector2(-128, 64)
 book = NodePath("BookUI")
 
 [node name="BookUI" parent="Foreground/BookInteractable" instance=ExtResource("16_eq53x")]
-pageNames = ["RulesOrder1", "RulesOrder2", "RulesOrder3", "RulesOrder4", "RulesOrder5", "RulesOrder6", "RulesOrder7", "BLANK"]
+pageNames = ["RulesOrder0", "BLANK", "RulesOrder1", "RulesOrder2", "RulesOrder3", "RulesOrder4", "RulesOrder5", "RulesOrder6", "RulesOrder7", "BLANK"]
 
 [node name="WallBreakableWall" parent="Foreground" node_paths=PackedStringArray("tilemap", "level") instance=ExtResource("15_74b78")]
 position = Vector2(-104, -4)
@@ -295,7 +296,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(173.948, 61.1479)
+position = Vector2(173.948, 61.148)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

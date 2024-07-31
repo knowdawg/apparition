@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://3alpwn0ukje1"]
+[gd_scene load_steps=23 format=3 uid="uid://3alpwn0ukje1"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_nqn52"]
 [ext_resource type="Script" path="res://addons/nklbdev.previewing_parallax_background/PreviewingParallaxBackground.gd" id="2_fu7xl"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b0rw13dj3fjac" path="res://Assets/Components/CameraBoundriesComponent/camera_boundries_component.tscn" id="9_arxm6"]
 [ext_resource type="PackedScene" uid="uid://lh4kp2mhbvvh" path="res://Objects/Upgrades/health_upgrade.tscn" id="11_2nbk0"]
 [ext_resource type="Texture2D" uid="uid://bqql6e1fxgmnr" path="res://Assets/Sprites/Effects/Circle.png" id="11_l050i"]
+[ext_resource type="PackedScene" uid="uid://b4dgt4fqmqxfo" path="res://UI/BookUI/book_interactable.tscn" id="13_niwht"]
+[ext_resource type="PackedScene" uid="uid://bikqnlk1yih0x" path="res://UI/BookUI/book_ui.tscn" id="14_xhthx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06s3s"]
 
@@ -65,7 +67,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-133.815, -7.62939e-06)
+position = Vector2(-212.384, -7.62939e-06)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -75,13 +77,13 @@ script = ExtResource("2_fu7xl")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_dd1o0")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-42.2574, -7.62939e-06)
+position = Vector2(-67.0686, -7.62939e-06)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_7bihg")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-14.0858, -7.62939e-06)
+position = Vector2(-22.3562, -7.62939e-06)
 motion_scale = Vector2(0.9, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("5_g2s43")]
@@ -147,15 +149,21 @@ exstendRight = false
 [node name="PlatformRespawnPoints" type="Node2D" parent="Foreground"]
 
 [node name="HealthUpgrade" parent="Foreground" node_paths=PackedStringArray("room") instance=ExtResource("11_2nbk0")]
-position = Vector2(0, -12)
+position = Vector2(0, -24)
 room = NodePath("../..")
+
+[node name="BookInteractable" parent="Foreground" node_paths=PackedStringArray("book") instance=ExtResource("13_niwht")]
+book = NodePath("BookUI")
+
+[node name="BookUI" parent="Foreground/BookInteractable" instance=ExtResource("14_xhthx")]
+pageNames = ["Rules0", "BLANK", "Rules1", "Rules2", "Rules3", "Rules4"]
 
 [node name="Front" type="ParallaxBackground" parent="."]
 layer = 1
 script = ExtResource("2_fu7xl")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(28.1716, 15.0001)
+position = Vector2(44.7124, 22.9526)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -170,7 +178,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(56.3432, 30.0001)
+position = Vector2(89.4248, 45.9052)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

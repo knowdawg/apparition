@@ -190,6 +190,10 @@ func platformRespawnFadeComplete():
 	player.platformingStun()
 	s.fadeOut()
 
+func switchToFinalCutscene():
+	switchSceneNoData("res://Levels/FinalCutscene/final_cutscene.tscn")
+
+
 func cameraBoundsChanged():
 	cameraLimitSmoothing = 0.25
 

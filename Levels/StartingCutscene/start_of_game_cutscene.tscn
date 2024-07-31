@@ -512,7 +512,7 @@ shape = SubResource("CircleShape2D_jmdw2")
 disabled = true
 
 [node name="Text2" parent="Text" instance=ExtResource("9_6bt3s")]
-text = "...this is a monumental victory. I should feel content. I should feel at peace."
+text = "This is a monumental victory. My sacrifice has saved many. I should be able to die at peace."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Text/Text2"]
 visible = false

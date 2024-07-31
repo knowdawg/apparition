@@ -12,10 +12,10 @@ func _ready():
 
 var currDialogIndex = 0
 func nextDialog():
-	if currDialogIndex == 11:
+	if currDialogIndex == 7:
 		animator.play("StandUp")
 	
-	if currDialogIndex == 14:
+	if currDialogIndex == 11:
 		sitState.cutsceneDone()
 		Game.player.setCutsceneMode(false)
 	

@@ -28,7 +28,7 @@
 shader = ExtResource("3_dlkrq")
 shader_parameter/FOV = 1.0
 shader_parameter/cameraPos = Vector3(2.08165e-12, 1.3, 2.08165e-12)
-shader_parameter/hRes = 384.0
+shader_parameter/hRes = 192.0
 shader_parameter/vRes = 108.0
 shader_parameter/color = Color(1, 0, 0, 1)
 shader_parameter/xDisplacemnt = null
@@ -131,7 +131,7 @@ m2 = 0.3
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-114.778, 2.28882e-05)
+position = Vector2(-114.778, 1.52588e-05)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -143,13 +143,13 @@ script = ExtResource("2_rhh1x")
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2" instance=ExtResource("5_1et0t")]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-36.2456, 2.28882e-05)
+position = Vector2(-36.2457, 1.52588e-05)
 motion_scale = Vector2(0.7, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_0w042")]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(0, 2.28882e-05)
+position = Vector2(1.52588e-05, 1.52588e-05)
 
 [node name="BigBrickBackground" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("6_02y5w")]
 
@@ -459,7 +459,7 @@ layer = 1
 script = ExtResource("2_rhh1x")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(24.1637, 20.0735)
+position = Vector2(24.1638, 20.0734)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -474,7 +474,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(48.3275, 40.1469)
+position = Vector2(48.3276, 40.1468)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]
