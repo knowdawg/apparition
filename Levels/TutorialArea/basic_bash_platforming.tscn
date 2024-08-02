@@ -245,14 +245,14 @@ shape = SubResource("RectangleShape2D_ujmp8")
 position = Vector2(-264, 0)
 
 [node name="TutorialIcon" parent="Foreground" instance=ExtResource("14_j2375")]
-text = "RIGHT MOUSE BUTTON or RIGHT STICK to Activate Launch Nodes"
+text = "[img=156x156]res://Assets/Sprites/UI/controllerIcons/MouseIcons2.png[/img] or [img=156x156]res://Assets/Sprites/UI/controllerIcons/ControllerIcons4.png[/img] to Activate Launch Nodes"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/TutorialIcon"]
 position = Vector2(-16, -64)
 shape = SubResource("RectangleShape2D_erisu")
 
 [node name="TutorialIcon2" parent="Foreground" instance=ExtResource("14_j2375")]
-text = "S or LEFT STICK DOWN to Fall Down Platforms"
+text = "S or [img=156x156]res://Assets/Sprites/UI/controllerIcons/ControllerIcons3.png[/img] down to Fall Down Platforms"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/TutorialIcon2"]
 position = Vector2(-128, -92)

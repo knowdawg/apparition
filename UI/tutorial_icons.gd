@@ -7,7 +7,7 @@ extends Area2D
 var playingInside = false
 
 func _ready():
-	$TutorialIcons/Control/Label.text = text
+	$TutorialIcons/Control/Label.text = "[center]" + text + "[/center]"
 	t = waitTime
 	
 

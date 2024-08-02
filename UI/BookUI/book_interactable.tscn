@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4dgt4fqmqxfo"]
+[gd_scene load_steps=7 format=3 uid="uid://b4dgt4fqmqxfo"]
 
 [ext_resource type="PackedScene" uid="uid://brujq4dkn34nd" path="res://Assets/Components/ProximityArea/proximity_area.tscn" id="1_obuio"]
 [ext_resource type="Script" path="res://UI/BookUI/book_interactable.gd" id="1_qd43k"]
 [ext_resource type="Texture2D" uid="uid://3j8snjrtxkir" path="res://Assets/Sprites/Objects/BookHolder.png" id="3_yxwa3"]
 [ext_resource type="Texture2D" uid="uid://b6cjktjt46r8i" path="res://Assets/Sprites/Art/InteractPopup.png" id="4_nxj2n"]
+[ext_resource type="Texture2D" uid="uid://d4kb86ssrutu1" path="res://Assets/Sprites/UI/controllerIcons/ControllerIcons5.png" id="5_ftwb0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vve8p"]
 radius = 8.0
@@ -21,5 +22,16 @@ shape = SubResource("CircleShape2D_vve8p")
 texture = ExtResource("3_yxwa3")
 
 [node name="KeyIcon" type="Sprite2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(-8, -13)
 texture = ExtResource("4_nxj2n")
+hframes = 2
+
+[node name="KeyIcon2" type="Sprite2D" parent="KeyIcon"]
+position = Vector2(15.5, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_ftwb0")
+
+[node name="Polygon2D" type="Polygon2D" parent="KeyIcon"]
+position = Vector2(-2, 0)
+color = Color(0.921569, 0.929412, 0.913725, 1)
+polygon = PackedVector2Array(6, 4, 10, -4, 12, -4, 8, 4)

@@ -73,6 +73,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
+position = Vector2(-221.874, 0)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -82,6 +83,7 @@ script = ExtResource("2_01prf")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_la6vt")]
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-70.0656, 0)
 motion_scale = Vector2(0.7, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer4" instance=ExtResource("5_3hdxv")]
@@ -93,12 +95,14 @@ position = Vector2(-16.7027, 92)
 layer_0/tile_data = PackedInt32Array(-262143, 1, 536870912, -262144, 1, 536870912, -196606, 1, 0, -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 1, 0, -196607, 1, 0, -196608, 1, 0, -196600, 1, 0, -262142, 1, 536870912, -262141, 1, 536870912, -262140, 1, 536870912, -262139, 1, 536870912, -262138, 1, 536870912, -262137, 1, 536870912, -196609, 1, 536870912, -262136, 1, 536870912)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-46.7104, 0)
 motion_scale = Vector2(0.8, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_bx4ff")]
 layer_0/tile_data = PackedInt32Array(-720888, 196608, 1, -655354, 65536, 1, -589818, 65536, 2, -524282, 65536, 2, -458746, 65536, 2, -393210, 65536, 2, -327674, 65536, 2, -327673, 196608, 2, -393209, 196608, 2, -458745, 196608, 2, -524281, 196608, 2, -589817, 196608, 2, -655353, 196608, 1, -262138, 65536, 2, -655351, 65536, 1, -589815, 65536, 2, -524279, 65536, 2, -458743, 65536, 2, -393207, 65536, 2, -327671, 65536, 2, -262135, 65536, 2, -262134, 196608, 2, -327670, 196608, 2, -393206, 196608, 2, -458742, 196608, 2, -524278, 196608, 2, -589814, 196608, 2, -655350, 196608, 1, -196599, 65536, 2, -131063, 65536, 2, -65527, 65536, 2, 9, 65536, 2, 65545, 65536, 3, 65546, 196608, 3, 10, 196608, 2, -65526, 196608, 2, -131062, 196608, 2, -196598, 196608, 2, -196601, 196608, 2, -131065, 196608, 2, -65529, 196608, 2, 7, 196608, 2, 65543, 196608, 2, 131079, 196608, 2, 65542, 65536, 2, 6, 65536, 2, -65530, 65536, 2, -131066, 65536, 2, -196602, 65536, 2, -262137, 196608, 2, 131078, 65536, 3, -655356, 196608, 1, -589820, 196608, 2, -524284, 196608, 2, -458748, 196608, 2, -393212, 196608, 2, -327676, 196608, 2, -262140, 196608, 2, -196604, 196608, 2, -131068, 196608, 2, -65532, 196608, 2, 4, 196608, 2, 65540, 196608, 2, 131076, 196608, 2, 131075, 65536, 3, 65539, 65536, 2, 3, 65536, 2, -65533, 65536, 2, -131069, 65536, 2, -196605, 65536, 2, -262141, 65536, 2, -327677, 65536, 2, -393213, 65536, 2, -458749, 65536, 2, -524285, 65536, 2, -589821, 65536, 2, -655357, 65536, 1, 196612, 196608, 3, 262148, 196608, 3, 196615, 196608, 3)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-23.3552, 0)
 motion_scale = Vector2(0.9, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer2" instance=ExtResource("5_3hdxv")]
@@ -110,6 +114,7 @@ position = Vector2(16.9492, 96)
 layer_0/tile_data = PackedInt32Array(-196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196608, 0, 0, -262143, 0, 536870912, -262142, 0, 536870912, -262141, 0, 536870912, -262140, 0, 536870912, -262139, 0, 536870912, -262138, 0, 536870912, -262137, 0, 536870912, -262144, 0, 536870912)
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(-11.6776, 0)
 motion_scale = Vector2(0.95, 1)
 
 [node name="Small2BackgroundLargeBrick" parent="PreviewingParallaxBackground2/ParallaxLayer5" instance=ExtResource("5_bq7c3")]
@@ -200,7 +205,7 @@ shape = SubResource("RectangleShape2D_8drod")
 position = Vector2(-4, 12)
 
 [node name="TutorialIcon" parent="Foreground" instance=ExtResource("13_mtofg")]
-text = "Hold SPACE or A to Jump"
+text = "Hold SPACE or [img=156x156]res://Assets/Sprites/UI/controllerIcons/ControllerIcons7.png[/img] to Jump"
 waitTime = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/TutorialIcon"]
@@ -212,6 +217,7 @@ layer = 1
 script = ExtResource("2_01prf")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
+position = Vector2(46.7104, 29.0154)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -226,6 +232,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
+position = Vector2(93.4208, 58.0307)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

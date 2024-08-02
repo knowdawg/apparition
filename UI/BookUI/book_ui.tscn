@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bikqnlk1yih0x"]
+[gd_scene load_steps=16 format=3 uid="uid://bikqnlk1yih0x"]
 
 [ext_resource type="Texture2D" uid="uid://di7xabl33fr4m" path="res://Assets/Sprites/UI/Notes.png" id="1_26dxe"]
 [ext_resource type="Script" path="res://UI/BookUI/book_ui.gd" id="1_hi1nf"]
-[ext_resource type="Texture2D" uid="uid://b4o35excifdhw" path="res://Assets/Sprites/UI/bookPrompt.png" id="3_iydc5"]
+[ext_resource type="Texture2D" uid="uid://cyrq0t4cph4tf" path="res://Assets/Sprites/UI/controllerIcons/ControllerIcons2.png" id="3_pgoi0"]
+[ext_resource type="Texture2D" uid="uid://d12hl0j1lin6o" path="res://Assets/Sprites/UI/controllerIcons/MouseIcons3.png" id="4_0tujp"]
 [ext_resource type="AudioStream" uid="uid://dmkdvueosqt6v" path="res://SoundEffects/BookLand.wav" id="4_bxhm3"]
 [ext_resource type="AudioStream" uid="uid://btbdau6i17ji6" path="res://SoundEffects/BookPaperLand.wav" id="5_6njsf"]
 [ext_resource type="AudioStream" uid="uid://c4intlm40dq6k" path="res://SoundEffects/BookTurnPage.wav" id="6_cji2j"]
@@ -107,14 +108,14 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Prompt:visible")
+tracks/7/path = NodePath("Prompt3:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(1.8),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_4ngws"]
@@ -171,7 +172,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Prompt:visible")
+tracks/4/path = NodePath("Prompt3:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -246,7 +247,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Prompt:visible")
+tracks/5/path = NodePath("Prompt3:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -415,17 +416,25 @@ bbcode_enabled = true
 scroll_active = false
 autowrap_mode = 2
 
-[node name="Prompt" type="NinePatchRect" parent="."]
+[node name="Prompt3" type="HBoxContainer" parent="."]
 visible = false
 anchors_preset = -1
-anchor_left = 0.42
-anchor_top = 0.75
-anchor_right = 0.58
-anchor_bottom = 0.85
-offset_left = -1.14441e-05
+anchor_left = 0.37
+anchor_top = 0.7
+anchor_right = 0.61
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_iydc5")
+
+[node name="Prompt" type="NinePatchRect" parent="Prompt3"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_pgoi0")
+
+[node name="Prompt2" type="NinePatchRect" parent="Prompt3"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_0tujp")
 
 [node name="BookAnimator" type="AnimationPlayer" parent="."]
 libraries = {
