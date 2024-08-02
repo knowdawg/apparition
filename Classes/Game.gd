@@ -162,8 +162,19 @@ func switch_scene(data : SwitchSceneData):
 		s.fadeIn()
 		s.fadeInComplete.connect(fadeComplete)
 
+var nodataScenePath = ""
 func switchSceneNoData(scenePath):
-	get_tree().call_deferred("change_scene_to_file", scenePath)
+	nodataScenePath = scenePath
+	if s != null:
+		s.queue_free()
+	s = screenTransition.instantiate()
+	add_child(s)
+	s.fadeIn()
+	s.fadeInComplete.connect(fadeCompleteNoData)
+
+func fadeCompleteNoData():
+	get_tree().call_deferred("change_scene_to_file", nodataScenePath)
+	s.fadeOut()
 
 func fadeComplete():
 	get_tree().call_deferred("change_scene_to_file", p)

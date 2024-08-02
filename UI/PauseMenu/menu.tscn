@@ -31,14 +31,9 @@ grow_vertical = 2
 layout_mode = 2
 text = "Resume"
 
-[node name="Save" parent="Panel/VBoxContainer" instance=ExtResource("1_hrfam")]
-layout_mode = 2
-text = "Save"
-
 [node name="Quit" parent="Panel/VBoxContainer" instance=ExtResource("1_hrfam")]
 layout_mode = 2
 text = "Quit To Menu"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

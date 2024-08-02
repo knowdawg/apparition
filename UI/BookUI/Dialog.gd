@@ -352,7 +352,7 @@ Loop 9
 	Looks like my people really screwed you good then, Shiro! I am from the Era of Stars, most notable for incredible amounts of space travel and an absolute shit ton of people! I guess those scientists were right then, overpopulation did kill the universe!
 	I believe that during my time, there were something like over a billion billion people accounted for. Exponential growth is truly wild!",
 
-"Times7" : 
+"Time7" : 
 
 "Shiro
 Loop 11

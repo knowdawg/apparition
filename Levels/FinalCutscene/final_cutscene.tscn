@@ -1,9 +1,32 @@
-[gd_scene load_steps=36 format=3 uid="uid://dnxfrahdksyu5"]
+[gd_scene load_steps=77 format=3 uid="uid://dnxfrahdksyu5"]
 
 [ext_resource type="Texture2D" uid="uid://cd2m3o40b7rla" path="res://Assets/Sprites/Hero/HeroWalk.png" id="1_d1xjl"]
 [ext_resource type="Texture2D" uid="uid://y776l1o6fenn" path="res://Assets/Sprites/Art/FinalCutscene/ScientistGunpoint.png" id="1_v5xyv"]
 [ext_resource type="Script" path="res://Levels/FinalCutscene/final_cutscene.gd" id="1_vlei8"]
+[ext_resource type="Texture2D" uid="uid://oox176van4oj" path="res://Assets/Sprites/Art/FinalCutscene/ScientistDelete.png" id="2_3q1wr"]
 [ext_resource type="Texture2D" uid="uid://dclkihs5fbdmb" path="res://Assets/Sprites/Art/FinalCutscene/ScientistTyping.png" id="2_7rm3o"]
+[ext_resource type="Texture2D" uid="uid://bhs2cbxgd0slk" path="res://Assets/Sprites/Art/FinalCutscene/ScientistPlayerMad.png" id="4_sbxbf"]
+[ext_resource type="Texture2D" uid="uid://67jve2xwan0k" path="res://Assets/Sprites/Art/FinalCutscene/ScientistShoot.png" id="5_s2edc"]
+[ext_resource type="PackedScene" uid="uid://dfnilvpe7kk1r" path="res://Objects/Dialog/dialog_buble.tscn" id="5_yp2h2"]
+[ext_resource type="Texture2D" uid="uid://y0bfb8wcqku2" path="res://Assets/Sprites/Art/FinalCutscene/ScientistSpin.png" id="6_almnx"]
+[ext_resource type="Texture2D" uid="uid://bgmj4wlx4buxn" path="res://Assets/Sprites/Art/FinalCutscene/ScientistSpinIdle.png" id="7_c6j2i"]
+[ext_resource type="PackedScene" uid="uid://ddwci5t4g8dg6" path="res://Objects/WorldObjects/mech_door.tscn" id="9_hmldq"]
+[ext_resource type="AudioStream" uid="uid://dnpogr0y4nve" path="res://SoundEffects/PlayerWalk.wav" id="11_nyu5i"]
+[ext_resource type="AudioStream" uid="uid://hgiakoduhlqu" path="res://SoundEffects/Boss/Clothes1.wav" id="12_jvwpn"]
+[ext_resource type="AudioStream" uid="uid://vo6efxorxly3" path="res://SoundEffects/FinalCutscene/Typing.wav" id="13_bsm82"]
+[ext_resource type="AudioStream" uid="uid://dt6bn28a8fb02" path="res://SoundEffects/FinalCutscene/Delete.wav" id="14_jn7sa"]
+[ext_resource type="AudioStream" uid="uid://b7blsxbqmbtp4" path="res://SoundEffects/FinalCutscene/Shoot.wav" id="15_ayfyn"]
+[ext_resource type="AudioStream" uid="uid://h6g6gh3g116a" path="res://SoundEffects/FinalCutscene/RoomNoise.wav" id="16_8gtc8"]
+[ext_resource type="Theme" uid="uid://b2orsuuil3dch" path="res://UI/MainMenu/Theme.tres" id="17_u3dbq"]
+[ext_resource type="Texture2D" uid="uid://b6cjktjt46r8i" path="res://Assets/Sprites/Art/InteractPopup.png" id="18_cxne3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhu4m"]
+atlas = ExtResource("2_3q1wr")
+region = Rect2(0, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfqry"]
+atlas = ExtResource("2_3q1wr")
+region = Rect2(128, 0, 128, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjlkh"]
 atlas = ExtResource("1_v5xyv")
@@ -49,6 +72,98 @@ region = Rect2(1152, 0, 128, 34)
 atlas = ExtResource("1_v5xyv")
 region = Rect2(1280, 0, 128, 34)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0hvp"]
+atlas = ExtResource("4_sbxbf")
+region = Rect2(0, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho64l"]
+atlas = ExtResource("4_sbxbf")
+region = Rect2(128, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyopu"]
+atlas = ExtResource("4_sbxbf")
+region = Rect2(256, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3odhn"]
+atlas = ExtResource("4_sbxbf")
+region = Rect2(384, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f0lr"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(0, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwnym"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(128, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr3w7"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(256, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73yhd"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(384, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rde6a"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(512, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndkcn"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(640, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxa1v"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(768, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d5su"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(896, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_037i0"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(1024, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydlhk"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(1152, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhmsc"]
+atlas = ExtResource("5_s2edc")
+region = Rect2(1280, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eti0p"]
+atlas = ExtResource("6_almnx")
+region = Rect2(0, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hafc"]
+atlas = ExtResource("6_almnx")
+region = Rect2(128, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qymoi"]
+atlas = ExtResource("6_almnx")
+region = Rect2(256, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gacum"]
+atlas = ExtResource("6_almnx")
+region = Rect2(384, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8km6x"]
+atlas = ExtResource("7_c6j2i")
+region = Rect2(0, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pprj"]
+atlas = ExtResource("7_c6j2i")
+region = Rect2(128, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipya8"]
+atlas = ExtResource("7_c6j2i")
+region = Rect2(256, 0, 128, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwe4p"]
+atlas = ExtResource("7_c6j2i")
+region = Rect2(384, 0, 128, 34)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_54q3u"]
 atlas = ExtResource("2_7rm3o")
 region = Rect2(0, 0, 128, 34)
@@ -71,6 +186,17 @@ region = Rect2(512, 0, 128, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_otfjw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhu4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfqry")
+}],
+"loop": false,
+"name": &"Delete",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fjlkh")
@@ -107,6 +233,95 @@ animations = [{
 }],
 "loop": false,
 "name": &"GunPoint",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0hvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho64l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyopu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3odhn")
+}],
+"loop": true,
+"name": &"GunpointMad",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f0lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwnym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr3w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73yhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rde6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndkcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxa1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d5su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_037i0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydlhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhmsc")
+}],
+"loop": false,
+"name": &"Shoot",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eti0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hafc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qymoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gacum")
+}],
+"loop": false,
+"name": &"TurnAround",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8km6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pprj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipya8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwe4p")
+}],
+"loop": true,
+"name": &"TurnIdle",
 "speed": 10.0
 }, {
 "frames": [{
@@ -230,63 +445,44 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Animation" id="Animation_fv8q0"]
-resource_name = "Start"
-length = 5.0
+[sub_resource type="Animation" id="Animation_8d8d4"]
+resource_name = "CutsceneOver"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:position")
+tracks/0/path = NodePath("Darkness:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-81, 2), Vector2(10, 2)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerSprite:visible")
+tracks/1/path = NodePath("Noise:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"update": 0,
+"values": [-30.0, -80.0]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerSprite")
+tracks/2/path = NodePath("CanvasLayer2/Prompt:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"Walk", 1.0, false],
-"method": &"play"
-}]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CutsceneSprite")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.7),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [&"Typing", 1.0, false],
-"method": &"play"
-}, {
-"args": [&"GunPoint", 1.0, false],
-"method": &"play"
-}]
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_jrkys"]
@@ -315,9 +511,330 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Darkness:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Typing:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-30.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Typing:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Noise:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-30.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer2/Prompt:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fv8q0"]
+resource_name = "Start"
+length = 11.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-228, 2), Vector2(-228, 2), Vector2(11, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Walk", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutsceneSprite")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 9.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"Typing", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"GunPoint", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dialogs")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Darkness:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Walk")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 7.6, 8, 8.4, 8.8, 9.2, 9.6, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Typing:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2, 5, 9.6, 9.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-30.0, -30.0, 1.66533e-15, 0.0, -80.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Typing:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2, 8.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("LabCoatRustle")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(9.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Noise:volume_db")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -30.0]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Noise")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer2/Prompt:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(10, 10.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("MechDoor")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twoe5"]
 _data = {
+"CutsceneOver": SubResource("Animation_8d8d4"),
 "RESET": SubResource("Animation_jrkys"),
 "Start": SubResource("Animation_fv8q0")
 }
@@ -327,28 +844,273 @@ script = ExtResource("1_vlei8")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.0431373, 0.0470588, 0.0784314, 1)
-polygon = PackedVector2Array(-123, -80, 155, -85, 151, 93, -142, 76)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(13, 13)
+polygon = PackedVector2Array(-512, -91, 155, -85, 151, 93, -482, 95)
 
 [node name="CutsceneSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-10, -5)
 sprite_frames = SubResource("SpriteFrames_otfjw")
-animation = &"GunPoint"
+animation = &"TurnIdle"
+frame_progress = 0.620089
 
 [node name="PointLight2D" type="PointLight2D" parent="CutsceneSprite"]
 position = Vector2(52, 4)
 scale = Vector2(1.625, 1)
 texture = SubResource("GradientTexture2D_1eac7")
 
+[node name="Wall" type="Polygon2D" parent="."]
+color = Color(0.0823529, 0.105882, 0.137255, 1)
+polygon = PackedVector2Array(-74, -13, -74, 12, -309, 12, -309, -13)
+
+[node name="Polygon2D" type="Polygon2D" parent="Wall"]
+color = Color(0.113725, 0.160784, 0.188235, 1)
+polygon = PackedVector2Array(-74, -12, -74, -11, -311, -11, -311, -12)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Wall"]
+position = Vector2(0, 22)
+color = Color(0.113725, 0.160784, 0.188235, 1)
+polygon = PackedVector2Array(-74, -12, -74, -11, -311, -11, -311, -12)
+
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-81, 2)
 sprite_frames = SubResource("SpriteFrames_mecfk")
 animation = &"Walk"
-frame_progress = 0.785865
+frame = 2
+frame_progress = 0.827528
+
+[node name="Camera2D" type="Camera2D" parent="PlayerSprite"]
+zoom = Vector2(13, 13)
+
+[node name="MechDoor" parent="." instance=ExtResource("9_hmldq")]
+z_index = 0
+position = Vector2(-140, -1)
+
+[node name="Darkness" type="Polygon2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-34, -5)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-386, -114, 228, -99, 215, 126, -358, 129)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_twoe5")
 }
+
+[node name="Dialogs" type="Node2D" parent="."]
+
+[node name="ScientistGunpoint" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "That's far enough, knight."
+time = 3.0
+isCutScene = true
+
+[node name="PlayerAskAboutFam" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(11, 1)
+text = "Are you the one who has my family?"
+time = 4.0
+isCutScene = true
+
+[node name="ScientistGunpoint2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "..."
+isCutScene = true
+
+[node name="PlayerAskAboutFam2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(11, 1)
+text = "Where is my wife! Where is my daughter!"
+time = 4.0
+isCutScene = true
+
+[node name="ScientistSaysStupid" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "Sheesh, you're a slow one, aren't you?"
+isCutScene = true
+
+[node name="ScientistExsplain" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "Your family isn't ready yet."
+isCutScene = true
+
+[node name="ScientistExsplain2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "Currently, the Apparition can only suport two intelegent life forms."
+isCutScene = true
+
+[node name="PlayerHeardVoices" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(11, 1)
+text = "You're wrong! I heard my daughter's voice!"
+time = 4.0
+isCutScene = true
+
+[node name="ScietistVocalChord" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "Last time I checked, vocal chords aren't intelegent life forms."
+isCutScene = true
+
+[node name="ScientistWantsAMoment" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "Just... give me a moment. I need to finish something up."
+isCutScene = true
+
+[node name="ScientistWantsAMoment2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "..."
+isCutScene = true
+
+[node name="ScientistDeletes" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "There, the Apparition no longer recognizes your molecular structure."
+isCutScene = true
+
+[node name="ScientistDeletes2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "Upon death, you will no longer be revived."
+isCutScene = true
+
+[node name="ScientistTurn" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "..."
+isCutScene = true
+
+[node name="ScientistTests" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "That test was a masive falure."
+isCutScene = true
+
+[node name="ScientistTests2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "It was naive of me to asume a society based entirly on text comunication could function anway."
+isCutScene = true
+
+[node name="ScientistTests3" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "But now I can create two people, and soon even more."
+isCutScene = true
+
+[node name="ScientistTests4" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "I can't thank you enough for dealing with that pest."
+isCutScene = true
+
+[node name="ScientistTests6" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "I realy thought I was done for when he pulled that stunt."
+isCutScene = true
+
+[node name="ScientistTests5" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "But now nothing stands in my way!"
+isCutScene = true
+
+[node name="ScientistTests7" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "I will recreate this dying universe and with it a brighter future!"
+isCutScene = true
+
+[node name="PlayerRealyMad" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(11, 1)
+text = "I don't give a damn!"
+time = 4.0
+isCutScene = true
+
+[node name="PlayerRealyMad2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(11, 1)
+text = "Where-"
+time = 0.1
+
+[node name="ScientistHonest" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "I meant it, you know."
+isCutScene = true
+
+[node name="ScientistHonest2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "I will reunite you with your family. It's the least I can do for you."
+isCutScene = true
+
+[node name="ScientistHonest3" parent="Dialogs" instance=ExtResource("5_yp2h2")]
+position = Vector2(40, 1)
+text = "Now rest, nameless knight. You are not needed any longer."
+isCutScene = true
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_nyu5i")
+
+[node name="LabCoatRustle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_jvwpn")
+volume_db = -10.0
+
+[node name="Typing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_bsm82")
+volume_db = -30.0
+
+[node name="Delete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_jn7sa")
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ayfyn")
+
+[node name="Noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_8gtc8")
+volume_db = -30.0
+
+[node name="Credits" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="Credits"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Credits/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_u3dbq")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[pulse freq=0.5 color=#ffffff80 ease=-1.0][center]Apparition"
+scroll_active = false
+
+[node name="Name" type="RichTextLabel" parent="Credits/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.23
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_u3dbq")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]Created By Knowdawg"
+scroll_active = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Prompt" type="NinePatchRect" parent="CanvasLayer2"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.42
+anchor_top = 0.1
+anchor_right = 0.58
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_cxne3")
+
+[connection signal="animation_finished" from="CutsceneSprite" to="." method="_on_cutscene_sprite_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

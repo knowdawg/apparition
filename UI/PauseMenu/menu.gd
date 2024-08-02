@@ -18,9 +18,6 @@ func _on_resume_pressed():
 	visible = false
 	Game.resume()
 
-func _on_save_pressed():
-	Game.save()
-
 func _on_quit_pressed():
 	Game.save()
 	visible = false

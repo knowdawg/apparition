@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bikqnlk1yih0x"]
+[gd_scene load_steps=15 format=3 uid="uid://bikqnlk1yih0x"]
 
 [ext_resource type="Texture2D" uid="uid://di7xabl33fr4m" path="res://Assets/Sprites/UI/Notes.png" id="1_26dxe"]
 [ext_resource type="Script" path="res://UI/BookUI/book_ui.gd" id="1_hi1nf"]
+[ext_resource type="Texture2D" uid="uid://b4o35excifdhw" path="res://Assets/Sprites/UI/bookPrompt.png" id="3_iydc5"]
 [ext_resource type="AudioStream" uid="uid://dmkdvueosqt6v" path="res://SoundEffects/BookLand.wav" id="4_bxhm3"]
 [ext_resource type="AudioStream" uid="uid://btbdau6i17ji6" path="res://SoundEffects/BookPaperLand.wav" id="5_6njsf"]
 [ext_resource type="AudioStream" uid="uid://c4intlm40dq6k" path="res://SoundEffects/BookTurnPage.wav" id="6_cji2j"]
@@ -103,6 +104,18 @@ tracks/6/keys = {
 "method": &"playSound"
 }]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Prompt:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_4ngws"]
 resource_name = "PutAway"
@@ -150,6 +163,18 @@ tracks/3/path = NodePath("RightPage:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Prompt:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -213,6 +238,18 @@ tracks/4/path = NodePath("RightPage:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Prompt:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -377,6 +414,18 @@ theme_override_font_sizes/mono_font_size = 18
 bbcode_enabled = true
 scroll_active = false
 autowrap_mode = 2
+
+[node name="Prompt" type="NinePatchRect" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.42
+anchor_top = 0.75
+anchor_right = 0.58
+anchor_bottom = 0.85
+offset_left = -1.14441e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_iydc5")
 
 [node name="BookAnimator" type="AnimationPlayer" parent="."]
 libraries = {

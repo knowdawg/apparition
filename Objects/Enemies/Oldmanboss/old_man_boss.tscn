@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cxdj67kinl3qh"]
+[gd_scene load_steps=82 format=3 uid="uid://cxdj67kinl3qh"]
 
 [ext_resource type="Texture2D" uid="uid://cres4n0htyhar" path="res://Assets/Sprites/Enemies/OldBossMan.png" id="1_4qgt6"]
 [ext_resource type="Texture2D" uid="uid://cbq53mq0vmfw2" path="res://Assets/Sprites/EnvirementArt/Chair.png" id="1_hcra1"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://dfnilvpe7kk1r" path="res://Objects/Dialog/dialog_buble.tscn" id="45_1uck3"]
 [ext_resource type="Script" path="res://Objects/Enemies/Oldmanboss/scripts/Dialog.gd" id="45_s3sd5"]
 [ext_resource type="Script" path="res://Objects/Enemies/Oldmanboss/RetryDialog.gd" id="47_uwb7m"]
+[ext_resource type="Texture2D" uid="uid://b6cjktjt46r8i" path="res://Assets/Sprites/Art/InteractPopup.png" id="48_w5fil"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_uxfyl"]
 length = 160.0
@@ -453,6 +454,44 @@ tracks/16/keys = {
 "values": [{
 "args": [1.0, 1.0],
 "method": &"playSound"
+}]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("ExplotionHitbox/First:disabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(8.99, 9, 9.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("ExplotionHitbox/Secound:disabled")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(9.09, 9.1, 9.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/19/type = "method"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("ExplotionHitbox")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(8.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"generateAttackID"
 }]
 }
 
@@ -1860,13 +1899,11 @@ attack_damage = 8.0
 knockback_force = 800.0
 
 [node name="First" type="CollisionShape2D" parent="ExplotionHitbox"]
-visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_f5nhv")
 disabled = true
 
 [node name="Secound" type="CollisionShape2D" parent="ExplotionHitbox"]
-visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1bqcc")
 disabled = true
@@ -1997,10 +2034,11 @@ volumeAdd = -15.0
 stream = ExtResource("44_rgi14")
 max_distance = 10000.0
 
-[node name="Dialog" type="Node" parent="." node_paths=PackedStringArray("animator", "sitState")]
+[node name="Dialog" type="Node" parent="." node_paths=PackedStringArray("animator", "sitState", "promp")]
 script = ExtResource("45_s3sd5")
 animator = NodePath("../AnimationPlayer")
 sitState = NodePath("../StateMachine/Sitting")
+promp = NodePath("../CanvasLayer2/NinePatchRect")
 
 [node name="OldManTalk1" parent="Dialog" instance=ExtResource("45_1uck3")]
 position = Vector2(52, -1)
@@ -2030,7 +2068,7 @@ isCutScene = true
 
 [node name="OldManTalk4" parent="Dialog" instance=ExtResource("45_1uck3")]
 position = Vector2(52, -4)
-text = "So thats thier plan..."
+text = "So thats their plan..."
 isCutScene = true
 
 [node name="OldManTalk5" parent="Dialog" instance=ExtResource("45_1uck3")]
@@ -2046,13 +2084,13 @@ isCutScene = true
 
 [node name="OldManTalk7" parent="Dialog" instance=ExtResource("45_1uck3")]
 position = Vector2(52, -4)
-text = "Let me give your your situation plainly."
+text = "Let me give you your situation plainly."
 time = 3.0
 isCutScene = true
 
 [node name="OldManTalk8" parent="Dialog" instance=ExtResource("45_1uck3")]
 position = Vector2(52, -4)
-text = "You and your family are actulay long dead."
+text = "You and your family are actualy long dead."
 time = 4.0
 isCutScene = true
 
@@ -2062,15 +2100,28 @@ text = "Fellow ghost, return to oblivion from where you came."
 time = 4.0
 isCutScene = true
 
-[node name="RetryDialog" type="Node" parent="." node_paths=PackedStringArray("animator", "sitState")]
+[node name="RetryDialog" type="Node" parent="." node_paths=PackedStringArray("animator", "sitState", "promp")]
 script = ExtResource("47_uwb7m")
 animator = NodePath("../AnimationPlayer")
 sitState = NodePath("../StateMachine/Sitting")
+promp = NodePath("../CanvasLayer2/NinePatchRect")
 
 [node name="OldManTalk1" parent="RetryDialog" instance=ExtResource("45_1uck3")]
 position = Vector2(52, -2)
 text = "I'll kill you as many times as it takes!"
 isCutScene = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer2"]
+anchors_preset = -1
+anchor_left = 0.42
+anchor_top = 0.1
+anchor_right = 0.58
+anchor_bottom = 0.2
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("48_w5fil")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Sitting" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Snap" method="_on_animation_player_animation_finished"]

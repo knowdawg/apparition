@@ -120,6 +120,7 @@ func do_hit_effect(attack):
 
 func death(attack : Attack):
 	hit(attack)
+	knockback = Vector2.ZERO
 	dead.emit(self)
 	
 	set_collision_layer_value(3, false)

@@ -47,11 +47,11 @@ func bashSetup(bashTarget : BashComponent):
 func bashComplete():
 	stateMachine.onChildTransition(stateMachine.current_state, "Stun")
 	if Game.controler:
-		currentKnockbackVector = getControllerBashVector() * -300.0
+		currentKnockbackVector = getControllerBashVector() * 600.0
 	else:
-		currentKnockbackVector = (global_position - get_global_mouse_position()).normalized() * 300.0
+		currentKnockbackVector = -(global_position - get_global_mouse_position()).normalized() * 600.0
 	if curBashTarget.parrent is platformingBash:
-		currentKnockbackVector *= 3.0
+		currentKnockbackVector *= 1.5
 	curBashTarget = null
 	
 	if canHealFromBash == true:
@@ -130,9 +130,14 @@ func update_physics(delta):
 		coyote_time = true
 		CoyoteTimer.start(0.2)
 	if is_on_floor() or coyote_time == true:
-		if prejump == true: #Input.is_action_pressed("ui_space"):
+		if prejump == true:
 			velocity.y = -jump_force
+			if !Input.is_action_pressed("Jump"):
+				velocity.y /= 2
 			coyote_time = false
+	
+	if Input.is_action_just_pressed("Jump"):
+		jump(delta)
 	
 	if Input.is_action_just_released("Jump") and velocity.y < 0:
 		velocity.y /= 2

@@ -22,7 +22,7 @@ func _process(_delta):
 		$KeyIcon.visible = false
 	
 	if open == true:
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if Input.is_action_just_pressed("Next"):
 			book.turnPage()
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		if Input.is_action_just_pressed("Prev"):
 			book.turnPageBack()

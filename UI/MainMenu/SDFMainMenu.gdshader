@@ -62,8 +62,8 @@ void fragment() {
 	vec3 color = vec3(0.0);
 	
 	//Camera Rotation
-	rayOrigin.xz *= rot2D(TIME * 0.1);
-	rayDirection.xz *= rot2D(TIME * 0.1);
+	//rayOrigin.xz *= rot2D(TIME * 0.1);
+	//rayDirection.xz *= rot2D(TIME * 0.1);
 	
 	//Raymarching
 	int i = 0;

@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy8si6qk5lsnd"]
+[gd_scene load_steps=15 format=3 uid="uid://cy8si6qk5lsnd"]
 
 [ext_resource type="Shader" path="res://UI/MainMenu/SDFMainMenu.gdshader" id="1_04oax"]
 [ext_resource type="Script" path="res://UI/MainMenu/main_menu.gd" id="1_cabx1"]
 [ext_resource type="PackedScene" uid="uid://bakhk407mkat1" path="res://Test/black_hole.tscn" id="2_pedm3"]
+[ext_resource type="Texture2D" uid="uid://b31q06np66s3l" path="res://Assets/Sprites/EnvirementArt/UroburosSaveStatue.png" id="4_6ut1g"]
+[ext_resource type="Texture2D" uid="uid://b2hivixlrlaua" path="res://Assets/Sprites/Art/StartOfGameCutscene/StartOfGameCutscen3.png" id="4_12jve"]
+[ext_resource type="Texture2D" uid="uid://dcyt08ffwgbrc" path="res://Assets/Sprites/Art/StartOfGameCutscene/StartOfGameCutscen6.png" id="5_25ef2"]
 [ext_resource type="Theme" uid="uid://b2orsuuil3dch" path="res://UI/MainMenu/Theme.tres" id="5_cy14d"]
 [ext_resource type="PackedScene" uid="uid://d2v5hfbp7h6vc" path="res://UI/MainMenu/MenuButton2.tscn" id="5_iqa54"]
 [ext_resource type="PackedScene" uid="uid://c4ryc8tsnc78p" path="res://SoundEffects/SoundObjects/SoundPlayer.tscn" id="6_tcrom"]
@@ -13,7 +16,7 @@ shader = ExtResource("1_04oax")
 shader_parameter/FOV = 1.0
 shader_parameter/cameraPos = Vector3(2.08165e-12, 2.08165e-12, -3)
 shader_parameter/hRes = 192.0
-shader_parameter/vRes = 384.0
+shader_parameter/vRes = 192.0
 shader_parameter/progress = 0.0
 shader_parameter/lightPos = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
 
@@ -65,14 +68,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cabx1")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="0" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_087vd")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -420.0
-offset_bottom = 420.0
+offset_top = -768.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(960, 960)
@@ -80,6 +93,42 @@ pivot_offset = Vector2(960, 960)
 [node name="BlackHoleRings" parent="." instance=ExtResource("2_pedm3")]
 position = Vector2(960, 540)
 scale = Vector2(15, 15)
+
+[node name="UroPivot" type="Node2D" parent="."]
+visible = false
+position = Vector2(946, 550)
+scale = Vector2(0.4, 0.4)
+
+[node name="uro" type="Sprite2D" parent="UroPivot"]
+position = Vector2(32, -352)
+scale = Vector2(10, 10)
+texture = ExtResource("4_6ut1g")
+
+[node name="uro2" type="Sprite2D" parent="UroPivot"]
+position = Vector2(32, 352)
+scale = Vector2(10, 10)
+texture = ExtResource("4_6ut1g")
+flip_h = true
+flip_v = true
+
+[node name="Mountain" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0.490196, 0.490196, 1)
+position = Vector2(448, 544)
+scale = Vector2(10, 10)
+texture = ExtResource("4_12jve")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Mountain"]
+modulate = Color(1, 0.490196, 0.490196, 1)
+position = Vector2(192, -3.8147e-06)
+texture = ExtResource("4_12jve")
+
+[node name="Hill" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.490196, 0.490196, 1)
+position = Vector2(958, 674)
+scale = Vector2(10, 10)
+texture = ExtResource("5_25ef2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -126,9 +175,9 @@ visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
-anchor_top = 0.2
+anchor_top = 0.3
 anchor_right = 0.7
-anchor_bottom = 0.8
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_cy14d")
@@ -200,6 +249,41 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("5_cy14d")
 text = "Back"
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.4
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_cy14d")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[pulse freq=0.5 color=#ffffff80 ease=-1.0][center]Apparition"
+scroll_active = false
+
+[node name="Name" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.18
+anchor_right = 1.0
+anchor_bottom = 0.4
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_cy14d")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]Created By Knowdawg"
+scroll_active = false
 
 [node name="Music" parent="." instance=ExtResource("6_tcrom")]
 stream = ExtResource("7_6opih")

@@ -105,7 +105,7 @@ color = Color(0.0784314, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-465.933, 0)
+position = Vector2(-465.933, 3.05176e-05)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -121,7 +121,7 @@ position = Vector2(0, -3.05176e-05)
 position = Vector2(-71.274, -1.52588e-05)
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-245.228, 0)
+position = Vector2(-245.228, 3.05176e-05)
 motion_scale = Vector2(0.5, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer4"]
@@ -317,7 +317,7 @@ rotation = 9.5213
 texture = ExtResource("6_bquyb")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-147.137, 0)
+position = Vector2(-147.137, 3.05176e-05)
 motion_scale = Vector2(0.7, 1)
 
 [node name="BottomSpikesSpikes" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
@@ -418,163 +418,136 @@ texture = ExtResource("6_bquyb")
 [node name="BottomSpikesSpikes15" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-2.21426, -43)
 rotation = 2.04516
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes16" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(13.3992, -52)
 rotation = 2.04516
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes17" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(29.8302, -57)
 rotation = 3.1822
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes18" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(56.2198, -50)
 rotation = 3.83417
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes19" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(81.1567, -36)
 rotation = 3.83417
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes20" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(65.6522, -17)
 rotation = 5.89296
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes27" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-121.44, -161)
 rotation = 6.29618
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes32" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-238.831, -194)
 rotation = -0.727858
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes28" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-153.756, -160)
 rotation = 6.29618
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes29" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-182.093, -162.406)
 rotation = 7.01437
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes30" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-195.893, -174.406)
 rotation = 7.01437
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes31" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-215.893, -191.406)
 rotation = 7.01437
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes33" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-241.469, -164)
 rotation = 4.33104
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes52" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-150.863, -177)
 rotation = 2.33311
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes34" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-223.756, -146)
 rotation = 3.8372
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes35" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-204.831, -128)
 rotation = 4.19868
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes36" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-191.481, -116)
 rotation = 4.14969
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes37" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-173.166, -184)
 rotation = 3.81638
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes38" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-186.166, -200)
 rotation = 4.05511
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes50" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-171.863, -220)
 rotation = 7.10703
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes51" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-154.863, -205)
 rotation = 7.10703
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes39" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-203.166, -212)
 rotation = 3.38193
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes40" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-231.166, -217)
 rotation = 3.21235
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes41" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-254.166, -217)
 rotation = 9.14064
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes42" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-263.844, -45)
 rotation = 10.1088
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes43" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-229.844, -43)
 rotation = 8.91709
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes44" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-210.518, -61)
 rotation = 8.43633
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="Polygon2D" type="Polygon2D" parent="PreviewingParallaxBackground2/ParallaxLayer/BottomSpikesSpikes44"]
@@ -584,35 +557,30 @@ polygon = PackedVector2Array(-15.9018, 14.0354, 10.4474, 15.8651, 36.9895, 30.71
 [node name="BottomSpikesSpikes45" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-186.518, -55)
 rotation = 5.35935
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes46" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-204.563, -34)
 rotation = 5.35935
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes47" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-222.563, -27)
 rotation = 6.04042
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes48" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-256.563, -25)
 rotation = 6.37953
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="BottomSpikesSpikes49" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
 position = Vector2(-288.563, -24)
 rotation = 6.37953
-scale = Vector2(1, 1)
 texture = ExtResource("6_bquyb")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-49.0456, 0)
+position = Vector2(-49.0456, 3.05176e-05)
 motion_scale = Vector2(0.9, 1)
 
 [node name="BottomSpikes" type="Sprite2D" parent="PreviewingParallaxBackground2/ParallaxLayer2"]
@@ -892,7 +860,7 @@ color = Color(0.0823529, 0.105882, 0.137255, 1)
 polygon = PackedVector2Array(-71.2623, 13.897, -55.2572, 22.9433, -58.6089, 17.4875, -15.086, -8.33414, -15.2137, -15.4041, 15.0506, -15.6677, -12.5381, -109.76, -24.9029, -34.7124, -70.789, 1.99835)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-3.05176e-05, 0)
+position = Vector2(6.10352e-05, 3.05176e-05)
 
 [node name="BigBrickBackground" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("6_ifopt")]
 position = Vector2(24, -24)
@@ -1153,7 +1121,7 @@ layer = 1
 script = ExtResource("2_v6py1")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(98.0911, 56.6004)
+position = Vector2(98.0913, 56.6005)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]

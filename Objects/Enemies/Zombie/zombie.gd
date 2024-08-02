@@ -87,7 +87,7 @@ func death(attack : Attack):
 	
 	set_collision_layer_value(3, false)
 	set_collision_mask_value(3, false)
-	velocity *= 3.0
+	#velocity *= 3.0
 	
 	if attack.attack_position > global_position:
 		sprite.flip_h = true
