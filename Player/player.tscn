@@ -1107,12 +1107,13 @@ script = ExtResource("13_ehtvg")
 sprite = NodePath("../../HeroSprite")
 player = NodePath("../..")
 
-[node name="PlatformingRespawnStun" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "player", "hurtBox", "iFramAnim")]
+[node name="PlatformingRespawnStun" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "player", "hurtBox", "iFramAnim", "healthComponent")]
 script = ExtResource("14_bkjdk")
 sprite = NodePath("../../HeroSprite")
 player = NodePath("../..")
 hurtBox = NodePath("../../HurtboxComponent")
 iFramAnim = NodePath("../../IframeAnimator")
+healthComponent = NodePath("../../HealthComponent")
 
 [node name="Cutscene" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "player")]
 script = ExtResource("15_m4sqc")

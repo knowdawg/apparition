@@ -6,6 +6,7 @@ class_name HitboxComponent
 @export var attack_damage : float
 @export var knockback_force: float
 @export var isBashAttack : bool = false
+@export var isSpikes : bool = false
 
 @onready var attackID : float = randf()
 
@@ -19,6 +20,7 @@ func _on_area_entered(area):
 		attack.attack_position = global_position
 		attack.is_bash_attack = isBashAttack
 		attack.attackID = attackID
+		attack.is_spikes = isSpikes
 		
 		hurtbox.damage(attack)
 		

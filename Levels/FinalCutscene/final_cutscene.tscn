@@ -932,7 +932,7 @@ isCutScene = true
 
 [node name="ScientistExsplain2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
 position = Vector2(40, 1)
-text = "Currently, the Apparition can only suport two intelegent life forms."
+text = "Currently, the Apparition can only suport two intelligent life forms."
 isCutScene = true
 
 [node name="PlayerHeardVoices" parent="Dialogs" instance=ExtResource("5_yp2h2")]
@@ -943,7 +943,7 @@ isCutScene = true
 
 [node name="ScietistVocalChord" parent="Dialogs" instance=ExtResource("5_yp2h2")]
 position = Vector2(40, 1)
-text = "Last time I checked, vocal chords aren't intelegent life forms."
+text = "Last time I checked, vocal chords aren't intelligent life forms."
 isCutScene = true
 
 [node name="ScientistWantsAMoment" parent="Dialogs" instance=ExtResource("5_yp2h2")]
@@ -973,12 +973,12 @@ isCutScene = true
 
 [node name="ScientistTests" parent="Dialogs" instance=ExtResource("5_yp2h2")]
 position = Vector2(40, 1)
-text = "That test was a masive falure."
+text = "That test was a massive falure."
 isCutScene = true
 
 [node name="ScientistTests2" parent="Dialogs" instance=ExtResource("5_yp2h2")]
 position = Vector2(40, 1)
-text = "It was naive of me to asume a society based entirly on text comunication could function anway."
+text = "It was naive of me to asume a society based entirely on text communication could function anway."
 isCutScene = true
 
 [node name="ScientistTests3" parent="Dialogs" instance=ExtResource("5_yp2h2")]
@@ -1029,7 +1029,7 @@ isCutScene = true
 
 [node name="ScientistHonest3" parent="Dialogs" instance=ExtResource("5_yp2h2")]
 position = Vector2(40, 1)
-text = "Now rest, nameless knight. You are not needed any longer."
+text = "Now rest, nameless knight. You are needed no longer."
 isCutScene = true
 
 [node name="Walk" type="AudioStreamPlayer" parent="."]

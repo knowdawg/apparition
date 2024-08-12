@@ -86,7 +86,7 @@ color = Color(0.0784314, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-275.5, 0)
+position = Vector2(-114.059, 0)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -99,7 +99,7 @@ script = ExtResource("2_2v34q")
 
 [node name="ParallaxLayer7" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
 modulate = Color(1, 0.117647, 0.129412, 1)
-position = Vector2(-232, 0)
+position = Vector2(-96.0496, 0)
 motion_scale = Vector2(0.2, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer7" instance=ExtResource("6_7pqp7")]
@@ -113,7 +113,7 @@ layer_0/tile_data = PackedInt32Array(65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0,
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
 modulate = Color(1, 0.235294, 0.262745, 1)
-position = Vector2(-174, 0)
+position = Vector2(-72.0372, 0)
 motion_scale = Vector2(0.4, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer6" instance=ExtResource("6_7pqp7")]
@@ -127,7 +127,7 @@ layer_0/tile_data = PackedInt32Array(65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0,
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
 modulate = Color(1, 0.470588, 0.529412, 1)
-position = Vector2(-116, 0)
+position = Vector2(-48.0248, 0)
 motion_scale = Vector2(0.6, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer5" instance=ExtResource("6_7pqp7")]
@@ -140,7 +140,7 @@ scale = Vector2(-1, -1)
 layer_0/tile_data = PackedInt32Array(65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0)
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-87.0001, 0)
+position = Vector2(-36.0186, 0)
 motion_scale = Vector2(0.7, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer4" instance=ExtResource("6_7pqp7")]
@@ -153,14 +153,14 @@ scale = Vector2(-1, -1)
 layer_0/tile_data = PackedInt32Array(65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-58, 0)
+position = Vector2(-24.0124, 0)
 motion_scale = Vector2(0.8, 1)
 
 [node name="PillarBackgroundTilemap" parent="PreviewingParallaxBackground2/ParallaxLayer" instance=ExtResource("4_m0wci")]
 layer_0/tile_data = PackedInt32Array(262146, 196608, 1, 393217, 131072, 1, 458753, 65536, 3, 458754, 196608, 3, 393218, 196608, 2, 327682, 196608, 2, -196609, 65536, 2, -131073, 65536, 2, -65537, 65536, 2, -1, 65536, 2, 65535, 65536, 2, 131071, 65536, 2, 196607, 65536, 2, 262143, 65536, 3, 196608, 196608, 2, 131072, 196608, 2, 65536, 196608, 2, 0, 196608, 2, -65536, 196608, 2, -131072, 196608, 2, -196608, 196608, 2, -262144, 196608, 2, 262144, 196608, 3, -327680, 196608, 1, -262139, 65536, 1, -196603, 65536, 2, -131067, 65536, 2, -65531, 65536, 2, 5, 65536, 2, 65541, 65536, 2, 131077, 65536, 2, 196613, 65536, 2, 262149, 65536, 2, 327685, 65536, 3, 262150, 196608, 2, 196614, 196608, 2, 131078, 196608, 2, 65542, 196608, 2, 6, 196608, 2, -65530, 196608, 2, -131066, 196608, 2, -196602, 196608, 2, -262138, 196608, 1, 327686, 196608, 3, -262133, 65536, 1, -196597, 65536, 2, -131061, 65536, 2, -65525, 65536, 2, 11, 65536, 2, 65547, 65536, 2, 131083, 65536, 2, 196619, 65536, 2, 262155, 65536, 2, 327692, 196608, 3, 262156, 196608, 2, 196620, 196608, 2, 131084, 196608, 2, 65548, 196608, 2, 12, 196608, 2, -65524, 196608, 2, -131060, 196608, 2, -196596, 196608, 2, -262132, 196608, 1, 327691, 65536, 3, -262127, 65536, 1, -196591, 65536, 2, -131055, 65536, 2, -65519, 65536, 2, 17, 65536, 2, 65553, 65536, 2, 131089, 65536, 2, 196625, 65536, 2, 262161, 65536, 2, 262162, 196608, 3, 196626, 196608, 2, 131090, 196608, 2, 65554, 196608, 2, 18, 196608, 2, -65518, 196608, 2, -131054, 196608, 2, -196590, 196608, 2, -262126, 196608, 1, 327697, 65536, 3, -262121, 65536, 1, -196585, 65536, 2, -131049, 65536, 2, -65513, 65536, 2, 23, 65536, 2, 65559, 65536, 2, 131095, 65536, 2, 196631, 65536, 2, 262167, 65536, 3, 262168, 196608, 3, 196632, 196608, 2, 131096, 196608, 2, 65560, 196608, 2, 24, 196608, 2, -65512, 196608, 2, -131048, 196608, 2, -196584, 196608, 2, -262120, 196608, 1)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(-29, 0)
+position = Vector2(-12.0062, 0)
 motion_scale = Vector2(0.9, 1)
 
 [node name="32x32Backgrounds" parent="PreviewingParallaxBackground2/ParallaxLayer2" instance=ExtResource("6_7pqp7")]
@@ -173,7 +173,7 @@ scale = Vector2(-1, -1)
 layer_0/tile_data = PackedInt32Array(65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65533, 0, 0, 13, 0, 0)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(3.05176e-05, 0)
+position = Vector2(-7.62939e-06, 0)
 
 [node name="Decorations" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("8_w14wj")]
 layer_0/tile_data = PackedInt32Array(1966089, 3, 0, 1900553, 131075, 0, 1966090, 3, 0, 1900554, 131075, 0, 1966091, 3, 0, 1966092, 3, 0, 1966093, 3, 0, 1900555, 131075, 0, 1835019, 3, 0, 1966095, 3, 0, 1966096, 3, 0, 1966097, 3, 0, 1966098, 3, 0, 1966099, 3, 0, 1966100, 3, 0, 1966101, 3, 0, 1966094, 3, 0, 1966102, 3, 0, 1900566, 196611, 0, 1900567, 131075, 0, 1966103, 3, 0, 1966104, 3, 0, 1966105, 3, 0, 1966106, 3, 0, 1900571, 196611, 0, 1900572, 131075, 0, 1835036, 3, 0, 1835037, 3, 0, 1900573, 131075, 0, 1835038, 3, 0, 1900574, 131075, 0, 1966110, 3, 0, 1966111, 3, 0, 2031647, 3, 0, 2031648, 3, 0, 1966112, 3, 0, 1966113, 3, 0, 1966109, 3, 0, 1966108, 3, 0, 1966107, 3, 0, 1966114, 3, 0, 1966115, 3, 0, 1900578, 196611, 0, 1900579, 3, 0, 1835044, 3, 0, 1835045, 3, 0, 1769509, 3, 0, 1703974, 3, 0, 1769510, 3, 0, 1835046, 3, 0, 1835047, 3, 0, 1835048, 3, 0, 1835049, 3, 0, 1835050, 3, 0, 1769515, 3, 0, 1769516, 3, 0, 1835053, 3, 0, 1835054, 3, 0, 1835052, 3, 0, 1835051, 3, 0, 1703980, 3, 0, 1703981, 3, 0, 1769517, 3, 0, 1703959, 3, 0, 1638423, 196611, 0, 1572887, 3, 0, 1703960, 3, 0, 1703961, 3, 0, 1703962, 3, 0, 1638424, 131075, 0, 1703963, 3, 0, 1703964, 3, 0, 1507361, 3, 0, 1507362, 3, 0, 1441826, 196611, 0, 1376271, 3, 0, 1441807, 131075, 0, 1507343, 3, 0, 1507344, 3, 0)
@@ -370,7 +370,7 @@ layer = 1
 script = ExtResource("2_2v34q")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(58.0001, 47.4597)
+position = Vector2(24.0124, 8.04688)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -385,7 +385,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(116, 94.9193)
+position = Vector2(48.0248, 16.0938)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

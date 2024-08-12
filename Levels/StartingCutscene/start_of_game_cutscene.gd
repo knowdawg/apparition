@@ -31,3 +31,12 @@ func startGame():
 	s.door = "Spawn"
 	s.facingLeft = false
 	Game.switch_scene(s)
+
+
+var numOfSkips = 0
+func _process(_delta):
+	if Input.is_action_just_pressed("Menu"):
+		numOfSkips += 1
+		$SKipCutscene.visible = true
+		if numOfSkips >= 2:
+			startGame()

@@ -22,7 +22,7 @@ func update_physics(delta):
 	k.y = lerp(k.y, 0.0, 0.2 * delta * 60)
 	g.y += 200.0 * delta;
 	player.velocity = k + g
-	player.move_and_slide()
+	player.update_physics_no_movement(delta)
 
 func enter():
 	d = false;

@@ -543,5 +543,24 @@ visible = false
 shape = SubResource("CircleShape2D_jmdw2")
 disabled = true
 
+[node name="SKipCutscene" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SKipCutscene"]
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "[center]Press ESC to skip[/center]"
+
 [node name="IntroSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_1chn7")
