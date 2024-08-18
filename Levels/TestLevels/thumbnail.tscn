@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6x6illq504h2"]
+
+[ext_resource type="PackedScene" uid="uid://bakhk407mkat1" path="res://Test/black_hole.tscn" id="1_n3fia"]
+[ext_resource type="Texture2D" uid="uid://dtmafdvy5vchc" path="res://Assets/Sprites/EnvirementArt/FinalBossVista.png" id="1_vhejj"]
+[ext_resource type="FontFile" uid="uid://cixpjatlwm5wv" path="res://Assets/PixelCaps-LOnE.ttf" id="2_y8t6o"]
+[ext_resource type="Texture2D" uid="uid://cljnnlu1mpnmf" path="res://Assets/Sprites/Hero/HeroGetup.png" id="3_yqyds"]
+[ext_resource type="PackedScene" uid="uid://6a3uq44eym1" path="res://Objects/Tilemaps/stone_brick_tilemap.tscn" id="4_nevj6"]
+[ext_resource type="Texture2D" uid="uid://cbq53mq0vmfw2" path="res://Assets/Sprites/EnvirementArt/Chair.png" id="5_icl1v"]
+[ext_resource type="Texture2D" uid="uid://cres4n0htyhar" path="res://Assets/Sprites/Enemies/OldBossMan.png" id="5_wxib1"]
+[ext_resource type="Texture2D" uid="uid://erp7l588h34o" path="res://Assets/Sprites/EnvirementArt/Scientist.png" id="7_nxepa"]
+
+[sub_resource type="FontVariation" id="FontVariation_8ergb"]
+base_font = ExtResource("2_y8t6o")
+
+[sub_resource type="Gradient" id="Gradient_2ictj"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_70vwo"]
+gradient = SubResource("Gradient_2ictj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.8)
+
+[node name="Thumbnail" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FinalBossVista" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_vhejj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 352.0
+offset_top = 232.0
+offset_right = 1602.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(0.894118, 0.196078, 0.164706, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 50
+theme_override_fonts/font = SubResource("FontVariation_8ergb")
+theme_override_font_sizes/font_size = 200
+text = "Apparition"
+
+[node name="BlackHoleRings" parent="." instance=ExtResource("1_n3fia")]
+position = Vector2(960, 320)
+scale = Vector2(20, 20)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 352.0
+offset_top = 232.0
+offset_right = 1602.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(0.894118, 0.196078, 0.164706, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 50
+theme_override_fonts/font = SubResource("FontVariation_8ergb")
+theme_override_font_sizes/font_size = 200
+text = "Apparition"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.27451)
+position = Vector2(968, 608)
+scale = Vector2(20, 20)
+texture = SubResource("GradientTexture2D_70vwo")
+
+[node name="HeroGetup" type="Sprite2D" parent="."]
+position = Vector2(960, 560)
+scale = Vector2(10, 10)
+texture = ExtResource("3_yqyds")
+hframes = 38
+
+[node name="StoneBrickTilemap" parent="." instance=ExtResource("4_nevj6")]
+scale = Vector2(10, 10)
+layer_0/tile_data = PackedInt32Array(589832, 524289, 2, 589833, 131073, 2, 589834, 131073, 2, 589835, 131073, 2, 589836, 131073, 2, 589837, 131073, 2, 589838, 131073, 2, 589839, 131073, 2, 589840, 458753, 2, 786455, 131073, 2, 786454, 131073, 2, 786453, 131073, 2, 786452, 131073, 2, 786451, 131073, 2, 851986, 131073, 2, 786449, 131073, 2, 786448, 131073, 2, 786447, 131073, 2, 786446, 131073, 2, 786445, 131073, 2, 786443, 131073, 2, 786444, 131073, 2, 786442, 131073, 2, 786441, 131073, 2, 786440, 131073, 2, 786439, 131073, 2, 786438, 131073, 2, 786437, 131073, 2, 786436, 131073, 2, 786435, 131073, 2, 786434, 131073, 2, 786433, 131073, 2, 786432, 131073, 2, 851968, 131073, 2, 851969, 131073, 2, 851970, 131073, 2, 851971, 131073, 2, 851972, 131073, 2, 851973, 131073, 2, 851974, 131073, 2, 851976, 131073, 2, 851975, 131073, 2, 851977, 131073, 2, 851978, 131073, 2, 851979, 131073, 2, 851980, 131073, 2, 851981, 131073, 2, 851982, 131073, 2, 851983, 131073, 2, 851984, 131073, 2, 851985, 131073, 2, 851987, 131073, 2, 851988, 131073, 2, 851989, 131073, 2, 851990, 131073, 2, 851991, 131073, 2, 786450, 131073, 2, 720900, 131073, 2, 851967, 65537, 2, 917503, 65537, 2, 720901, 131073, 2, 720902, 131073, 2, 720903, 131073, 2, 720904, 131073, 2, 720905, 131073, 2, 720906, 131073, 2, 655368, 131073, 2, 655369, 131073, 2, 655370, 131073, 2, 655371, 131073, 2, 655372, 131073, 2, 655373, 131073, 2, 655374, 131073, 2, 655375, 131073, 2, 655376, 131073, 2, 720908, 131073, 2, 720909, 131073, 2, 720910, 131073, 2, 720907, 131073, 2, 720912, 131073, 2, 720911, 131073, 2, 720913, 131073, 2, 720914, 131073, 2, 720915, 131073, 2, 720916, 131073, 2, 786456, 196609, 2, 851992, 196609, 2, 786431, 65537, 2, 720896, 131073, 2, 720897, 131073, 2, 720898, 131073, 2, 720899, 131073, 2, 720917, 131073, 2, 720918, 131073, 2, 720919, 131073, 2, 720920, 196609, 2, 524304, 196609, 1, 524303, 131073, 1, 524302, 131073, 1, 524301, 131073, 1, 524300, 131073, 1, 524299, 131073, 1, 524298, 131073, 1, 524297, 131073, 1, 524296, 65537, 1, 983039, 65537, 3, 917504, 131073, 3, 917505, 131073, 3, 917506, 131073, 3, 917507, 131073, 3, 917508, 131073, 3, 917509, 131073, 3, 917510, 131073, 3, 917511, 131073, 3, 917512, 131073, 3, 917513, 131073, 3, 917514, 131073, 3, 917515, 131073, 3, 917516, 131073, 3, 917517, 131073, 3, 917518, 131073, 3, 917519, 131073, 3, 917520, 131073, 3, 917521, 131073, 3, 917522, 131073, 3, 917523, 131073, 3, 917524, 131073, 3, 917525, 131073, 3, 917526, 131073, 3, 917527, 131073, 3, 917528, 196609, 3, 589831, 131073, 1, 589830, 131073, 1, 589829, 131073, 1, 589828, 131073, 1, 589827, 131073, 1, 589826, 131073, 1, 589825, 131073, 1, 589824, 131073, 1, 655360, 131073, 2, 655361, 131073, 2, 655362, 131073, 2, 655363, 131073, 2, 655364, 131073, 2, 655365, 131073, 2, 655366, 131073, 2, 655367, 131073, 2, 655359, 65537, 1, 720895, 65537, 2, 589841, 131073, 1, 589842, 131073, 1, 589843, 131073, 1, 589844, 131073, 1, 589845, 131073, 1, 589846, 131073, 1, 589847, 131073, 1, 589848, 196609, 1, 655384, 196609, 2, 655383, 131073, 2, 655382, 131073, 2, 655381, 131073, 2, 655380, 131073, 2, 655379, 131073, 2, 655378, 131073, 2, 655377, 131073, 2)
+
+[node name="Chair" type="Sprite2D" parent="."]
+position = Vector2(542, 640)
+scale = Vector2(10, 10)
+texture = ExtResource("5_icl1v")
+
+[node name="OldBossMan" type="Sprite2D" parent="."]
+position = Vector2(512, 640)
+scale = Vector2(10, 10)
+texture = ExtResource("5_wxib1")
+hframes = 161
+frame = 18
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(542, 640)
+scale = Vector2(10, 10)
+color = Color(0.921569, 0.929412, 0.913725, 1)
+polygon = PackedVector2Array(1, 4, -1, 4, -1, 5, 1, 5)
+
+[node name="Scientist" type="Sprite2D" parent="."]
+position = Vector2(1936, 570)
+scale = Vector2(-10, 10)
+texture = ExtResource("7_nxepa")

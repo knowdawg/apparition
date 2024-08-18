@@ -40,6 +40,7 @@ size = Vector2(16, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xb52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odir6"]
+size = Vector2(96, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7f4k"]
 size = Vector2(20, 82)
@@ -106,7 +107,7 @@ texture = ExtResource("3_esofl")
 visible = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Cavern"]
-position = Vector2(-1529.53, 0)
+position = Vector2(-790.488, 1.52588e-05)
 motion_scale = Vector2(0.05, 1)
 
 [node name="PreviewingParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -116,7 +117,7 @@ script = ExtResource("2_eca1k")
 [node name="DarkenComponent" parent="PreviewingParallaxBackground2" instance=ExtResource("3_fcr0s")]
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(0, -143.792)
+position = Vector2(0.000244141, -20.1585)
 motion_scale = Vector2(1, 0.6)
 
 [node name="Polygon2D" type="Polygon2D" parent="PreviewingParallaxBackground2/ParallaxLayer2"]
@@ -125,7 +126,7 @@ color = Color(0.196078, 0, 0, 1)
 polygon = PackedVector2Array(-1856, -699.635, -1856, -164.229, -1408, -164.229, -1408, -708.229)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
-position = Vector2(0, -71.8961)
+position = Vector2(0.000244141, -10.0793)
 motion_scale = Vector2(1, 0.8)
 
 [node name="Polygon2D" type="Polygon2D" parent="PreviewingParallaxBackground2/ParallaxLayer"]
@@ -134,6 +135,7 @@ color = Color(0.0784314, 0, 0, 1)
 polygon = PackedVector2Array(-1856, -699.635, -1856, -164.229, -1408, -164.229, -1408, -708.229)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="PreviewingParallaxBackground2"]
+position = Vector2(0.000244141, 1.52588e-05)
 
 [node name="BigBrickBackground" parent="PreviewingParallaxBackground2/ParallaxLayer3" instance=ExtResource("6_jmcbc")]
 position = Vector2(-8, 0)
@@ -312,6 +314,7 @@ shape = SubResource("RectangleShape2D_1xb52")
 position = Vector2(-784, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/PlatformRespawnPoints/PlatformingRespawnPoint4"]
+position = Vector2(40, -19)
 shape = SubResource("RectangleShape2D_odir6")
 
 [node name="Marker2D" type="Marker2D" parent="Foreground/PlatformRespawnPoints/PlatformingRespawnPoint4"]
@@ -365,7 +368,7 @@ layer = 1
 script = ExtResource("2_eca1k")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Front"]
-position = Vector2(322.006, 71.8962)
+position = Vector2(166.419, 10.0793)
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer3"]
@@ -380,7 +383,7 @@ visibility_rect = Rect2(-565.471, -566.792, 1130.19, 1136.56)
 local_coords = true
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Front"]
-position = Vector2(644.013, 143.792)
+position = Vector2(332.837, 20.1586)
 motion_scale = Vector2(1.4, 1.4)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Front/ParallaxLayer4"]

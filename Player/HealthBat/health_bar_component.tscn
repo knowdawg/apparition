@@ -182,3 +182,9 @@ offset_left = 51.0
 offset_top = -2.0
 offset_right = 56.0
 offset_bottom = 3.0
+
+[node name="Bar20" parent="Bars" instance=ExtResource("3_rqctn")]
+offset_left = 56.0
+offset_top = -2.0
+offset_right = 61.0
+offset_bottom = 3.0

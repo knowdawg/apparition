@@ -1048,9 +1048,10 @@ script = ExtResource("2_nth6p")
 NODE_TO_FOLLOW_PATH = NodePath("..")
 SHAKE_DECAY = 0.1
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "hc")]
 script = ExtResource("8_fchek")
 initial_state = NodePath("Idle")
+hc = NodePath("../HealthComponent")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_player_sprite", "player")]
 script = ExtResource("9_ewnvr")

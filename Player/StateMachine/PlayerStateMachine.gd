@@ -2,6 +2,7 @@ extends Node
 class_name PlayerStateMachine
 
 @export var initial_state : State
+@export var hc : HealthComponent
 
 var current_state : State
 var states : Dictionary = {}
@@ -20,6 +21,9 @@ func _ready():
 func _process(delta):
 	if current_state:
 		current_state.update(delta)
+	
+	if hc.get_health() <= 0.0 and !current_state is PlayerDead:
+		current_state.trasitioned.emit(current_state, "Dead")
 
 func _physics_process(delta):
 	if current_state:
