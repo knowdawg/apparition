@@ -7,19 +7,9 @@ uniform float vRes;
 uniform vec3 color : source_color;
 uniform float xDisplacemnt : hint_range(-1.0, 1.0, 0.1);
 
-float sdSphere( vec3 p, float s ){
-  return length(p)-s;
-}
-
 float sdBox( vec3 p, vec3 b ){
   vec3 q = abs(p) - b;
   return length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);
-}
-
-float sdVerticalCapsule( vec3 p, float h, float r )
-{
-  p.y -= clamp( p.y, 0.0, h );
-  return length( p ) - r;
 }
 
 float smin(float a, float b, float k){
@@ -39,7 +29,6 @@ float map(vec3 pos){
 	tempPos.xz *= rot2D(pos.y * 2.0 + TIME);
 	
 	float pillar = sdBox(tempPos, vec3(0.1, 0.5, 0.1));
-	
 	
 	float walls = -abs(pos.y) + 1.5;
 	
@@ -61,12 +50,6 @@ void fragment() {
 	float totalDis = 0.0;
 	vec3 c = vec3(1.0);
 	
-	//Camera Rotation
-	//float angle = PI / 7.0;
-	//rayOrigin.xz *= rot2D(angle);
-	//rayDirection.xz *= rot2D(angle);
-	
-	
 	//Raymarching
 	for(int i = 0; i < 30; i++){
 		vec3 p = rayOrigin + rayDirection * totalDis;
@@ -76,34 +59,6 @@ void fragment() {
 		c = vec3(float(i) / 60.0);
 		if(SDFdis < 0.001 || SDFdis > 100.0) break;
 	}
-	
-	//float pasiveLight = totalDis * 0.2;
-	
-	////Shadows
-	//vec3 position = rayOrigin + rayDirection * totalDis;
-	//vec3 lightPos = vec3(0.0, 0.0, 3.0);
-	////lightPos.xz *= rot2D(TIME * 0.3);
-	//
-	//rayOrigin = position;
-	//rayDirection = normalize(lightPos - rayOrigin);
-	//totalDis = 0.01;
-	//
-	//float shadow = 0.0;
-	//for(int i = 0; i < 40; i++){
-		//vec3 p = rayOrigin + rayDirection * totalDis;
-		//float SDFdis = map(p);
-		//float disToLight = distance(p, lightPos);
-		//totalDis += SDFdis;
-		//
-		//if(SDFdis < 0.001) break;
-		//if(SDFdis > disToLight){
-			//shadow = 1.0 - (float(i) / 40.0);
-			//break;
-		//}
-	//}
-	
-	//c *= shadow;
-	//c += vec3(pasiveLight) * 0.1;
 	
 	c = clamp(c, vec3(0.0), vec3(1.0));
 	c *= color;
